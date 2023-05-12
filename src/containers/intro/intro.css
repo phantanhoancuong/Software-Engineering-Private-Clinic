@@ -18,15 +18,14 @@
   color: var(--color-text);
   font-family: var(--font-family);
   font-weight: 1000;
-  font-size: 30px;
+  font-size: 73px;
   text-transform: uppercase;
-
-  margin: 1rem 0;
+  line-height: 121.5%;
 }
 
 .intro-container p {
   color: var(--color-text);
-  font-family: var(--font-family);
+  font-family: 'Comfortaa', sans-serif;
   font-weight: 300;
   font-size: 20px;
 
@@ -36,13 +35,14 @@
 .intro-container button {
   background-color: #fff;
   color: var(--color-main);
+  font-family: 'Comfortaa', sans-serif;
   border: none;
   border-radius: 10px;
-
+  font-style: bold;
   font-weight: 500;
-  font-size: 20px;
+  font-size: 30px;
   text-transform: uppercase;
-
+  color: #47878e;
   margin: 1rem 0;
   padding: 20px;
 
@@ -51,20 +51,14 @@
 
 .intro-image {
   display: flex;
+  align-items: stretch;
   justify-content: space-between;
-  align-items: left;
   padding: 4rem 4rem;
-
+  
   margin: 2rem;
   flex-direction: column;
   font-family: var(--font-family);
-
-  width: 30%;
-}
-
-.intro-image p {
-  color: var(--color-subtext);
-  font-weight: 500;
-  font-size: 20px;
-  align-items: center;
+  background-image: url('../../assets/Intro Image.svg');
+  width: 441px;
+  height: 446px;
 }

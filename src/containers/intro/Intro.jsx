@@ -7,7 +7,7 @@ const Intro = () => {
       <div className="intro-container">
         <h2>
           Phòng khám tư nhân <br />
-          Nhóm 4
+          <span style={{ color: "#47878E" }}>Nhóm 4</span>
         </h2>
         <p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed congue
@@ -26,7 +26,7 @@ const Intro = () => {
         <button type="button">Đặt lịch ngay</button>
       </div>
       <div className="intro-image">
-        <p>Placeholder for image</p>
+        <p></p>
       </div>
     </div>
   );
