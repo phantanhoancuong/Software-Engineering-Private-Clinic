@@ -7,7 +7,7 @@ const Intro = () => {
       <div className="intro-container">
         <h2>
           Phòng khám tư nhân <br />
-          <span style={{ color: "#47878E" }}>Nhóm 4</span>
+          <span style={{ color: "#3FC1C9" }}>Nhóm 4</span>
         </h2>
         <p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed congue

@@ -1,7 +1,7 @@
 import React from "react";
 
-import { Footer, Header, Intro } from "./containers";
-import { Navbar } from "./components";
+import { Footer, Header, Intro } from "../../containers";
+import { Navbar } from "../../components";
 
 
 import "./App.css";
