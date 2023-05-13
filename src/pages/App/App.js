@@ -1,8 +1,5 @@
 import React from "react";
-
-import { Footer, Header, Intro } from "../../containers";
-import { Navbar } from "../../components";
-
+import { Header, Intro } from "../../containers";
 
 import "./App.css";
 
@@ -11,7 +8,6 @@ const App = () => {
     <div className="App">
       <Header />
       <Intro />
-      {/* <Footer /> */}
     </div>
   );
 };
