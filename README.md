@@ -11,10 +11,8 @@ Nhóm sinh viên thực hiện:
 * Nguyễn Minh Hiếu - 20120475
 
 ### THÔNG TIN CƠ BẢN
-Đồ án đã sử dụng các công cụ/ngôn ngữ sau trong suốt quá trình thực hiện:
-* Front-end: HTML, CSS và Javascript.
-* Back-end: Javascript trên môi trường nodeJS.
-* Cơ sở dữ liệu: PostgreSQL.
+Bên dưới là các công cụ/ngôn ngữ được sử dụng trong quá trình làm đồ án:
+* Front-end: HTML, CSS, Javascript, ReactJS.
 
 ### CÁCH CHẠY LOCAL HOSTING
 Sau khi tải Project từ GitHub về máy local, ta thực hiện các bước sau:
