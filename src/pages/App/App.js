@@ -1,17 +1,17 @@
 import React from "react";
 
-import { Footer, Header, Intro } from "../../containers";
+import { Footer, Header, Intro, AppointmentView } from "../../containers";
 import { Navbar } from "../../components";
-
 
 import "./App.css";
 
 const App = () => {
   return (
     <div className="App">
-      <Header />
-      <Intro />
+      {/* <Header /> */}
+      {/* <Intro /> */}
       {/* <Footer /> */}
+      <AppointmentView />
     </div>
   );
 };
