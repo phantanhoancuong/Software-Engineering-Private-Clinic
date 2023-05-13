@@ -1,49 +1,52 @@
 import React from "react";
 import "./navbar.css";
 
-import bill from "../../assets/Bill.svg";
-import calender from "../../assets/Calender.svg";
-import medicalReport from "../../assets/Medical Report.svg";
-import monthlyReport from "../../assets/Monthly Report.svg";
-import patient from "../../assets/Patient.svg";
-import review from "../../assets/Review.svg";
-import search from "../../assets/Search.svg";
-import setting from "../../assets/Setting.svg";
+import {
+  FaCalendarWeek,
+  FaSearch,
+  FaAddressBook,
+  FaUser,
+  FaReceipt,
+  FaClipboardList,
+  FaCommentDots,
+  FaCog,
+} from "react-icons/fa";
 
 const Navbar = () => {
+  const iconStyles = {color: "#fff", fontSize: "1.5rem"};
   return (
     <div className="navbar">
       <div className="navbar-links">
         <div className="navbar-links_logo">
-          <img src={calender} alt="Calender" />
+          <FaCalendarWeek style={iconStyles} />
           <p>Lịch khám</p>
         </div>
         <div className="navbar-links_logo">
-          <img src={search} alt="Search" />
+          <FaSearch style={iconStyles} />
           <p>Tra cứu</p>
         </div>
         <div className="navbar-links_logo">
-          <img src={medicalReport} alt="Medical Report" />
+        <FaAddressBook style={iconStyles} />
           <p>Phiếu khám bệnh</p>
         </div>
         <div className="navbar-links_logo">
-          <img src={patient} alt="Patient" />
+          <FaUser style={iconStyles} />
           <p>Bệnh nhân</p>
         </div>
         <div className="navbar-links_logo">
-          <img src={bill} alt="Bill" />
+          <FaReceipt style={iconStyles} />
           <p>Hóa đơn</p>
         </div>
         <div className="navbar-links_logo">
-          <img src={monthlyReport} alt="Monthly Report" />
+          <FaClipboardList style={iconStyles} />
           <p>Báo cáo</p>
         </div>
         <div className="navbar-links_logo">
-          <img src={review} alt="Review" />
+          <FaCommentDots style={iconStyles} />
           <p>Góp ý</p>
         </div>
         <div className="navbar-links_logo">
-          <img src={setting} alt="Setting" />
+          <FaCog style={iconStyles} />
           <p>Quy định</p>
         </div>
       </div>
