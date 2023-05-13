@@ -1,7 +1,7 @@
 import React from "react";
 
-import { Footer, Header} from "./containers";
-import { Navbar } from "./components";
+import { Footer, Header, Intro } from "../../containers";
+import { Navbar } from "../../components";
 
 
 import "./Setting.css";
@@ -9,8 +9,7 @@ import "./Setting.css";
 const Setting = () => {
   return (
     <div className="Setting">
-      <Header />
-      <Intro />
+      <p> Đây là trang Setting</p>
       {/* <Footer /> */}
     </div>
   );
