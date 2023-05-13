@@ -1,7 +1,7 @@
 import React from "react";
 import "./headerUser.css";
 
-import logo from "../../assets/Logo.svg";
+import logo from "../../assets/Logo - Color No BG.svg";
 import { FaUserCircle } from "react-icons/fa";
 
 const HeaderUser = () => {
