@@ -1,26 +1,29 @@
 import React from "react";
 import "./header.css";
+import { Link } from 'react-router-dom' 
 
-import logo from "../../assets/Logo.svg";
+
+import logo from "../../assets/Logo - Color No BG.svg";
 
 const Header = () => {
   return (
     <div className="header">
       <div className="header-links">
-        <div className="header-links_logo">
-          <img src={logo} alt="Logo" />
-          <p>Nhóm 4</p>
-        </div>
-        <div className="header-links_container">
-          <p><a href="#trangChu">TRANG CHỦ</a></p>
-          <p><a href="#lichKham">LỊCH KHÁM</a></p>
-          <p><a href="#gioiThieu">GIỚI THIỆU</a></p>
-        </div>
+        <nav className="header-links_logo">
+          <Link to ='/'>
+            <img src={logo} alt="Logo" />
+          </Link>
+        </nav>
+        <nav className="header-links_container">
+          <p><Link to='/'> TRANG CHỦ </Link></p>
+          <p><Link to='/'> LỊCH KHÁM </Link></p>
+          <p><Link to='/'> GIỚI THIỆU </Link></p>
+        </nav>
       </div>
-      <div className="header-sign">
-        <p><a href="#signIn">Sign in</a></p>
-        <p><a href="#signUp">Sign up</a></p>
-      </div>
+      <nav className="header-sign">
+        <p><Link to='/signIn'> SIGN IN </Link></p>
+        <p><Link to='/signUp'> SIGN UP</Link></p>
+      </nav>
     </div>
   );
 };
