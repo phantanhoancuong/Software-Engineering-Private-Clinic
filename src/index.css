@@ -10,7 +10,9 @@
   --color-text: #000000;
   --color-subtext: #99bdc1;
   --color-whiteText: #ffffff;
-  --color-action-button: #f5cf6d;
-  --color-cancel-button: #f85e5e;
-  --color-accept-button: #35c867;
+  --color-button-action: #f5cf6d;
+  --color-button-cancel: #f85e5e;
+  --color-button-accept: #35c867;
+  --color-white: #ffffff;
+  --color-black: #000000;
 }
