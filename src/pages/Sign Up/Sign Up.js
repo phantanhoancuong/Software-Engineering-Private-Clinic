@@ -7,7 +7,7 @@ import "./Sign Up.css";
 const SignUp = () => {
   return (
     <div className="SignUp">
-      <div className="form-container">
+      <div className="signup-form-container">
         <nav className="logo">
             <Link to ='/'>
               <img src={logo} alt="Logo" />
@@ -47,16 +47,12 @@ const SignUp = () => {
         </div>
         <button type="button">Đăng ký</button>
 
-        <nav className ="signin-nav">
+        <nav className ="text-nav">
           <Link to ='/signIn'>
             <p>Bạn đã có tài khoản? Đăng nhập ở đây.</p>
           </Link>
         </nav>
-
-
       </div>
-      
-
     </div>
   );
 };

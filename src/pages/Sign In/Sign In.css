@@ -20,7 +20,7 @@ a {
   margin: 4rem 6rem;
 }
 
-.form-container {
+.signin-form-container {
   display: stretch;
   flex-direction: row;
   background-color: var(--color-main);
@@ -29,6 +29,8 @@ a {
   margin-right: 450px;
   margin-left: 450px;
   text-align: center;
+  width: 1000px;
+  height: 900px;
 }
 
 
@@ -91,7 +93,7 @@ input:focus {
 
 .form-container button {
   color: var(--color-bg);
-  background-color: var(--color-action-button);
+  background-color: var(--color-button-action);
   font-family: 'Comfortaa', sans-serif;
   border: none;
   border-radius: 10px;

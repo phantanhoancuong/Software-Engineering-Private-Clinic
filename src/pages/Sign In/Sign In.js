@@ -7,7 +7,7 @@ import "./Sign In.css";
 const SignIn = () => {
   return (
     <div className="SignIn">
-      <div className="form-container">
+      <div className="signin-form-container ">
         <nav className="logo">
             <Link to ='/'>
               <img src={logo} alt="Logo" />
@@ -38,7 +38,7 @@ const SignIn = () => {
           </Link>
         </nav>
         <nav className ="text-nav">
-        <Link to ='/forgotPassword'>
+        <Link to ='/forgetPassword'>
             <p>Bạn quên mật khẩu?</p>
           </Link>
         </nav>
