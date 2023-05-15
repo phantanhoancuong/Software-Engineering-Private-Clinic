@@ -8,10 +8,11 @@ import "./App.css";
 const App = () => {
   return (
     <div className="App">
-      {/* <Header /> */}
-      {/* <Intro /> */}
-      {/* <Footer /> */}
-      <AppointmentView />
+      <Header /> 
+      <Intro /> 
+      <AppointmentView /> 
+
+      {/* <AppointmentView /> */}
     </div>
   );
 };

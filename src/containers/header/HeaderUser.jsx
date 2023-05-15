@@ -10,7 +10,6 @@ const HeaderUser = () => {
       <div className="headerUser-links">
         <div className="headerUser-links_logo">
           <img src={logo} alt="Logo" />
-          <p>Nhóm 4</p>
         </div>
 
         <div className="headerUser-title">
