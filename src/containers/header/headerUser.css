@@ -2,7 +2,6 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 3rem;
   background: var(--color-main);
 }
 
@@ -21,17 +20,17 @@
 }
 
 .headerUser-links_logo img {
-  width: 150px;
-  height: 75px;
+  width: 200px;
+  height: 100px;
   padding-left: 2rem;
   padding-right: 2rem;
 }
 
-.headerUser-links_logo p {
+/* .headerUser-links_logo p {
   color: var(--color-whiteText);
   font-family: var(--font-family);
   align-items: center;
-}
+} */
 
 .headerUser-title {
   margin-left: 1rem;
@@ -45,6 +44,7 @@
   justify-content: flex-end;
   align-items: center;
   text-transform: capitalize;
+  margin-right: 1rem;
 }
 
 .headerUser-title p,
