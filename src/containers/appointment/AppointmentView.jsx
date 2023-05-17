@@ -9,7 +9,7 @@ import { FaTrash } from "react-icons/fa";
 const AppointmentView = () => {
   return (
     <>
-      <HeaderUser />
+      <HeaderUser title="Xem danh sách khám bệnh" />
       <div className="menu">
         <Navbar />
         <div className="appointmentView">

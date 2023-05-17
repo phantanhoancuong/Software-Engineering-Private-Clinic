@@ -26,12 +26,6 @@
   padding-right: 2rem;
 }
 
-/* .headerUser-links_logo p {
-  color: var(--color-whiteText);
-  font-family: var(--font-family);
-  align-items: center;
-} */
-
 .headerUser-title {
   margin-left: 1rem;
   display: flex;
@@ -45,6 +39,8 @@
   align-items: center;
   text-transform: capitalize;
   margin-right: 1rem;
+
+  font-style: italic;
 }
 
 .headerUser-title p,
