@@ -2,7 +2,7 @@ import React from "react";
 import "./appointmentView.css";
 
 import { HeaderUser } from "../index";
-import { Navbar } from "../../components/index";
+import { Navbar, Button } from "../../components/index";
 
 import { FaTrash } from "react-icons/fa";
 
@@ -12,6 +12,7 @@ const AppointmentView = () => {
       <HeaderUser title="Xem danh sách khám bệnh" />
       <div className="menu">
         <Navbar />
+
         <div className="appointmentView">
           <h2>Danh sách khám bệnh</h2>
 
@@ -30,20 +31,39 @@ const AppointmentView = () => {
             </div>
 
             <button className="selection__delete">
-              <div className="selection__delete-logo">
-                <FaTrash />
-              </div>
-              <p>Xóa các lựa chọn</p>
+              <Button
+                label="Xóa các lựa chọn"
+                icon=<FaTrash />
+                color="var(--color-white)"
+                bgColor="var(--color-button-red)"
+              />
             </button>
           </div>
 
           <div className="appointment-table">
             <p>Appointment Table here</p>
           </div>
-
+          {/* 
           <button className="selection__appointmentCreate">
             <a href="/">Đặt lịch khám</a>
           </button>
+           */}
+
+          <a href="/">
+            <Button
+              label="Đặt lịch khám"
+              color="var(--color-text)"
+              bgColor="var(--color-button-yellow)"
+            />
+          </a>
+
+          <a href="/">
+            <Button
+              label="Xác nhận"
+              color="var(--color-whiteText)"
+              bgColor="var(--color-button-green)"
+            />
+          </a>
         </div>
       </div>
     </>

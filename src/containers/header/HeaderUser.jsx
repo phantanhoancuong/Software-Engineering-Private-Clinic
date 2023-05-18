@@ -1,8 +1,6 @@
 import React from "react";
 import "./headerUser.css";
-import { Link } from "react-router-dom";
 
-import logo from "../../assets/Logo - Color No BG.svg";
 import { FaUserCircle } from "react-icons/fa";
 import HeaderLogo from "./HeaderLogo";
 

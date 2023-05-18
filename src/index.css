@@ -8,11 +8,11 @@
   --color-sub-navbar: #3FC1C9;
   --color-border: #99bdc1;
   --color-text: #000000;
-  --color-subtext: #99bdc1;
+  --color-subText: #005963;
   --color-whiteText: #ffffff;
-  --color-button-action: #f5cf6d;
-  --color-button-cancel: #f85e5e;
-  --color-button-accept: #35c867;
+  --color-button-red: #f85e5e;
+  --color-button-yellow: #f5cf6d;
+  --color-button-green: #35c867;
   --color-white: #ffffff;
   --color-black: #000000;
 }
