@@ -4,15 +4,15 @@
   --font-family: "Manrope", sans-serif;
 
   --color-bg: #f2f2f2;
-  --color-main: #3FC1C9;
-  --color-sub-navbar: #3FC1C9;
+  --color-main: #299fa5;
+  --color-sub-navbar: #005963;
   --color-border: #99bdc1;
   --color-text: #000000;
-  --color-subText: #005963;
   --color-whiteText: #ffffff;
   --color-button-red: #f85e5e;
-  --color-button-yellow: #f5cf6d;
+  --color-button-yellow: #f3bb2d;
   --color-button-green: #35c867;
   --color-white: #ffffff;
   --color-black: #000000;
+  --color-grey: #aaaaaa;
 }

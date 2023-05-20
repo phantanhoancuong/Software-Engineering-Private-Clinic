@@ -1,0 +1,64 @@
+.navbar-feature {
+  display: block;
+  color: var(--color-white);
+}
+
+.navbar-feature:hover {
+  background-color: rgb(0, 0, 0, 0.3);
+}
+
+.navbar-feature_title {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem 0.5rem;
+}
+
+.navbar-feature.plain {
+  padding: 0.5rem;
+}
+
+.navbar-feature_title span,
+.navbar-feature_title-icon,
+.navbar-feature_toggleIcon,
+.navbar-feature.plain {
+  display: flex;
+  align-items: center;
+  font-size: 1.5rem;
+}
+
+.navbar-feature_title p,
+.navbar-feature.plain p {
+  font-family: var(--font-family);
+  font-weight: 700;
+  font-size: 15px;
+  margin-left: 1rem;
+}
+
+.navbar-feature_title p {
+  text-transform: uppercase;
+}
+
+.navbar-feature.open {
+  background-color: rgb(0, 0, 0, 0.3);
+}
+
+.navbar-feature_toggleIcon {
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+.navbar-feature.open > .navbar-feature_toggleIcon {
+  transform: rotate(90deg);
+}
+
+.navbar-feature_subMenu {
+  height: 0;
+  overflow: hidden;
+}
+
+.navbar-feature.open > .navbar-feature_subMenu {
+  height: auto;
+}
+
+.navbar-feature.plain:hover {
+  text-decoration: underline;
+}
