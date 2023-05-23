@@ -1,7 +1,6 @@
 import React from "react";
 
-import { Header, Intro, AppointmentView } from "../../containers";
-// import { Navbar } from "../../components";
+import { Header, Intro, AppointmentView } from "../index";
 
 import "./App.css";
 

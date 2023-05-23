@@ -98,32 +98,6 @@ const AppointmentView = () => {
             nibh praesent. Molestie ac feugiat sed lectus vestibulum mattis
             ullamcorper velit sed. Morbi tristique senectus et netus. Malesuada
             bibendum arcu vitae elementum curabitur vitae nunc sed velit.
-            Dictumst quisque sagittis purus sit amet. Faucibus a pellentesque
-            sit amet porttitor eget dolor morbi. Magna fringilla urna porttitor
-            rhoncus dolor purus. Turpis egestas pretium aenean pharetra magna ac
-            placerat vestibulum. Risus nullam eget felis eget nunc lobortis
-            mattis. Vulputate enim nulla aliquet porttitor lacus luctus accumsan
-            tortor posuere. Diam in arcu cursus euismod quis viverra nibh. Amet
-            mattis vulputate enim nulla aliquet porttitor. Ultricies tristique
-            nulla aliquet enim tortor at. Neque vitae tempus quam pellentesque
-            nec nam aliquam sem et. Tortor consequat id porta nibh venenatis
-            cras sed felis eget. Massa tempor nec feugiat nisl. Integer vitae
-            justo eget magna fermentum iaculis eu non. Elementum integer enim
-            neque volutpat ac tincidunt. Non sodales neque sodales ut etiam sit
-            amet nisl purus. Tristique risus nec feugiat in fermentum posuere.
-            Augue mauris augue neque gravida in fermentum et. Lacus laoreet non
-            curabitur gravida arcu ac tortor dignissim. Pulvinar mattis nunc sed
-            blandit libero volutpat. Ac orci phasellus egestas tellus. Eget
-            dolor morbi non arcu risus quis. Nibh mauris cursus mattis molestie
-            a iaculis at erat pellentesque. Eget velit aliquet sagittis id
-            consectetur purus. Sit amet massa vitae tortor condimentum lacinia
-            quis vel eros. At varius vel pharetra vel turpis nunc eget. Augue
-            mauris augue neque gravida. Nunc sed blandit libero volutpat.
-            Tristique et egestas quis ipsum suspendisse ultrices gravida dictum.
-            Ornare aenean euismod elementum nisi quis. Tempor commodo
-            ullamcorper a lacus. Metus aliquam eleifend mi in nulla. Porta lorem
-            mollis aliquam ut. Malesuada fames ac turpis egestas integer eget
-            aliquet. Eget egestas purus viverra accumsan in nisl nisi.
           </p>
         </div>
       </div>
