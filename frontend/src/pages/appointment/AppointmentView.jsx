@@ -9,14 +9,15 @@ import Table  from "./table/Table";
 import { FaTrash } from "react-icons/fa";
 
 const AppointmentView = () => {
+  const pageTitle = "Danh sách khám bệnh";
   return (
     <>
-      <HeaderUser title="Xem danh sách khám bệnh" />
+      <HeaderUser title={pageTitle} />
       <div className="menu">
         <Navbar />
 
         <div className="appointmentView">
-          <p>Danh sách khám bệnh</p>
+          <p>{pageTitle}</p>
 
           <div className="appointmentView__selection">
             {/* <div className="appointmentView__selection-date"> */}

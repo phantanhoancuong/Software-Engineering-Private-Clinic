@@ -1,5 +1,6 @@
 import React from "react";
 import MOCK_USER_DATA from "../../../assets/MOCK_USER_DATA.json";
+import { userData } from "../../../pages/index";
 
 import "./table.css";
 
