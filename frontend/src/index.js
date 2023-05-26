@@ -11,6 +11,8 @@ import {
   ForgetPassword,
   AppointmentView,
   AppointmentCreate,
+  MedicalReportView,
+  MedicalReportCreate
 } from "./pages";
 
 ReactDOM.render(
@@ -23,6 +25,8 @@ ReactDOM.render(
         <Route path="/forgetPassword" element={<ForgetPassword />} />
         <Route path="/appointmentView" element={<AppointmentView />} />
         <Route path="/appointmentCreate" element={<AppointmentCreate />} />
+        <Route path="/medicalReportView" element={<MedicalReportView />} />
+        <Route path="/medicalReportCreate" element={<MedicalReportCreate />} />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>,

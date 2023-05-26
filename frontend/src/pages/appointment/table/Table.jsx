@@ -46,20 +46,22 @@ function Table() {
   });
 
   return (
-    <table>
-      <thead>
-        <tr>
-          <th>STT</th>
-          <th>ID Bệnh nhân</th>
-          <th>Họ tên</th>
-          <th>Giới tính</th>
-          <th>Năm sinh</th>
-          <th>Địa chỉ</th>
-          <th>Thao tác</th>
-        </tr>
-      </thead>
-      <tbody>{UserData}</tbody>
-    </table>
+    <div className="tableContainer">
+      <table>
+        <thead>
+          <tr>
+            <th>STT</th>
+            <th>ID Bệnh nhân</th>
+            <th>Họ tên</th>
+            <th>Giới tính</th>
+            <th>Năm sinh</th>
+            <th>Địa chỉ</th>
+            <th>Thao tác</th>
+          </tr>
+        </thead>
+        <tbody>{UserData}</tbody>
+      </table>
+    </div>
   );
 }
 

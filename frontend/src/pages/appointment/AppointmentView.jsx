@@ -20,14 +20,14 @@ const AppointmentView = () => {
           <p>{pageTitle}</p>
 
           <div className="appointmentView__selection">
-            {/* <div className="appointmentView__selection-date"> */}
+            <div className="appointmentView__selection-date">
             <form>
               <label for="calender">
                 Chọn ngày khám
                 <input type="date" id="calender" name="calender" />
               </label>
             </form>
-            {/* </div> */}
+            </div>
 
             <div className="selection__delete">
               <Button

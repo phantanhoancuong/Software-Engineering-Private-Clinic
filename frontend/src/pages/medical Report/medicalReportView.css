@@ -3,7 +3,7 @@
   font-family: var(--font-family);
 }
 
-.appointmentView {
+.medicalReportView {
   display: flex;
   flex: 1;
   flex-direction: column;
@@ -13,47 +13,60 @@
   background-color: var(--color-bg);
 }
 
-.appointmentView > p {
+.medicalReportView > p {
   font-size: 40px;
   font-weight: 1000;
   text-transform: uppercase;
-  
+
   margin: 2rem;
 }
 
-.appointmentView p {
+.medicalReportView p {
   color: var(--color-text);
 }
 
-.appointmentView__selection {
+.medicalReportView__selection {
   display: flex;
   flex-direction: row;
-  align-items: center;
+  align-items: flex-end;
   width: 90%;
   justify-content: space-between;
 }
 
-label[for="calender"] {
-  color: var(--color-text);
-  font-family: var(--font-family);
-  margin: auto;
+.medicalReportView__selection-date {
+  width: 70%;
 }
 
-input[type="date"]{
+label[for="calender"],
+label[for="userID"] {
+  display: flex;
+  align-items: center;
+
+  color: var(--color-text);
+  font-family: var(--font-family);
+  margin: 0.5rem;
+}
+
+input[type="date"],
+input[id="userID"] {
   padding: 1rem;
   width: auto;
   margin: auto;
   margin-left: 1rem;
-  
+
   font-family: inherit;
+  font-size: 1.5rem;
   color: var(--color-text);
   background-color: var(--color-white);
   border-color: var(--color-border);
   border-radius: 1rem;
-  text-transform: uppercase;
 }
 
-.appointment-table {
+.selection__delete {
+    margin-bottom: 0.5rem;
+}
+
+.medicalReport-table {
   margin: 2rem 0;
   width: 90%;
 }

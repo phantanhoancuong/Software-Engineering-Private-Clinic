@@ -15,6 +15,10 @@ table {
 th {
   background-color: var(--color-main);
   color: var(--color-whiteText);
+
+  position: sticky;
+  top: 0px;
+  margin: 0 0 0 0;
 }
 
 tbody tr td:first-child,
@@ -31,4 +35,9 @@ tbody > tr:nth-child(odd) {
 
 tbody > tr:nth-child(even) {
   background-color: var(--color-white);
+}
+
+.tableContainer{
+  height: 20rem;
+  overflow-x: hidden;
 }

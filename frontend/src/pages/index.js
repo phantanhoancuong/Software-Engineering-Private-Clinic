@@ -13,4 +13,7 @@ export {default as ForgetPassword} from "./Forget Password/Forget Password";
 export { default as AppointmentView } from "./appointment/AppointmentView";
 export { default as AppointmentCreate } from "./appointment/AppointmentCreate";
 
+export { default as MedicalReportView } from "./medical Report/MedicalReportView";
+export { default as MedicalReportCreate } from "./medical Report/MedicalReportCreate";
+
 export const userData = "../assets/MOCK_USER_DATA.json";
