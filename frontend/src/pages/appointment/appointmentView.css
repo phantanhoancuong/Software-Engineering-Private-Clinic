@@ -1,27 +1,25 @@
 .menu {
   display: flex;
-  flex-direction: row;
   font-family: var(--font-family);
-  color: var(--color-subText);
+  /* height: 100vh; */
 }
 
 .appointmentView {
   display: flex;
   flex: 1;
   flex-direction: column;
-  justify-content: space-between;
   align-items: center;
-  padding: 1rem 3rem;
+  padding: 0rem 3rem;
 
   background-color: var(--color-bg);
 }
 
-h2 {
-  font-size: 30px;
+.appointmentView > p {
+  font-size: 40px;
   font-weight: 1000;
   text-transform: uppercase;
   
-  margin: 1rem 0 3rem 0;
+  margin: 2rem;
 }
 
 .appointmentView p {
@@ -29,51 +27,38 @@ h2 {
 }
 
 .appointmentView__selection,
-.appointmentView__selection-date,
 .selection__delete {
   display: flex;
   flex-direction: row;
   align-items: center;
 }
 
-.dropdown {
-  position: relative;
-  display: inline-block;
+.appointmentView__selection {
+  width: 90%;
+  justify-content: space-between;
 }
 
-.dropdown-button {
-  background-color: var(--color-white);
-  color: var(--color-black);
-  padding: 1rem;
-  border-radius: 10px;
-
-  cursor: pointer;
-}
-
-.dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: var(--color-whiteText);
-  min-width: 160px;
-  /* box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); */
-  z-index: 1;
-}
-
-.dropdown-content p {
+label[for="calender"] {
   color: var(--color-text);
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
+  font-family: var(--font-family);
+  margin: auto;
 }
 
-.dropdown-content a:hover {
-  background-color: var(--color-whiteText);
+input[type="date"]{
+  padding: 1rem;
+  width: auto;
+  margin: auto;
+  margin-left: 1rem;
+  
+  font-family: inherit;
+  color: var(--color-text);
+  background-color: var(--color-white);
+  border-color: var(--color-border);
+  border-radius: 1rem;
+  text-transform: uppercase;
 }
 
-.dropdown:hover .dropdown-content {
-  display: block;
-}
-
-.dropdown:hover .dropbtn {
-  background-color: #3e8e41;
+.appointment-table {
+  margin: 2rem 0;
+  width: 90%;
 }

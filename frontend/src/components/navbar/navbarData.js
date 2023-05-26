@@ -10,6 +10,8 @@ import {
     FaCog,
   } from "react-icons/fa";
 
+  import { AppointmentView } from "../../pages/index";
+
 export const navbarData = [
     {
         "title": "Lịch khám",
@@ -17,11 +19,11 @@ export const navbarData = [
         "childrens": [
             {
                 "title": "Xem danh sách",
-                "path": "/appointment/appointmentView"
+                "path": "/appointmentView"
             },
             {
                 "title": "Đặt lịch khám",
-                "path": "/appointment/appointmentCreate"
+                "path": "/appointmentCreate"
             }
         ]   
     },
