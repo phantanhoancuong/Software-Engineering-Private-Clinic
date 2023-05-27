@@ -17,11 +17,11 @@ export const navbarData = [
         "childrens": [
             {
                 "title": "Xem danh sách",
-                "path": "/appointment/appointmentView"
+                "path": "/appointmentView"
             },
             {
                 "title": "Đặt lịch khám",
-                "path": "/appointment/appointmentCreate"
+                "path": "/appointmentCreate"
             }
         ]   
     },
@@ -31,11 +31,11 @@ export const navbarData = [
         "childrens": [
             {
                 "title": "Tra cứu bệnh nhân",
-                "path": "/"
+                "path": "/searchUser"
             },
             {
                 "title": "Tra cứu thuốc",
-                "path": "/"
+                "path": "/searchMedicine"
             }
         ]
     },
@@ -45,11 +45,11 @@ export const navbarData = [
         "childrens": [
             {
                 "title": "Xem danh sách",
-                "path": "/"
+                "path": "/medicalReportView"
             },
             {
                 "title": "Lập phiếu khám bệnh",
-                "path": "/"
+                "path": "/medicalReportCreate"
             }
         ]
     },
@@ -59,7 +59,7 @@ export const navbarData = [
         "childrens": [
             {
                 "title": "Xem danh sách",
-                "path": "/"
+                "path": "/userView"
             }
         ]
     },
@@ -69,11 +69,11 @@ export const navbarData = [
         "childrens": [
             {
                 "title": "Xem danh sách",
-                "path": "/"
+                "path": "/receiptView"
             },
             {
                 "title": "Lập hóa đơn",
-                "path": "/"
+                "path": "/receiptCreate"
             }
         ]
     },
@@ -83,11 +83,11 @@ export const navbarData = [
         "childrens": [
             {
                 "title": "Báo cáo doanh thu",
-                "path": "/"
+                "path": "/reportRevenue"
             },
             {
                 "title": "Báo cáo sử dụng thuốc",
-                "path": "/"
+                "path": "/reportMedicine"
             }
         ]
     },
@@ -97,11 +97,11 @@ export const navbarData = [
         "childrens": [
             {
                 "title": "Xem danh sách",
-                "path": "/"
+                "path": "/reviewView"
             },
             {
                 "title": "Tạo góp ý",
-                "path": "/"
+                "path": "/reviewCreate"
             }
         ]
     },
@@ -111,11 +111,11 @@ export const navbarData = [
         "childrens": [
             {
                 "title": "Quy định chung",
-                "path": "/"
+                "path": "/settingGeneral"
             },
             {
                 "title": "Quy định thuốc",
-                "path": "/"
+                "path": "/settingMedicine"
             }
         ]
     }

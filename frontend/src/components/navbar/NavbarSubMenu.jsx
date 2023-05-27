@@ -1,5 +1,6 @@
 import React from "react";
 import { useState } from "react";
+import {Link} from "react-router-dom";
 import "./navbarSubMenu.css";
 
 import { FaAngleLeft } from "react-icons/fa";
@@ -30,10 +31,10 @@ const NavbarSubMenu = ({ item }) => {
     );
   } else {
     return (
-      <a href={item.path || "#"} className="navbar-feature plain">
+      <Link to={item.path || "#"} className="navbar-feature plain">
         <div className="navbar-feature_title-icon">{item.icon}</div>
         <p>{item.title}</p>
-      </a>
+      </Link>
     );
   }
 };
