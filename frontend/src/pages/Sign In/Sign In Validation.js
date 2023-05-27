@@ -2,17 +2,17 @@ function validation(value) {
     let error = {}
 
     if(value.username === ''){
-        error.username = 'Name can not be empty'
+        error.username = 'Name cannot be empty'
     }
     else{
-        error.username = 'Wrong name'
+        error.username = 'Wrong username'
     }
 
     if(value.password === ''){
-        error.password = 'Password can not be empty'
+        error.password = 'Password cannot be empty'
     }
     else{
-        error.password = 'Wrong pass'
+        error.password = 'Wrong password'
     }
 }
 
