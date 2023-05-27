@@ -1,10 +1,9 @@
 import React from "react";
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 import "./appointmentView.css";
 
 import { HeaderUser } from "../index";
-import { Navbar, Button } from "../../components/index";
-import Table  from "./table/Table";
+import { Navbar, Button, UserTable } from "../../components/index";
 
 import { FaTrash } from "react-icons/fa";
 
@@ -21,12 +20,12 @@ const AppointmentView = () => {
 
           <div className="appointmentView__selection">
             <div className="appointmentView__selection-date">
-            <form>
-              <label for="calender">
-                Chọn ngày khám
-                <input type="date" id="calender" name="calender" />
-              </label>
-            </form>
+              <form>
+                <label for="calender">
+                  Chọn ngày khám
+                  <input type="date" id="calender" name="calender" />
+                </label>
+              </form>
             </div>
 
             <div className="selection__delete">
@@ -40,7 +39,7 @@ const AppointmentView = () => {
           </div>
 
           <div className="appointment-table">
-            <Table />
+            <UserTable />
           </div>
 
           <Link to="/appointmentCreate">

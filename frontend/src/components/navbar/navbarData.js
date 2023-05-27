@@ -35,7 +35,7 @@ export const navbarData = [
             },
             {
                 "title": "Tra cứu thuốc",
-                "path": "/searchMedicine"
+                "path": "/searchDrug"
             }
         ]
     },
@@ -60,6 +60,10 @@ export const navbarData = [
             {
                 "title": "Xem danh sách",
                 "path": "/userView"
+            },
+            {
+                "title": "Thêm bệnh nhân",
+                "path": "/userCreate"
             }
         ]
     },
@@ -87,7 +91,7 @@ export const navbarData = [
             },
             {
                 "title": "Báo cáo sử dụng thuốc",
-                "path": "/reportMedicine"
+                "path": "/reportDrug"
             }
         ]
     },
@@ -115,7 +119,7 @@ export const navbarData = [
             },
             {
                 "title": "Quy định thuốc",
-                "path": "/settingMedicine"
+                "path": "/settingDrug"
             }
         ]
     }

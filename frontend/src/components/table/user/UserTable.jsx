@@ -1,8 +1,7 @@
 import React from "react";
-import MOCK_USER_DATA from "../../../assets/MOCK_USER_DATA.json";
-import { userData } from "../../../pages/index";
+import MOCK_DATA_USER from "../../../assets/MOCK_DATA_USER.json";
 
-import "./table.css";
+import "./userTable.css";
 
 // Reference:
 // https://www.geeksforgeeks.org/how-to-parse-json-data-into-react-table-component/
@@ -14,8 +13,8 @@ import "./table.css";
 // TODO
 // This is just a mockup, need change to pull from database when backend is ready
 
-function Table() {
-  const UserData = MOCK_USER_DATA.map((curUser) => {
+function userTable() {
+  const UserData = MOCK_DATA_USER.map((curUser) => {
     const { id, userID, full_name, gender, DoB, email, address } = curUser;
 
     return (
@@ -65,4 +64,4 @@ function Table() {
   );
 }
 
-export default Table;
+export default userTable;

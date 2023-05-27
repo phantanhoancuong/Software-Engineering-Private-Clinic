@@ -38,6 +38,6 @@ tbody > tr:nth-child(even) {
 }
 
 .tableContainer{
-  height: 20rem;
+  max-height: 21rem;
   overflow-x: hidden;
 }
