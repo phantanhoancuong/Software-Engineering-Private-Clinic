@@ -13,20 +13,42 @@ const database = mysql.createConnection({
     database: 'user'
 })
 
-app.post('/signup', (req, res) => {
-    const sql = "INSERT INTO login ('name', 'email', 'password') VALUES (?)";
-    const values = [
+database.connect( (error) => {
+    if(error) {
+        console.log(error)
+    }
+    else {
+        console.log('Success connected')
+    }
+})
+
+app.post('/', (req, res) => {
+    const sql = "SELECT * from signin WHERE `name` = ? AND `password` = ?";
+    const value = [
         req.body.name,
-        req.body.email,
         req.body.password
     ]
-    db.query(sql, [values], (err, data) => {
-        if (err) {
-            return res.json('Error');
-        }
+
+    db.query(sql, [value], (err, data) => {
+        if(err) return res.json('Failed');
         return res.json(data);
     })
 })
+
+// app.post('/signup', (req, res) => {
+//     const sql = "INSERT INTO login ('name', 'email', 'password') VALUES (?)";
+//     const values = [
+//         req.body.name,
+//         req.body.email,
+//         req.body.password
+//     ]
+//     db.query(sql, [values], (err, data) => {
+//         if (err) {
+//             return res.json('Error');
+//         }
+//         return res.json(data);
+//     })
+// })
 
 app.listen(8081, ()=> {
     console.log('listening');
