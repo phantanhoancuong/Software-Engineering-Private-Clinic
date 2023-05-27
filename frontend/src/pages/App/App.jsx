@@ -4,7 +4,7 @@ import React from "react";
 //import { Navbar } from "../../components";
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { Homepage, SignIn, SignUp, ForgetPassword, AppointmentView, AppointmentCreate,
-         MedicalReportView, MedicalReportCreate } from "../index";
+         MedicalReportView, MedicalReportCreate, SettingGeneral } from "../index";
 
 import "./App.css";
 
@@ -21,6 +21,7 @@ const App = () => {
               <Route path='/appointmentCreate' element={<AppointmentCreate />} />
               <Route path='/medicalReportView' element={<MedicalReportView />} />
               <Route path='/medicalReportCreate' element={<MedicalReportCreate />} />
+              <Route path='/settingGeneral' element={<SettingGeneral />} />
             </Routes>
         </BrowserRouter>
     </div>
