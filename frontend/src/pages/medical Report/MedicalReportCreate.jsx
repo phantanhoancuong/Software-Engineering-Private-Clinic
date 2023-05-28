@@ -5,7 +5,7 @@ import "./medicalReportCreate.css";
 import { HeaderUser } from "../index";
 import { Navbar, Button, DrugTable } from "../../components/index";
 
-import { FaTrash } from "react-icons/fa";
+import { FaPlus, FaTrash } from "react-icons/fa";
 
 const MedicalReportCreate = () => {
   // TODO
@@ -55,12 +55,13 @@ const MedicalReportCreate = () => {
             </div>
           </div>
 
-          {/* TODO
-                  This is just a placeholder table, will fix after backend ready
-              */}
+          {/* TODO 
+              This is just a placeholder table, will fix after backend ready
+              [ ] Add option to add new drug to the current medical report
+            */}
 
           <div className="medicalReport-table">
-            <DrugTable />
+            <DrugTable isAdd="true"/>
           </div>
 
           <div className="selection-confirm">

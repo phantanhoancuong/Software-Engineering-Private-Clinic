@@ -2,6 +2,7 @@ import React from "react";
 import MOCK_DATA_DRUG from "../../../assets/MOCK_DATA_DRUG.json";
 
 import "./drugTable.css";
+import { FaPlus } from "react-icons/fa";
 
 // Reference:
 // https://www.geeksforgeeks.org/how-to-parse-json-data-into-react-table-component/
@@ -13,7 +14,7 @@ import "./drugTable.css";
 // TODO
 // This is just a mockup, need change to pull from database when backend is ready
 
-function drugTable() {
+function TableContent() {
   const DrugData = MOCK_DATA_DRUG.map((curDrug) => {
     const { id, drugID, drug_name, unit, price, usage, dose } = curDrug;
 
@@ -46,24 +47,43 @@ function drugTable() {
   });
 
   return (
-    <div className="tableContainer">
-      <table>
-        <thead>
-          <tr>
-            <th>STT</th>
-            <th>ID Thuốc</th>
-            <th>Tên thuốc</th>
-            <th>Đơn vị</th>
-            <th>Giá tiền</th>
-            <th>Cách dùng</th>
-            <th>Số lượng</th>
-            <th>Thao tác</th>
-          </tr>
-        </thead>
-        <tbody>{DrugData}</tbody>
-      </table>
-    </div>
+    <table>
+      <thead>
+        <tr>
+          <th>STT</th>
+          <th>ID Thuốc</th>
+          <th>Tên thuốc</th>
+          <th>Đơn vị</th>
+          <th>Giá tiền</th>
+          <th>Cách dùng</th>
+          <th>Số lượng</th>
+          <th>Thao tác</th>
+        </tr>
+      </thead>
+      <tbody>{DrugData}</tbody>
+    </table>
   );
 }
 
-export default drugTable;
+function DrugTable(props) {
+  if (props.isAdd == undefined) {
+    // If no isAdd is passed to props -> No add option
+    return (
+      <div className="tableContainer">
+        {TableContent()}
+      </div>
+    );
+  } else {
+    // If isAdd is passed to props -> Add option available
+    return (
+      <div className="tableContainer">
+        {TableContent()}
+        <button className="table-add">
+          <FaPlus />
+        </button>
+      </div>
+    );
+  }
+}
+
+export default DrugTable;

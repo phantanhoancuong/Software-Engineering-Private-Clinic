@@ -16,4 +16,4 @@ export { default as AppointmentCreate } from "./appointment/AppointmentCreate";
 export { default as MedicalReportView } from "./medical Report/MedicalReportView";
 export { default as MedicalReportCreate } from "./medical Report/MedicalReportCreate";
 
-export { default as SettingGeneral } from "./setting/SettingGeneral";
+export { default as SettingGeneral } from "./Setting/SettingGeneral";
