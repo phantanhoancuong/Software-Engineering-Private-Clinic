@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import "./medicalReportView.css";
 
 import { HeaderUser } from "../index";
-import { Navbar, Button ,UserTable } from "../../components/index";
+import { Navbar, Button, UserTable } from "../../components/index";
 
 import { FaTrash } from "react-icons/fa";
 
@@ -48,7 +48,7 @@ const MedicalReportView = () => {
             */}
 
           <div className="medicalReport-table">
-            <UserTable />
+            <UserTable gender="true" DoB="true"/>
           </div>
 
           <Link to="/medicalReportCreate">

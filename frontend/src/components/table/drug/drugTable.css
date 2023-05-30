@@ -21,13 +21,7 @@ th {
   margin: 0 0 0 0;
 }
 
-tbody tr td:first-child,
-tbody tr td:last-child,
-tbody tr td:nth-child(2),
-tbody tr td:nth-child(4),
-tbody tr td:nth-child(5),
-tbody tr td:nth-child(6),
-tbody tr td:nth-child(7) {
+tbody tr td {
   text-align: center;
 }
 

@@ -14,7 +14,7 @@ import { FaPlus } from "react-icons/fa";
 // TODO
 // This is just a mockup, need change to pull from database when backend is ready
 
-function TableContent() {
+function DrugTable(props) {
   const DrugData = MOCK_DATA_DRUG.map((curDrug) => {
     const { id, drugID, drug_name, unit, price, usage, dose } = curDrug;
 
@@ -23,10 +23,10 @@ function TableContent() {
         <td>{id}</td>
         <td>{drugID}</td>
         <td>{drug_name}</td>
-        <td>{unit}</td>
-        <td>{price}</td>
-        <td>{usage}</td>
-        <td>{dose}</td>
+        {props.dose != undefined && <td>{dose}</td>}
+        {props.unit != undefined && <td>{unit}</td>}
+        {props.usage != undefined && <td>{usage}</td>}
+        {props.price != undefined && <td>{price}</td>}
         <td>
           <button
             style={{
@@ -47,43 +47,30 @@ function TableContent() {
   });
 
   return (
-    <table>
+    <div className="tableContainer">
+      <table>
       <thead>
         <tr>
           <th>STT</th>
           <th>ID Thuốc</th>
           <th>Tên thuốc</th>
-          <th>Đơn vị</th>
-          <th>Giá tiền</th>
-          <th>Cách dùng</th>
-          <th>Số lượng</th>
+          {props.dose != undefined && <th>Số lượng</th>}
+          {props.unit != undefined && <th>Đơn vị</th>}
+          {props.usage != undefined && <th>Cách dùng</th>}
+          {props.price != undefined && <th>Giá tiền</th>}
           <th>Thao tác</th>
         </tr>
       </thead>
       <tbody>{DrugData}</tbody>
     </table>
-  );
-}
-
-function DrugTable(props) {
-  if (props.isAdd == undefined) {
-    // If no isAdd is passed to props -> No add option
-    return (
-      <div className="tableContainer">
-        {TableContent()}
-      </div>
-    );
-  } else {
-    // If isAdd is passed to props -> Add option available
-    return (
-      <div className="tableContainer">
-        {TableContent()}
+      {/* If isAdd is passed to props -> Add option available  */}
+      {props.isAdd != undefined && (
         <button className="table-add">
           <FaPlus />
         </button>
-      </div>
-    );
-  }
+      )}
+    </div>
+  );
 }
 
 export default DrugTable;

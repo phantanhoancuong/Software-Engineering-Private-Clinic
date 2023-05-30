@@ -1,29 +1,34 @@
-import React from "react";
+import React from 'react';
 import { Link } from "react-router-dom";
-import "./appointmentView.css";
+import "./receiptView.css";
 
 import { HeaderUser } from "../index";
-import { Navbar, Button, UserTable } from "../../components/index";
+import { Navbar, Button , UserTable } from "../../components/index";
 
 import { FaTrash } from "react-icons/fa";
 
-const AppointmentView = () => {
-  const pageTitle = "Danh sách khám bệnh";
+const ReceiptView = () => {
+  const pageTitle = "Danh sách hóa đơn";
   return (
     <>
       <HeaderUser title={pageTitle} />
       <div className="menu">
         <Navbar />
 
-        <div className="appointmentView">
+        <div className="receiptView">
           <p>{pageTitle}</p>
 
-          <div className="appointmentView__selection">
-            <div className="appointmentView__selection-date">
+          <div className="receiptView__selection">
+            <div className="receiptView__selection-date">
               <form>
                 <label for="calender">
-                  Chọn ngày khám
+                  <p>Chọn ngày khám</p>
                   <input type="date" id="calender" name="calender" />
+                </label>
+
+                <label for="userID">
+                  <p>ID bệnh nhân</p>
+                  <input type="text" id="userID" name="userID" />
                 </label>
               </form>
             </div>
@@ -38,13 +43,17 @@ const AppointmentView = () => {
             </div>
           </div>
 
-          <div className="appointment-table">
-            <UserTable gender="true" DoB="true" address="true"/>
+          {/* TODO
+                This is just a placeholder table, will fix after backend ready
+            */}
+
+          <div className="receipt-table">
+            <UserTable gender="true" date="true"/>
           </div>
 
-          <Link to="/appointmentCreate">
+          <Link to="/receiptCreate">
             <Button
-              label="Đặt lịch khám"
+              label="Lập phiếu khám"
               color="var(--color-whiteText)"
               bgColor="var(--color-button-yellow)"
             />
@@ -53,6 +62,6 @@ const AppointmentView = () => {
       </div>
     </>
   );
-};
+}
 
-export default AppointmentView;
+export default ReceiptView;
