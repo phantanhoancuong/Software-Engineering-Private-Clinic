@@ -19,3 +19,6 @@ export { default as ReceiptCreate } from "./receipt/ReceiptCreate";
 export { default as ReceiptDetail } from "./receipt/ReceiptDetail";
 
 export { default as SettingGeneral } from "./Setting/SettingGeneral";
+
+export { default as RevenueReportView } from "./clinical Report/RevenueReportView";
+export { default as DrugReportView } from "./clinical Report/DrugReportView";
