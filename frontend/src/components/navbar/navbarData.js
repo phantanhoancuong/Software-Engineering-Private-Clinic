@@ -87,11 +87,11 @@ export const navbarData = [
         "childrens": [
             {
                 "title": "Báo cáo doanh thu",
-                "path": "/reportRevenue"
+                "path": "/revenueReportView"
             },
             {
                 "title": "Báo cáo sử dụng thuốc",
-                "path": "/reportDrug"
+                "path": "/drugReportView"
             }
         ]
     },
