@@ -1,8 +1,7 @@
 import React from "react";
 import "./homepage.css";
 
-import { HeaderUser } from "../index";
-import { Navbar, Modal } from "../../components/index";
+import { Navbar, Modal, HeaderUser } from "../../components/index";
 
 import { MedicalReportView } from "../index";
 

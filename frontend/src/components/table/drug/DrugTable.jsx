@@ -1,7 +1,7 @@
 import React from "react";
 import MOCK_DATA_DRUG from "../../../assets/MOCK_DATA_DRUG.json";
 
-import "./drugTable.css";
+import "../table.css";
 import { FaPlus } from "react-icons/fa";
 
 // Reference:

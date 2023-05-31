@@ -1,7 +1,7 @@
 import React from "react";
 import MOCK_DATA_USER from "../../../assets/MOCK_DATA_USER.json";
 
-import "./userTable.css";
+import "../table.css";
 
 // Reference:
 // https://www.geeksforgeeks.org/how-to-parse-json-data-into-react-table-component/

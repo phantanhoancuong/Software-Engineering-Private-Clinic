@@ -1,2 +1,9 @@
-// TODO
-// Add a modal for detail viewing, layout the same as receiptCreate
+import React from 'react'
+
+const ReceiptDetail = () => {
+  return (
+    <div>ReceiptDetail</div>
+  )
+}
+
+export default ReceiptDetail;

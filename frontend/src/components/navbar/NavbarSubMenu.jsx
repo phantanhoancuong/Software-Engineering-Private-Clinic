@@ -33,7 +33,7 @@ const NavbarSubMenu = ({ item }) => {
     return (
       <Link to={item.path || "#"} className="navbar-feature plain">
         <div className="navbar-feature_title-icon">{item.icon}</div>
-        <p>{item.title}</p>
+        {item.title}
       </Link>
     );
   }
