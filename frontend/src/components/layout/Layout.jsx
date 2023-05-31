@@ -11,7 +11,7 @@ class Layout extends React.Component {
         <HeaderUser title={this.props.pageTitle} />
         <div className="layout">
           <Navbar />
-          <div className="menu">
+          <div className="container">
             <p>{this.props.pageTitle}</p>
             {this.props.children}
           </div>

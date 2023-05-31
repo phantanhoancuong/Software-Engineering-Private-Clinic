@@ -1,8 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./receiptView.css";
+import style from "../../components/button/button.module.css";
 
-import { Navbar, Button, UserTable, HeaderUser } from "../../components/index";
+import { Button, UserTable } from "../../components/index";
 
 import { FaTrash } from "react-icons/fa";
 
@@ -44,11 +45,9 @@ const ReceiptView = () => {
       </div>
 
       <Link to="/receiptCreate">
-        <Button
-          label="Lập phiếu khám"
-          color="var(--color-whiteText)"
-          bgColor="var(--color-button-yellow)"
-        />
+        <button className={`${style.button} ${style.yellow}`}>
+          Lập hóa đơn
+        </button>
       </Link>
     </>
   );

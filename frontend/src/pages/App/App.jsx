@@ -12,7 +12,7 @@ import {
   MedicalReportCreate,
   SettingGeneral,
   ReceiptView,
-  // ReceiptCreate,
+  ReceiptCreate,
 } from "../index";
 
 import "./App.css";
@@ -37,7 +37,7 @@ const App = () => {
             <Route path="/medicalReportCreate"element={<MedicalReportCreate />}/>
             
             <Route path="/receiptView" element={<ReceiptView />} />
-            {/* <Route path="/receiptCreate" element={<ReceiptCreate />} /> */}
+            <Route path="/receiptCreate" element={<ReceiptCreate />} />
             
             <Route path="/settingGeneral" element={<SettingGeneral />} />
           </Routes>

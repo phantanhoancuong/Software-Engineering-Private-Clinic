@@ -69,6 +69,7 @@ function DrugTable(props) {
           <FaPlus />
         </button>
       )}
+      {/* TODO Add sum value of column */}
     </div>
   );
 }

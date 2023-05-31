@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./settingGeneral.css";
 
-import { Navbar, Button, DrugTable, HeaderUser } from "../../components/index";
+import { Button, DrugTable } from "../../components/index";
 
 import { FaTrash } from "react-icons/fa";
 

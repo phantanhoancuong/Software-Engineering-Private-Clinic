@@ -35,6 +35,8 @@ const MedicalReportCreate = () => {
               </label>
             </form>
           </div>
+          
+          {/* TODO Add option to create receipt along with View*/}
 
           <div className="selection__delete">
             <Button

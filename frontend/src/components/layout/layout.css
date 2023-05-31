@@ -3,7 +3,7 @@
   font-family: var(--font-family);
 }
 
-.menu {
+.container {
   display: flex;
   flex: 1;
   flex-direction: column;
@@ -13,7 +13,7 @@
   background-color: var(--color-bg);
 }
 
-.menu > p {
+.container > p {
   font-size: 40px;
   font-weight: 1000;
   text-transform: uppercase;
@@ -21,6 +21,6 @@
   margin: 2rem;
 }
 
-.menu p {
+.container p {
     color: var(--color-text);
   }
