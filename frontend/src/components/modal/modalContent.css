@@ -17,8 +17,8 @@
 }
 
 .modal {
-  width: 60vw;
-  /* height: 80vh; */
+  width: 80vw;
+  height: 80vh;
   background: var(--color-bg);
   color: var(--color-text);
   z-index: 10;
@@ -79,6 +79,7 @@
   font-family: var(--font-family);
   font-size: 2rem;
   font-weight: 1000;
+  overflow: auto;
 }
 
 .modal-content_container {

@@ -13,6 +13,7 @@ import {
   SettingGeneral,
   ReceiptView,
   ReceiptCreate,
+  ReceiptDetail,
 } from "../index";
 
 import "./App.css";
@@ -38,6 +39,7 @@ const App = () => {
             
             <Route path="/receiptView" element={<ReceiptView />} />
             <Route path="/receiptCreate" element={<ReceiptCreate />} />
+            <Route path="/receiptDetail" element={<ReceiptDetail />} />
             
             <Route path="/settingGeneral" element={<SettingGeneral />} />
           </Routes>

@@ -27,21 +27,23 @@ function DrugTable(props) {
         {props.unit != undefined && <td>{unit}</td>}
         {props.usage != undefined && <td>{usage}</td>}
         {props.price != undefined && <td>{price}</td>}
-        <td>
-          <button
-            style={{
-              all: "unset",
-              fontSize: "1rem",
-              fontWeight: "500",
-              color: "var(--color-whiteText)",
-              backgroundColor: "var(--color-button-yellow)",
-              padding: "0.5rem",
-              borderRadius: "0.5rem",
-            }}
-          >
-            Chi tiết
-          </button>
-        </td>
+        {props.action != undefined && (
+          <td>
+            <button
+              style={{
+                all: "unset",
+                fontSize: "1rem",
+                fontWeight: "500",
+                color: "var(--color-whiteText)",
+                backgroundColor: "var(--color-button-yellow)",
+                padding: "0.5rem",
+                borderRadius: "0.5rem",
+              }}
+            >
+              Chi tiết
+            </button>
+          </td>
+        )}
       </tr>
     );
   });
@@ -49,20 +51,20 @@ function DrugTable(props) {
   return (
     <div className="tableContainer">
       <table>
-      <thead>
-        <tr>
-          <th>STT</th>
-          <th>ID Thuốc</th>
-          <th>Tên thuốc</th>
-          {props.dose != undefined && <th>Số lượng</th>}
-          {props.unit != undefined && <th>Đơn vị</th>}
-          {props.usage != undefined && <th>Cách dùng</th>}
-          {props.price != undefined && <th>Giá tiền</th>}
-          <th>Thao tác</th>
-        </tr>
-      </thead>
-      <tbody>{DrugData}</tbody>
-    </table>
+        <thead>
+          <tr>
+            <th>STT</th>
+            <th>ID Thuốc</th>
+            <th>Tên thuốc</th>
+            {props.dose != undefined && <th>Số lượng</th>}
+            {props.unit != undefined && <th>Đơn vị</th>}
+            {props.usage != undefined && <th>Cách dùng</th>}
+            {props.price != undefined && <th>Giá tiền</th>}
+            {props.action != undefined && <th>Thao tác</th>}
+          </tr>
+        </thead>
+        <tbody>{DrugData}</tbody>
+      </table>
       {/* If isAdd is passed to props -> Add option available  */}
       {props.isAdd != undefined && (
         <button className="table-add">
