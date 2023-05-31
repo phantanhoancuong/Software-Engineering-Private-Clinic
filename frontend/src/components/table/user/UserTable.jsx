@@ -1,8 +1,7 @@
 import React from "react";
-import MOCK_USER_DATA from "../../../assets/MOCK_USER_DATA.json";
-import { userData } from "../../../pages/index";
+import MOCK_DATA_USER from "../../../assets/MOCK_DATA_USER.json";
 
-import "./table.css";
+import "./userTable.css";
 
 // Reference:
 // https://www.geeksforgeeks.org/how-to-parse-json-data-into-react-table-component/
@@ -14,8 +13,8 @@ import "./table.css";
 // TODO
 // This is just a mockup, need change to pull from database when backend is ready
 
-function Table() {
-  const UserData = MOCK_USER_DATA.map((curUser) => {
+function userTable(props) {
+  const UserData = MOCK_DATA_USER.map((curUser) => {
     const { id, userID, full_name, gender, DoB, email, address } = curUser;
 
     return (
@@ -23,9 +22,11 @@ function Table() {
         <td>{id}</td>
         <td>{userID}</td>
         <td>{full_name}</td>
-        <td>{gender}</td>
-        <td>{DoB.slice(-4)}</td>
-        <td>{address}</td>
+        {props.gender != undefined && <td>{gender}</td>}
+        {props.DoB != undefined && <td>{DoB.slice(-4)}</td>}
+        {props.date != undefined && <td>{DoB}</td>}
+        {props.email != undefined && <td>{email}</td>}
+        {props.address != undefined && <td>{address}</td>}
         <td>
           <button
             style={{
@@ -53,9 +54,11 @@ function Table() {
             <th>STT</th>
             <th>ID Bệnh nhân</th>
             <th>Họ tên</th>
-            <th>Giới tính</th>
-            <th>Năm sinh</th>
-            <th>Địa chỉ</th>
+            {props.gender != undefined && <th>Giới tính</th>}
+            {props.DoB != undefined && <th>Năm sinh</th>}
+            {props.date != undefined && <th>Ngày khám</th>}
+            {props.email != undefined && <th>Email</th>}
+            {props.address != undefined && <th>Địa chỉ</th>}
             <th>Thao tác</th>
           </tr>
         </thead>
@@ -65,4 +68,4 @@ function Table() {
   );
 }
 
-export default Table;
+export default userTable;

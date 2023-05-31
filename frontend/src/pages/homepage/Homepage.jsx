@@ -1,9 +1,10 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import "./homepage.css";
 
 import { HeaderUser } from "../index";
-import { Navbar, Button } from "../../components/index";
+import { Navbar, Modal } from "../../components/index";
+
+import { MedicalReportView } from "../index";
 
 const Homepage = () => {
   return (
@@ -13,13 +14,12 @@ const Homepage = () => {
         <Navbar />
 
         <div className="homepage">
-          <Link to="/">
-            <Button
-              label="Home"
-              color="var(--color-whiteText)"
-              bgColor="var(--color-button-green)"
-            />
-          </Link>
+          <Modal
+            label="Open Modal"
+            header="Header"
+            content="Content"
+            // content=<MedicalReportView/>
+          />
         </div>
       </div>
     </>

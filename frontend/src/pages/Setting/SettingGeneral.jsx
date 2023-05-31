@@ -1,13 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import "./medicalReportCreate.css";
+import "./settingGeneral.css";
 
 import { HeaderUser } from "../index";
 import { Navbar, Button, DrugTable } from "../../components/index";
 
 import { FaTrash } from "react-icons/fa";
 
-const MedicalReportCreate = () => {
+const SettingGeneral = () => {
   // TODO
   // Finish this use case
   const pageTitle = "Lập phiếu khám bệnh";
@@ -55,12 +55,12 @@ const MedicalReportCreate = () => {
             </div>
           </div>
 
-          {/* TODO 
-              This is just a placeholder table, will fix after backend ready
-            */}
+          {/* TODO
+                  This is just a placeholder table, will fix after backend ready
+              */}
 
           <div className="medicalReport-table">
-            <DrugTable isAdd="true" unit="true" dose="true" usage="true"/>
+            <DrugTable />
           </div>
 
           <div className="selection-confirm">
@@ -86,4 +86,4 @@ const MedicalReportCreate = () => {
   );
 };
 
-export default MedicalReportCreate;
+export default SettingGeneral;

@@ -21,11 +21,7 @@ th {
   margin: 0 0 0 0;
 }
 
-tbody tr td:first-child,
-tbody tr td:last-child,
-tbody tr td:nth-child(2),
-tbody tr td:nth-child(4),
-tbody tr td:nth-child(5) {
+tbody tr td {
   text-align: center;
 }
 
@@ -38,6 +34,31 @@ tbody > tr:nth-child(even) {
 }
 
 .tableContainer{
-  height: 20rem;
+  max-height: 21rem;
   overflow-x: hidden;
+}
+
+tbody > tr {
+  font-size: 1rem;
+}
+
+.table-add {
+  display: flex;
+  align-content: center;
+  justify-content: center;
+
+  width: 100%;
+  margin: unset;
+  padding: 1rem;
+
+  background-color: var(--color-white);
+  color: var(--color-main);
+
+  border: 1px solid var(--color-border);
+  border-radius: 0;
+
+  position: sticky;
+  bottom: 0;
+
+  font-size: 2.3rem;
 }
