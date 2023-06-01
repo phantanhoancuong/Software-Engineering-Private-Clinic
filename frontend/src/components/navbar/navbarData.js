@@ -25,20 +25,20 @@ export const navbarData = [
             }
         ]   
     },
-    {
-        "title": "Tra cứu",
-        "icon": <FaSearch />,
-        "childrens": [
-            {
-                "title": "Tra cứu bệnh nhân",
-                "path": "/searchUser"
-            },
-            {
-                "title": "Tra cứu thuốc",
-                "path": "/searchDrug"
-            }
-        ]
-    },
+    // {
+    //     "title": "Tra cứu",
+    //     "icon": <FaSearch />,
+    //     "childrens": [
+    //         {
+    //             "title": "Tra cứu bệnh nhân",
+    //             "path": "/searchUser"
+    //         },
+    //         {
+    //             "title": "Tra cứu thuốc",
+    //             "path": "/searchDrug"
+    //         }
+    //     ]
+    // },
     {
         "title": "Phiếu khám bệnh",
         "icon": <FaAddressBook />,
@@ -59,12 +59,12 @@ export const navbarData = [
         "childrens": [
             {
                 "title": "Xem danh sách",
-                "path": "/userView"
+                "path": "/patientView"
             },
-            {
-                "title": "Thêm bệnh nhân",
-                "path": "/userCreate"
-            }
+            // {
+            //     "title": "Thêm bệnh nhân",
+            //     "path": "/patientCreate"
+            // }
         ]
     },
     {

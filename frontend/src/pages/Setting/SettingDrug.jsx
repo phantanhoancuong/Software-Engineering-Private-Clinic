@@ -8,7 +8,7 @@ import {
   DrugTable,
   DrugUnitTable,
   DrugUsageTable,
-  Modal
+  Modal,
 } from "../../components/index";
 
 import { FaTrash } from "react-icons/fa";
@@ -20,6 +20,16 @@ const SettingDrug = () => {
     <>
       <div className="settingDrug__selection">
         <div className="selection__delete">
+          {/* <Modal
+            label=<Button
+              label="Xóa các lựa chọn"
+              icon=<FaTrash />
+              color="var(--color-white)"
+              bgColor="var(--color-button-red)"
+            />
+            color="red"
+            content="Bạn chắc chắn muốn xóa các lựa chọn này?"
+          /> */}
           <Button
             label="Xóa các lựa chọn"
             icon=<FaTrash />
@@ -34,9 +44,24 @@ const SettingDrug = () => {
               */}
 
       <div className="settingDrug-table">
-        <DrugUnitTable isAdd="true" />
-        <DrugUsageTable isAdd="true" />
-        <DrugTable unit="true" usage="true" price="true" isAdd="true" />
+        <div className="settingDrug-table_section">
+          <p>Bảng đơn vị</p>
+          <DrugUnitTable isAdd="true" action="true" />
+        </div>
+        <div className="settingDrug-table_section">
+          <p>Bảng cách dùng</p>
+          <DrugUsageTable isAdd="true" action="true" />
+        </div>
+        <div className="settingDrug-table_section">
+          <p>Bảng thuốc</p>
+          <DrugTable
+            unit="true"
+            usage="true"
+            price="true"
+            isAdd="true"
+            action="true"
+          />
+        </div>
       </div>
 
       <div className="selection-confirm">

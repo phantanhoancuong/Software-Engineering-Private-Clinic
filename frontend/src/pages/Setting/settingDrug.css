@@ -28,15 +28,22 @@
   justify-content: space-between;
 }
 .selection__delete {
-    margin-left: auto;
+  margin-left: auto;
   margin-bottom: 0.5rem;
 }
 
 .settingDrug-table {
   margin: 2rem 0;
   width: 90%;
+
   display: flex;
-  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.settingDrug-table_section p {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
 }
 
 .selection-confirm {

@@ -28,4 +28,60 @@ const Modal = (props) => {
   );
 }
 
+// TODO Fix Modal to class
+
+// class Modal extends React.Component {
+//   constructor(props) {
+//     super(props);
+//     this.state = {
+//       isOpen: false,
+//     };
+//   }
+
+//   render() {
+//     return (
+//       <div>
+//         {this.props.color == undefined && (
+//           <button
+//             className={`${style.button}`}
+//             onClick={() => (this.setState({isOpen: true}))}
+//           >
+//             {this.props.label}
+//           </button>
+//         )}
+//         {this.props.color == "red" && (
+//           <button
+//             className={`${style.button} ${style.red}`}
+//             onClick={() => (this.setState({isOpen: true}))}
+//           >
+//             {this.props.label}
+//           </button>
+//         )}
+//         {this.props.color == "yellow" && (
+//           <button
+//             className={`${style.button} ${style.yellow}`}
+//             onClick={() => (this.setState({isOpen: true}))}
+//           >
+//             {this.props.label}
+//           </button>
+//         )}
+//         {this.props.color == "green" && (
+//           <button
+//             className={`${style.button} ${style.green}`}
+//             onClick={() => (this.setState({isOpen: true}))}
+//           >
+//             {this.props.label}
+//           </button>
+//         )}
+//         {this.props.isOpen && (
+//           <ModalContent
+//             setIsOpen={this.state.isOpen}
+//             props={this.props.children}
+//           />
+//         )}
+//       </div>
+//     );
+//   }
+// }
+
 export default Modal;

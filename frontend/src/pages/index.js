@@ -18,6 +18,8 @@ export { default as ReceiptView } from "./receipt/ReceiptView";
 export { default as ReceiptCreate } from "./receipt/ReceiptCreate";
 export { default as ReceiptDetail } from "./receipt/ReceiptDetail";
 
+export { default as PatientView } from "./patient/PatientView";
+
 export { default as SettingGeneral } from "./Setting/SettingGeneral";
 export { default as SettingDrug } from "./Setting/SettingDrug";
 
