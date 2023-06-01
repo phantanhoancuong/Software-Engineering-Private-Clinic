@@ -4,6 +4,8 @@ import "./modalContent.css";
 import style from "../button/button.module.css";
 import { FaTimes } from "react-icons/fa";
 
+// FIXME Fix to fit detail in modal
+
 const ModalContent = ({ setIsOpen, props }) => {
   return ReactDom.createPortal(
     <>

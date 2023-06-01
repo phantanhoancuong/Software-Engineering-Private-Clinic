@@ -6,7 +6,7 @@ import style from "../../components/button/button.module.css";
 import { DrugTable, Modal } from "../../components/index";
 import ReceiptDetail from "./ReceiptDetail";
 
-// TODO
+// TODO Auto create receipt based on Medical Report
 // Consider auto create receipt based on medical report so user don't have to manually add
 
 const ReceiptCreate = () => {
@@ -29,7 +29,7 @@ const ReceiptCreate = () => {
         </div>
       </div>
 
-      {/* TODO 
+      {/* TODO Fix Table later
                 This is just a placeholder table, will fix after backend ready
               */}
 

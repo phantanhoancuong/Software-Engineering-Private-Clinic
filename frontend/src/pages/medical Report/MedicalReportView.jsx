@@ -36,7 +36,7 @@ const MedicalReportView = () => {
         </div>
       </div>
 
-      {/* TODO
+      {/* TODO Fix Table later
                 This is just a placeholder table, will fix after backend ready
             */}
 

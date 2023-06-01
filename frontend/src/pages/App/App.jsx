@@ -11,6 +11,7 @@ import {
   MedicalReportView,
   MedicalReportCreate,
   SettingGeneral,
+  SettingDrug,
   ReceiptView,
   RevenueReportView,
   DrugReportView,
@@ -38,12 +39,16 @@ const App = () => {
             
             <Route path="/medicalReportView" element={<MedicalReportView />} />
             <Route path="/medicalReportCreate"element={<MedicalReportCreate />}/>
+            
             <Route path="/receiptView" element={<ReceiptView />} />
             <Route path="/receiptCreate" element={<ReceiptCreate />} />
             <Route path="/receiptDetail" element={<ReceiptDetail />} />
+            
             <Route path="/revenueReportView" element={<RevenueReportView />} />
             <Route path="/drugReportView" element={<DrugReportView />} />
+            
             <Route path="/settingGeneral" element={<SettingGeneral />} />
+            <Route path="/settingDrug" element={<SettingDrug />} />
           </Routes>
         </Layout>
       </BrowserRouter>
