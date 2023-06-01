@@ -10,39 +10,36 @@ const db = mysql.createConnection({
     host: 'localhost',
     user: 'root',
     password: '',
-    database: 'user'
+    database: 'clinic'
 })
 
-app.post("/signin", (req, res) =>{
-    const sql = "SELECT * from `signin` WHERE `name` = ? AND `password` = ?";
-    const q = "INSERT INTO `signin` (`id`, `name`, `email`, `password`) VALUES (?)";
+app.post("/signin", (req, res) => {
+    const sql = "SELECT * from `user` WHERE `name` = ? AND `password` = ?";
     const value = [
         req.body.name,
         req.body.password
     ]
 
     db.query(sql, value, (err, data) => {
-        if(err) return res.json(err);
-        if(data.length > 0) return res.json('success');
+        if (err) return res.json(err);
+        if (data.length > 0) return res.json('success');
         else res.json('fail');
     })
 })
 
-app.post('/signup', (req, res) => {
-    const sql = "INSERT INTO login ('name', 'email', 'password') VALUES (?)";
+app.post("/signup", (req, res) => {
+    const sql = "INSERT INTO `user` (`name`, `email`, `password`) VALUES (?, ?, ?)";
     const values = [
         req.body.name,
         req.body.email,
         req.body.password
     ]
-    db.query(sql, [values], (err, data) => {
-        if (err) {
-            return res.json('Error');
-        }
-        return res.json(data);
+    db.query(sql, values, (err, data) => {
+        if (err) return res.json(err);
+        return res.json('success');
     })
 })
 
-app.listen(8800, ()=> {
+app.listen(8800, () => {
     console.log('Listening');
 })
