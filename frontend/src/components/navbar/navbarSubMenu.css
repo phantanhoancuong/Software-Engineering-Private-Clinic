@@ -59,6 +59,18 @@
   height: auto;
 }
 
+.navbar-feature.plain {
+  font-family: var(--font-family);
+  font-size: 1rem;
+  font-weight: 500;
+  padding-left: 2rem;
+}
+
 .navbar-feature.plain:hover {
   text-decoration: underline;
+}
+
+.navbar-feature.plain:focus {
+  color: var(--color-text);
+  background-color: var(--color-bg);
 }

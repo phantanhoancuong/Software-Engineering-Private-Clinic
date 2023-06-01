@@ -5,6 +5,7 @@ td {
   row-gap: 0;
   padding: 1rem;
   border: 1px solid;
+  border-top: 0px solid;
   border-color: var(--color-border);
 }
 
@@ -40,6 +41,19 @@ tbody > tr:nth-child(even) {
 
 tbody > tr {
   font-size: 1rem;
+}
+
+
+.total-row {
+  display: flex;
+  align-content: center;
+  justify-content: center;
+
+  width: 100%;
+  background-color: var(--color-bg);
+  border: 1px solid var(--color-boder);
+  position: sticky;
+  bottom: 0;
 }
 
 .table-add {

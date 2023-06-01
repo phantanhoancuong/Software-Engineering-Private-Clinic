@@ -1,4 +1,4 @@
-import {React, memo} from "react";
+import {React} from "react";
 import "./navbar.css";
 import { navbarData } from "./navbarData";
 import NavbarSubMenu from "./NavbarSubMenu";
@@ -16,4 +16,4 @@ const Navbar = () => {
   );
 };
 
-export default memo(Navbar);
+export default Navbar;
