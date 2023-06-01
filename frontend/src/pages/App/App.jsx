@@ -15,7 +15,7 @@ import {
   RevenueReportView,
   DrugReportView,
   ReceiptCreate,
-  ReceiptDetail,
+  receiptDetail,
 } from "../index";
 
 import "./App.css";
@@ -40,7 +40,7 @@ const App = () => {
             <Route path="/medicalReportCreate"element={<MedicalReportCreate />}/>
             <Route path="/receiptView" element={<ReceiptView />} />
             <Route path="/receiptCreate" element={<ReceiptCreate />} />
-            <Route path="/receiptDetail" element={<ReceiptDetail />} />
+            <Route path="/receiptDetail" element={<receiptDetail />} />
             <Route path="/revenueReportView" element={<RevenueReportView />} />
             <Route path="/drugReportView" element={<DrugReportView />} />
             <Route path="/settingGeneral" element={<SettingGeneral />} />

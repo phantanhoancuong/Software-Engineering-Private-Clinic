@@ -4,7 +4,7 @@ import "./receiptCreate.css";
 import style from "../../components/button/button.module.css";
 
 import { DrugTable, Modal } from "../../components/index";
-import ReceiptDetail from "./ReceiptDetail";
+import receiptDetail from "./receiptDetail";
 
 // TODO
 // Consider auto create receipt based on medical report so user don't have to manually add
@@ -37,7 +37,7 @@ const ReceiptCreate = () => {
         <p>Danh sách thuốc</p>
         <DrugTable unit="true" dose="true" price="true" />
         <p>Thiếu tổng tiền thuốc (Nhớ thêm vào)</p>
-        <Modal label="Receipt Detail" content=<ReceiptDetail /> />
+        <Modal label="Receipt Detail" content=<receiptDetail /> />
       </div>
 
       <div className="selection-confirm">
