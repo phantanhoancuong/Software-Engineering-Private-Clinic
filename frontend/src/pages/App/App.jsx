@@ -3,6 +3,7 @@ import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import {
   Homepage,
+  Intro,
   SignIn,
   SignUp,
   ForgetPassword,
@@ -31,6 +32,9 @@ const App = () => {
         <Layout pageTitle={title}>
           <Routes>
             <Route path="/" element={<Homepage />} />
+
+            <Route path="/intro" element={<Intro />} />
+            
             <Route path="/signIn" element={<SignIn />} />
             <Route path="/signUp" element={<SignUp />} />
             <Route path="/forgetPassword" element={<ForgetPassword />} />

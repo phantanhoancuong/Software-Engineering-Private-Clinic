@@ -2,7 +2,9 @@ import React from "react";
 import "./headerUser.css";
 
 import { FaUserCircle } from "react-icons/fa";
-import HeaderLogo from "./HeaderLogo";
+import {HeaderLogo, Dropdown} from "../index";
+
+import { dropdownData } from "../dropdown/dropdownData";
 
 function HeaderUser({title, user = "Manager"}) {
   return (
@@ -16,9 +18,9 @@ function HeaderUser({title, user = "Manager"}) {
 
       <div className="headerUser-user">
         <p>Hello, {user}!</p>
-        <div className="headerUser-user_logos">
+        <Dropdown className="headerUser-user_logos" data={dropdownData}>
           <FaUserCircle color="#fff" fontSize={40} />
-        </div>
+        </Dropdown>
       </div>
     </div>
   );

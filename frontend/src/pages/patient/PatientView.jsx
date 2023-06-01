@@ -1,14 +1,14 @@
 import React from "react";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import "./patientView.css";
-import style from "../../components/button/button.module.css";
+// import style from "../../components/button/button.module.css";
 
 import { Button, PatientViewTable } from "../../components/index";
 
 import { FaTrash } from "react-icons/fa";
 
 const ReceiptView = () => {
-  const pageTitle = "Danh sách bệnh nhân";
+  // const pageTitle = "Danh sách bệnh nhân";
   return (
     <>
       <div className="patientView__selection">

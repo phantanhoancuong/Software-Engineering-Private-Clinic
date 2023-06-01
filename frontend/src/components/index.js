@@ -21,4 +21,5 @@ export { default as DrugUseTable } from "./table/drug/DrugUseTable"
 export { default as TotalDrugUse } from "./table/drug/TotalDrugUse"
 
 export { default as Modal } from "./modal/Modal";
+export { default as Dropdown } from "./dropdown/Dropdown";
 export { default as Layout } from "./layout/Layout";

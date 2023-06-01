@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./settingDrug.css";
-import style from "../../components/button/button.module.css";
+// import style from "../../components/button/button.module.css";
 
 import {
   Button,
@@ -14,8 +14,7 @@ import {
 import { FaTrash } from "react-icons/fa";
 
 const SettingDrug = () => {
-  // TODO Finish this use case
-  const pageTitle = "Quy định chung";
+  // const pageTitle = "Quy định chung";
   return (
     <>
       <div className="settingDrug__selection">
