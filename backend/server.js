@@ -29,15 +29,25 @@ app.post("/signin", (req, res) => {
 
 app.post("/signup", (req, res) => {
     const sql = "INSERT INTO `user` (`name`, `email`, `password`) VALUES (?, ?, ?)";
-    const values = [
+    const value = [
         req.body.name,
         req.body.email,
         req.body.password
     ]
-    db.query(sql, values, (err, data) => {
-        if (err) return res.json(err);
-        return res.json('success');
+
+    const exist = "SELECT * from `user` WHERE `email` = ?";
+
+    db.query(exist, req.body.email, (err1, data1) => {
+        if (err1) return res.json(err1);
+        if (data1.length > 0) return res.json('existed');
+        else {
+            db.query(sql, value, (err, data2) => {
+                if (err) return res.json(err);
+                return res.json('success');
+            })
+        }
     })
+
 })
 
 app.listen(8800, () => {

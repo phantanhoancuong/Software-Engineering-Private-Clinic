@@ -14,6 +14,12 @@ function SignUp() {
   const [password, setPassword] = useState('');
   const [repassword, setRepassword] = useState('');
 
+  const [modal, setModal] = useState(false)
+
+  const toggleModal = () => {
+    setModal(!modal)
+  }
+
   function handleSubmit(event) {
     event.preventDefault();
     axios.post('http://localhost:8800/signup', { name, email, password })
@@ -21,7 +27,9 @@ function SignUp() {
         if (res.data === 'success') {
           navigate('/signIn');
         }
-        else navigate('/signUp');
+        else if (res.data === 'existed') {
+          toggleModal();
+        }
       })
       .catch(err => console.log(err));
   }
@@ -78,6 +86,16 @@ function SignUp() {
           </Link>
         </nav>
       </div>
+
+      {modal && (
+        <div className="modal">
+        <div className="overlay" onClick={toggleModal}></div>
+        <div className="modal-content">
+          <h2>Tài khoản đã tồn tại, nhấp chuột để nhập lại</h2>
+        </div>
+      </div>
+      )}
+
     </div>
   );
 };

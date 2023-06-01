@@ -5,12 +5,20 @@ import axios from 'axios'
 import { useNavigate } from "react-router-dom";
 
 import "./Sign In.css";
+import "./Modal.css"
+import validation from "./Sign In Validation";
 
 function SignIn() {
   const navigate = useNavigate();
 
   const [name, setName] = useState('')
   const [password, setPassword] = useState('')
+
+  const [modal, setModal] = useState(false)
+
+  const toggleModal = () => {
+    setModal(!modal)
+  }
 
   function handleSubmit(event) {
     event.preventDefault();
@@ -19,7 +27,7 @@ function SignIn() {
         if (res.data === 'success') {
           navigate('/');
         }
-        else navigate('/signin');
+        else toggleModal();
       })
       .catch(err => console.log(err));
   }
@@ -64,6 +72,16 @@ function SignIn() {
           </Link>
         </nav>
       </div>
+
+      {modal && (
+        <div className="modal">
+        <div className="overlay" onClick={toggleModal}></div>
+        <div className="modal-content">
+          <h2>Sai tên hoặc mật khẩu, nhấp chuột để nhập lại</h2>
+        </div>
+      </div>
+      )}
+      
     </div>
   );
 };
