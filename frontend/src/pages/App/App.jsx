@@ -17,7 +17,7 @@ import {
   RevenueReportView,
   DrugReportView,
   ReceiptCreate,
-  ReceiptDetail,
+  receiptDetail,
   PatientView,
   UserEdit,
   PasswordReset,
@@ -55,7 +55,7 @@ const App = () => {
 
             <Route path="/receiptView" element={<ReceiptView />} />
             <Route path="/receiptCreate" element={<ReceiptCreate />} />
-            <Route path="/receiptDetail" element={<ReceiptDetail />} />
+            <Route path="/receiptDetail" element={<receiptDetail />} />
 
             <Route path="/patientView" element={<PatientView />} />
 
