@@ -1,3 +1,4 @@
+export { default as Header } from "./header/Header";
 export { default as HeaderLogo } from "./header/HeaderLogo";
 export { default as HeaderUser } from "./header/HeaderUser";
 
@@ -23,3 +24,4 @@ export { default as TotalDrugUse } from "./table/drug/TotalDrugUse"
 export { default as Modal } from "./modal/Modal";
 export { default as Dropdown } from "./dropdown/Dropdown";
 export { default as Layout } from "./layout/Layout";
+export { default as LayoutUser } from "./layout/LayoutUser";

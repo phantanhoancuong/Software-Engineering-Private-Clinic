@@ -95,20 +95,20 @@ export const navbarData = [
             }
         ]
     },
-    {
-        "title": "Góp ý",
-        "icon": <FaCommentDots />,
-        "childrens": [
-            {
-                "title": "Xem danh sách",
-                "path": "/reviewView"
-            },
-            {
-                "title": "Tạo góp ý",
-                "path": "/reviewCreate"
-            }
-        ]
-    },
+    // {
+    //     "title": "Góp ý",
+    //     "icon": <FaCommentDots />,
+    //     "childrens": [
+    //         {
+    //             "title": "Xem danh sách",
+    //             "path": "/reviewView"
+    //         },
+    //         {
+    //             "title": "Tạo góp ý",
+    //             "path": "/reviewCreate"
+    //         }
+    //     ]
+    // },
     {
         "title": "Quy định",
         "icon": <FaCog />,

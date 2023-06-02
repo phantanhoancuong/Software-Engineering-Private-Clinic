@@ -24,20 +24,22 @@ import {
 } from "../index";
 
 import "./App.css";
-import { Layout } from "../../components";
+import { Layout, LayoutUser } from "../../components/index";
 
 const App = () => {
   const title = "Fix later in App.js";
   return (
     <div className="App">
       <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Homepage />} />
-          <Route path="/signIn" element={<SignIn />} />
-          <Route path="/signUp" element={<SignUp />} />
-          <Route path="/forgetPassword" element={<ForgetPassword />} />
-        </Routes>
-        <Layout pageTitle={title}>
+        <Layout>
+          <Routes>
+            <Route path="/homepage" element={<Homepage />} />
+            <Route path="/signIn" element={<SignIn />} />
+            <Route path="/signUp" element={<SignUp />} />
+            <Route path="/forgetPassword" element={<ForgetPassword />} />
+          </Routes>
+        </Layout>
+        <LayoutUser pageTitle={title}>
           <Routes>
             <Route path="/intro" element={<Intro />} />
 
@@ -45,7 +47,10 @@ const App = () => {
             <Route path="/appointmentCreate" element={<AppointmentCreate />} />
 
             <Route path="/medicalReportView" element={<MedicalReportView />} />
-            <Route path="/medicalReportCreate" element={<MedicalReportCreate />}/>
+            <Route
+              path="/medicalReportCreate"
+              element={<MedicalReportCreate />}
+            />
 
             <Route path="/receiptView" element={<ReceiptView />} />
             <Route path="/receiptCreate" element={<ReceiptCreate />} />
@@ -62,7 +67,7 @@ const App = () => {
             <Route path="/userEdit" element={<UserEdit />} />
             <Route path="/passwordReset" element={<PasswordReset />} />
           </Routes>
-        </Layout>
+        </LayoutUser>
       </BrowserRouter>
     </div>
   );

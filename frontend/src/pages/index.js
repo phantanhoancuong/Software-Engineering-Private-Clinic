@@ -1,7 +1,6 @@
 export { default as Homepage } from "./homepage/Homepage";
 
 export { default as Footer } from "./footer/Footer";
-export { default as Header } from "./header/Header";
 export { default as Intro } from "./intro/Intro";
 
 export {default as SignUp} from "./Sign Up/Sign Up";
