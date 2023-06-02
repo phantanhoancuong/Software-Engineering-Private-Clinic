@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import "./appointmentCreate.css";
 import style from "../../components/button/button.module.css";
 
@@ -35,10 +34,11 @@ const AppointmentCreate = () => {
           </label>
         </form>
       </div>
-
-      <Link to="/appointmentView">
-        <button className={`${style.button} ${style.green}`}>Xác nhận</button>
-      </Link>
+      <div style={{ display: "flex", justifyContent: "center", marginTop: "20px" }}>
+        <button className={`${style.button} ${style.green}`}>
+          Xác nhận
+        </button>
+      </div>
     </>
   );
 };
