@@ -25,3 +25,6 @@ export { default as SettingDrug } from "./Setting/SettingDrug";
 
 export { default as RevenueReportView } from "./clinical Report/RevenueReportView";
 export { default as DrugReportView } from "./clinical Report/DrugReportView";
+
+export { default as UserEdit } from "./user/UserEdit";
+export { default as PasswordReset } from "./user/PasswordReset";

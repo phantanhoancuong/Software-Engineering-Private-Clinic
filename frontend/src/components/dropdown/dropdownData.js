@@ -9,7 +9,7 @@ export const dropdownData = [
   {
     title: "Đặt lại mật khẩu",
     icon: <FaUserLock />,
-    path: "/userPasswordReset",
+    path: "/passwordReset",
   },
   {
     title: "Đăng xuất",
