@@ -1,0 +1,55 @@
+.header {
+  display: flex;
+  background: var(--color-main);
+
+  position: sticky;
+  top:0;
+}
+
+.header_links {
+  flex: 1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header_title {
+  margin-left: 1rem;
+  text-transform: uppercase;
+}
+
+.header_user {
+  display: flex;
+  align-items: center;
+  text-transform: capitalize;
+  margin-right: 1rem;
+
+  font-style: italic;
+}
+
+.header_title p,
+.header_user p,
+.header_action p {
+  color: var(--color-whiteText);
+  font-family: var(--font-family);
+  font-weight: 500;
+  font-size: 20px;
+
+  margin: 0 1rem;
+  cursor: pointer;
+}
+
+.header_action {
+  display: flex;
+  margin-right: 2rem;
+}
+
+.header_button p {
+  padding: 1rem;
+}
+
+.header_button:hover p {
+  background-color: var(--color-bg);
+  color: var(--color-main);
+  border-radius: 1rem;
+}

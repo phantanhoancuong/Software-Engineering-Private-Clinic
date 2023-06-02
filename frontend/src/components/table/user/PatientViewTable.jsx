@@ -1,5 +1,5 @@
 import React from "react";
-import MOCK_DATA_USER from "../../../assets/MOCK_DATA_USER.json";
+import MOCK_DATA_USER_PATIENT_VIEW from "../../../assets/MOCK_DATA_USER_PATIENT-VIEW.json";
 
 import "../table.css";
 
@@ -14,19 +14,17 @@ import "../table.css";
 // This is just a mockup, need change to pull from database when backend is ready
 
 function userTable(props) {
-  const UserData = MOCK_DATA_USER.map((curUser) => {
-    const { id, userID, full_name, gender, DoB, email, address } = curUser;
+  const UserData = MOCK_DATA_USER_PATIENT_VIEW.map((curUser) => {
+    const { id, userID, full_name, date, diagnose, symptom } = curUser;
 
     return (
       <tr key={id}>
         <td>{id}</td>
         <td>{userID}</td>
         <td>{full_name}</td>
-        {props.gender != undefined && <td>{gender}</td>}
-        {props.DoB != undefined && <td>{DoB.slice(-4)}</td>}
-        {props.date != undefined && <td>{DoB}</td>}
-        {props.email != undefined && <td>{email}</td>}
-        {props.address != undefined && <td>{address}</td>}
+        <td>{date}</td>
+        <td>{diagnose}</td>
+        <td>{symptom}</td>
         <td>
           <button
             style={{
@@ -54,11 +52,9 @@ function userTable(props) {
             <th>STT</th>
             <th>ID Bệnh nhân</th>
             <th>Họ tên</th>
-            {props.gender != undefined && <th>Giới tính</th>}
-            {props.DoB != undefined && <th>Năm sinh</th>}
-            {props.date != undefined && <th>Ngày khám</th>}
-            {props.email != undefined && <th>Email</th>}
-            {props.address != undefined && <th>Địa chỉ</th>}
+            <th>Ngày khám</th>
+            <th>Loại bệnh</th>
+            <th>Triệu chứng</th>
             <th>Thao tác</th>
           </tr>
         </thead>

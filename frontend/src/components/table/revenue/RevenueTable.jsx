@@ -12,7 +12,7 @@ import { FaPlus } from "react-icons/fa";
 // MOCK_DATA from:
 // https://www.mockaroo.com/
 
-// TODO
+// TODO Fix Table later to pull from database
 // This is just a mockup, need change to pull from database when backend is ready
 
 function RevenueTable(props) {

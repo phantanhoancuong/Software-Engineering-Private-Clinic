@@ -1,23 +1,24 @@
 import React from "react";
-import "./headerUser.css";
+import "./header.css";
 
 import { FaUserCircle } from "react-icons/fa";
-import HeaderLogo from "./HeaderLogo";
+import { HeaderLogo, Dropdown } from "../index";
 
-function HeaderUser({title, user = "Manager"}) {
+import { dropdownData } from "../dropdown/dropdownData";
+
+function HeaderUser({ title, user = "Manager" }) {
   return (
-    <div className="headerUser">
-      <HeaderLogo />
-      <div className="headerUser-links">
-        <div className="headerUser-title">
+    <div className="header">
+      <HeaderLogo link="intro"/>
+      <div className="header_links">
+        <div className="header_title">
           <p>{title}</p>
         </div>
-      </div>
-
-      <div className="headerUser-user">
-        <p>Hello, {user}!</p>
-        <div className="headerUser-user_logos">
-          <FaUserCircle color="#fff" fontSize={40} />
+        <div className="header_user">
+          <p>Hello, {user}!</p>
+          <Dropdown className="headerUser-user_logos" data={dropdownData}>
+            <FaUserCircle color="#fff" fontSize={40} />
+          </Dropdown>
         </div>
       </div>
     </div>

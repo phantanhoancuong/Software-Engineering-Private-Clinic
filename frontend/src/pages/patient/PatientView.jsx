@@ -1,23 +1,23 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import "./receiptView.css";
-import style from "../../components/button/button.module.css";
+// import { Link } from "react-router-dom";
+import "./patientView.css";
+// import style from "../../components/button/button.module.css";
 
-import { Button, UserTable } from "../../components/index";
+import { Button, PatientViewTable } from "../../components/index";
 
 import { FaTrash } from "react-icons/fa";
 
 const ReceiptView = () => {
-  const pageTitle = "Danh sách hóa đơn";
+  // const pageTitle = "Danh sách bệnh nhân";
   return (
     <>
-      <div className="receiptView__selection">
-        <div className="receiptView__selection-date">
+      <div className="patientView__selection">
+        <div className="patientView__selection-date">
           <form>
-            <label for="calender">
+            {/* <label for="calender">
               <p>Chọn ngày khám</p>
               <input type="date" id="calender" name="calender" />
-            </label>
+            </label> */}
 
             <label for="userID">
               <p>ID bệnh nhân</p>
@@ -40,15 +40,15 @@ const ReceiptView = () => {
                 This is just a placeholder table, will fix after backend ready
             */}
 
-      <div className="receipt-table">
-        <UserTable gender="true" date="true" />
+      <div className="patient-table">
+        <PatientViewTable />
       </div>
 
-      <Link to="/receiptCreate">
+      {/* <Link to="/patientCreate">
         <button className={`${style.button} ${style.yellow}`}>
-          Lập hóa đơn
+          Thêm bệnh nhân
         </button>
-      </Link>
+      </Link> */}
     </>
   );
 };

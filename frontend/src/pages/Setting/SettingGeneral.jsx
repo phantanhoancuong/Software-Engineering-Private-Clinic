@@ -1,38 +1,31 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./settingGeneral.css";
+// import style from "../../components/button/button.module.css";
 
-import { Button, DrugTable } from "../../components/index";
+import { Button, DiagnoseTable, Modal } from "../../components/index";
 
 import { FaTrash } from "react-icons/fa";
 
 const SettingGeneral = () => {
-  // TODO
-  // Finish this use case
-  const pageTitle = "Quy định chung";
+  // const pageTitle = "Quy định chung";
   return (
     <>
-      <div className="medicalReportCreate__selection">
-        <div className="medicalReportCreate__selection-form">
+      <div className="settingGeneral__selection">
+        <div className="settingGeneral__selection-form">
           <form>
-            <label for="calender">
-              <p>Chọn ngày khám</p>
-              <input type="date" id="calender" name="calender" />
+            <label for="patient-max">
+              <p>Số bệnh nhân mỗi ngày</p>
+              <input type="number" id="patient-max" name="patient-max" />
             </label>
 
-            <label for="userID">
-              <p>ID bệnh nhân</p>
-              <input type="text" id="userID" name="userID" />
-            </label>
-
-            <label for="symptom">
-              <p>Triệu chứng</p>
-              <input type="text" id="symptom" name="symptom" />
-            </label>
-
-            <label for="diagnose">
-              <p>Bệnh</p>
-              <input type="text" id="diagnose" name="diagnose" />
+            <label for="appointment-fee">
+              <p>Tiền khám</p>
+              <input
+                type="number"
+                id="appointment-fee"
+                name="appointment-fee"
+              />
             </label>
           </form>
         </div>
@@ -47,29 +40,18 @@ const SettingGeneral = () => {
         </div>
       </div>
 
-      {/* TODO
+      {/* TODO Fix Table later
                   This is just a placeholder table, will fix after backend ready
               */}
 
-      <div className="medicalReport-table">
-        <DrugTable />
+      <div className="settingGeneral-table">
+        <DiagnoseTable isAdd="true" />
       </div>
 
       <div className="selection-confirm">
-        <Link to="/medicalReportView">
-          <Button
-            label="Hủy bỏ"
-            color="var(--color-whiteText)"
-            bgColor="var(--color-button-red)"
-          />
-        </Link>
-
-        <Link to="/medicalReportCreate">
-          <Button
-            label="Xác nhận"
-            color="var(--color-whiteText)"
-            bgColor="var(--color-button-green)"
-          />
+        <Link to="/settingGeneral">
+          <Modal color="green" label="Xác nhận" content="Cập nhập thành công" />
+          {/* <button className={`${style.button} ${style.green}`}>Xác nhận</button> */}
         </Link>
       </div>
     </>

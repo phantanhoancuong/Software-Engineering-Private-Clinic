@@ -1,5 +1,5 @@
 import React from "react";
-import MOCK_DATA_DRUG from "../../../assets/MOCK_DATA_DRUG.json";
+import MOCK_DATA_DRUG_USAGE from "../../../assets/MOCK_DATA_DRUG_USAGE.json";
 
 import "../table.css";
 import { FaPlus } from "react-icons/fa";
@@ -14,19 +14,14 @@ import { FaPlus } from "react-icons/fa";
 // TODO Fix Table later to pull from database
 // This is just a mockup, need change to pull from database when backend is ready
 
-function DrugTable(props) {
-  const DrugData = MOCK_DATA_DRUG.map((curDrug) => {
-    const { id, drugID, drug_name, unit, price, usage, dose } = curDrug;
+function DrugUsageTable(props) {
+  const DrugUsageData = MOCK_DATA_DRUG_USAGE.map((curDrug) => {
+    const { id, usage } = curDrug;
 
     return (
       <tr key={id}>
         <td>{id}</td>
-        <td>{drugID}</td>
-        <td>{drug_name}</td>
-        {props.dose != undefined && <td>{dose}</td>}
-        {props.unit != undefined && <td>{unit}</td>}
-        {props.usage != undefined && <td>{usage}</td>}
-        {props.price != undefined && <td>{price}</td>}
+        <td>{usage}</td>
         {props.action != undefined && (
           <td>
             <button
@@ -54,16 +49,11 @@ function DrugTable(props) {
         <thead>
           <tr>
             <th>STT</th>
-            <th>ID Thuốc</th>
-            <th>Tên thuốc</th>
-            {props.dose != undefined && <th>Số lượng</th>}
-            {props.unit != undefined && <th>Đơn vị</th>}
-            {props.usage != undefined && <th>Cách dùng</th>}
-            {props.price != undefined && <th>Giá tiền</th>}
+            <th>Cách dùng</th>
             {props.action != undefined && <th>Thao tác</th>}
           </tr>
         </thead>
-        <tbody>{DrugData}</tbody>
+        <tbody>{DrugUsageData}</tbody>
       </table>
       {/* If isAdd is passed to props -> Add option available  */}
       {props.isAdd != undefined && (
@@ -71,9 +61,8 @@ function DrugTable(props) {
           <FaPlus />
         </button>
       )}
-      {/* TODO Add sum value of column */}
     </div>
   );
 }
 
-export default DrugTable;
+export default DrugUsageTable;
