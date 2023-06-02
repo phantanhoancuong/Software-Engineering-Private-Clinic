@@ -6,7 +6,6 @@ import { useNavigate } from "react-router-dom";
 
 import "./Sign In.css";
 import "./Modal.css"
-import validation from "./Sign In Validation";
 
 function SignIn() {
   const navigate = useNavigate();
