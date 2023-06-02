@@ -7,7 +7,7 @@ import { HeaderLogo } from "../index";
 const Header = () => {
   return (
     <div className="header">
-      <HeaderLogo />
+      <HeaderLogo link="/homepage"/>
       <div className="header_links">
         <div className="header_title">
           <Link to="/homepage" className="header_button">

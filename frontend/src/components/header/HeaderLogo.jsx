@@ -4,9 +4,9 @@ import "./headerLogo.css";
 
 import {ReactComponent as Logo} from "../../assets/Logo.svg";
 
-const HeaderLogo = () => {
+const HeaderLogo = (props) => {
   return (
-    <Link to= "/intro" className="header-logo">
+    <Link to= {props.link} className="header-logo">
       <div className="logo">
         <Logo />
       </div>

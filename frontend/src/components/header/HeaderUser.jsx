@@ -9,7 +9,7 @@ import { dropdownData } from "../dropdown/dropdownData";
 function HeaderUser({ title, user = "Manager" }) {
   return (
     <div className="header">
-      <HeaderLogo />
+      <HeaderLogo link="intro"/>
       <div className="header_links">
         <div className="header_title">
           <p>{title}</p>
