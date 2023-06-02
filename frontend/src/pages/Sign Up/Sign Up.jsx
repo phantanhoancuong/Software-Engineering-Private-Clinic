@@ -1,6 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 // import logo from "../../assets/Logo - Color No BG.svg";
+import axios from 'axios'
+import { useNavigate } from "react-router-dom";
 
 import "../page.css";
 import style from "../../components/button/button.module.css";
@@ -60,7 +62,33 @@ import style from "../../components/button/button.module.css";
 //   );
 // };
 
-const SignUp = () => {
+function SignUp() {
+  const navigate = useNavigate();
+
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [repassword, setRepassword] = useState('');
+
+  const [modal, setModal] = useState(false)
+
+  const toggleModal = () => {
+    setModal(!modal)
+  }
+
+  function handleSubmit(event) {
+    event.preventDefault();
+    axios.post('http://localhost:8800/signup', { name, email, password })
+      .then(res => {
+        if (res.data === 'success') {
+          navigate('/signIn');
+        }
+        else if (res.data === 'existed') {
+          toggleModal();
+        }
+      })
+      .catch(err => console.log(err));
+  }
   return (
     <div className="page-container">
       <div className="page_form-container">
@@ -75,6 +103,7 @@ const SignUp = () => {
                 id="username"
                 name="username"
                 placeholder="username"
+                onChange={e => setName(e.target.value)} 
               />
             </label>
 
@@ -85,6 +114,7 @@ const SignUp = () => {
                 id="password"
                 name="password"
                 placeholder="123456"
+                onChange={e => setPassword(e.target.value)}
               />
             </label>
 
@@ -95,6 +125,7 @@ const SignUp = () => {
                 id="password"
                 name="password"
                 placeholder="123456"
+                onChange={e => setRepassword(e.target.value)}
               />
             </label>
 
@@ -105,6 +136,7 @@ const SignUp = () => {
                 id="email"
                 name="email"
                 placeholder="username@gmail.com"
+                onChange={e => setEmail(e.target.value)}
               />
             </label>
           </form>
@@ -123,6 +155,16 @@ const SignUp = () => {
           </Link>
         </div>
       </div>
+
+      {modal && (
+        <div className="modal">
+        <div className="overlay" onClick={toggleModal}></div>
+        <div className="modal-content">
+          <h2>Tài khoản đã tồn tại, nhấp chuột để nhập lại</h2>
+        </div>
+      </div>
+      )}
+      
     </div>
   );
 };
