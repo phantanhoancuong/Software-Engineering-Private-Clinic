@@ -9,7 +9,7 @@ import { FaTimes } from "react-icons/fa";
 const ModalContent = ({ setIsOpen, props }) => {
   return ReactDom.createPortal(
     <>
-      <div className="darkBG" />
+      <div className="darkBG" onClick={() => setIsOpen(false)}/>
       <div className="center">
         <div className="modal">
           <div className="modal-header">
@@ -25,8 +25,8 @@ const ModalContent = ({ setIsOpen, props }) => {
           <div className="modal-content">
             <div className="modal-content_container">{props.content}</div>
           </div>
-
           <div className="modal-actions">
+            <div className="divider" style={{ margin: "0" }} />
             <div className="modal-actions_container">
               <button
                 className={`${style.button}`}

@@ -35,7 +35,7 @@ const ReceiptCreate = () => {
         <p>Danh sách thuốc</p>
         <DrugTable unit="true" dose="true" price="true" />
         <p>Thiếu tổng tiền thuốc (Nhớ thêm vào)</p>
-        <Modal label="Receipt Detail" content=<receiptDetail /> />
+        <Modal label="Receipt Detail" header="This is header" content=<ReceiptDetail /> />
       </div>
 
       <div className="page_action">
