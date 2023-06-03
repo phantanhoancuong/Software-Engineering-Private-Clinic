@@ -1,5 +1,6 @@
 import React from "react";
-import "./drugReportView.css";
+import "../multi_input_page.css";
+import style from "../../components/button/button.module.css";
 
 import { Button, DrugUseTable, TotalDrugUse } from "../../components/index";
 
@@ -7,32 +8,38 @@ const DrugReportView = () => {
   const pageTitle = "Báo cáo sử dụng thuốc";
   return (
     <>
-      <div className="receiptView__selection">
-        <div className="receiptView__selection-date">
+      <div className="page-container">
+        <div className="page_form">
           <form>
-            <label for="calender">
+            <label>
               <p>Tháng báo cáo</p>
-              <input type="month" id="calender" name="calender" />
+              <input type="month"/>
+              <button className={`${style.button} ${style.yellow}`}>
+                Xem báo cáo
+              </button>
             </label>
           </form>
         </div>
       </div>
 
-      <div className="receipt-table">
+      <div className="page-table">
         <DrugUseTable unit="true" quantity="true" use_time="true" />
       </div>
 
-      <div className="receipt-table">
+      <div className="table-space"></div>
+
+      <div className="page-table">
         <TotalDrugUse drug_name="true" unit="true" quantity="true" use_time="true" />
       </div>
 
-      <Button
-        label="Lập báo cáo"
-        color="var(--color-whiteText)"
-        bgColor="var(--color-button-yellow)"
-      />
+      <div className="selection-confirm">
+        <button className={`${style.button} ${style.green}`}>
+          Xác nhận
+        </button>
+      </div>
     </>
   );
 };
 
 export default DrugReportView;
+
