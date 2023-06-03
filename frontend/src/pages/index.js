@@ -18,6 +18,7 @@ export { default as ReceiptCreate } from "./receipt/ReceiptCreate";
 export { default as ReceiptDetail } from "./receipt/receiptDetail";
 
 export { default as PatientView } from "./patient/PatientView";
+export { default as PatientCreate } from "./patient/PatientCreate";
 
 export { default as SettingGeneral } from "./Setting/SettingGeneral";
 export { default as SettingDrug } from "./Setting/SettingDrug";

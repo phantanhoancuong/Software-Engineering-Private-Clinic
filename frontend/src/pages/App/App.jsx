@@ -19,6 +19,7 @@ import {
   ReceiptCreate,
   receiptDetail,
   PatientView,
+  PatientCreate,
   UserEdit,
   PasswordReset,
 } from "../index";
@@ -58,6 +59,7 @@ const App = () => {
             <Route path="/receiptDetail" element={<receiptDetail />} />
 
             <Route path="/patientView" element={<PatientView />} />
+            <Route path="/patientCreate" element={<PatientCreate />} />
 
             <Route path="/revenueReportView" element={<RevenueReportView />} />
             <Route path="/drugReportView" element={<DrugReportView />} />

@@ -61,10 +61,10 @@ export const navbarData = [
                 "title": "Xem danh sách",
                 "path": "/patientView"
             },
-            // {
-            //     "title": "Thêm bệnh nhân",
-            //     "path": "/patientCreate"
-            // }
+            {
+                 "title": "Thêm bệnh nhân",
+                 "path": "/patientCreate"
+            }
         ]
     },
     {

@@ -6,7 +6,7 @@ import { PatientViewTable } from "../../components/index";
 
 import { FaTrash } from "react-icons/fa";
 
-const AppointmentView = () => {
+const MedicalReportView = () => {
   // const pageTitle = "Danh sách phiếu khám bệnh";
   return (
     <>
@@ -35,4 +35,4 @@ const AppointmentView = () => {
   );
 };
 
-export default AppointmentView;
+export default MedicalReportView;

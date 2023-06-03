@@ -1,24 +1,19 @@
 import React from "react";
 import "../page.css";
 import style from "../../components/button/button.module.css";
-
-import { UserTable } from "../../components/index";
 import { FaTrash } from "react-icons/fa";
+import { UserTable } from "../../components/index";
 
-
-
-const AppointmentView = () => {
-  // const pageTitle = "Danh sách khám bệnh";
+const patientView = () => {
   return (
     <>
       <div className="page-container">
         <div className="page_form">
           <form>
-          <label>
-            <p>ID bệnh nhân</p>
-            <input type="text" style={{ width: "300px" }}/>
-          </label>
-
+            <label>
+              <p>ID bệnh nhân</p>
+              <input type="text" style={{ width: "300px" }}/>
+            </label>
             <label>
               <p>Chọn ngày khám</p>
               <input type="text" style={{ width: "300px" }}/>
@@ -27,7 +22,7 @@ const AppointmentView = () => {
               </button>
               <button className={`${style.button} ${style.red}`}>
                 <FaTrash className={style.icon} />
-                  Xóa các lựa chọn
+                Xóa các lựa chọn
               </button>
             </label>
           </form>
@@ -40,4 +35,4 @@ const AppointmentView = () => {
   );
 };
 
-export default AppointmentView;
+export default patientView;

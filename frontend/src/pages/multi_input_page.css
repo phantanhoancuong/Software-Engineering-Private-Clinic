@@ -99,7 +99,7 @@ label p {
   width: var(--label-width-size);
 }
 
-input {
+input, select {
   padding: 1rem;
   width: 300px;
   margin-left: 1rem;

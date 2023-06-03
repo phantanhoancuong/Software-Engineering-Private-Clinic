@@ -1,8 +1,6 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import "../multi_input_page.css";
 import style from "../../components/button/button.module.css";
-import { DrugTable } from "../../components/index";
 
 const AppointmentCreate = () => {
   const pageTitle = "Đặt lịch khám";
@@ -11,18 +9,17 @@ const AppointmentCreate = () => {
       <div className="page-container">
         <div className="page_form">
           <form>
-
             <div className="form-row">
               <label>
                 <p>Ngày khám</p>
-                <input type="date" style={{ width: "300px" }}/>
+                <input type="date" style={{ width: "300px" }} />
               </label>
             </div>
 
             <div className="form-row">
               <label>
                 <p>Giờ khám</p>
-                <input type="time" style={{ width: "300px" }}/>
+                <input type="time" style={{ width: "300px" }} />
               </label>
             </div>
 
@@ -45,12 +42,13 @@ const AppointmentCreate = () => {
                 />
               </label>
             </div>
-            
           </form>
         </div>
       </div>
       <div className="selection-confirm">
-        <button className={`${style.button} ${style.yellow}`}>Đặt lịch khám</button>
+        <button className={`${style.button} ${style.yellow}`}>
+          Đặt lịch khám
+        </button>
       </div>
     </>
   );
