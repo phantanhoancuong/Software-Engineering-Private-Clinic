@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import "./appointmentCreate.css";
 import style from "../../components/button/button.module.css";
 
@@ -9,36 +8,38 @@ const AppointmentCreate = () => {
     <>
       <div className="appointmentCreate__selection">
         <form>
-          <label for="calender">
+          <label htmlFor="calender">
             <p>Ngày khám</p>
-            <input type="date" id="calender" name="calender" />
+            <input type="date" id="calender" name="calender" style={{ width: "300px" }} />
           </label>
 
-          <label for="time">
+          <label htmlFor="time">
             <p>Giờ khám</p>
-            <input type="time" id="time" name="time" />
+            <input type="time" id="time" name="time" style={{ width: "300px" }} />
           </label>
 
-          <label for="userID">
+          <label htmlFor="userID">
             <p>ID bệnh nhân</p>
-            <input type="text" id="userID" name="userID" />
+            <input type="text" id="userID" name="userID" style={{ width: "300px" }} />
           </label>
 
-          <label for="description">
+          <label htmlFor="description">
             <p>Mô tả triệu chứng</p>
             <textarea
               type="text"
               id="description"
               name="description"
               rows={4}
+              style={{ width: "600px" }}
             />
           </label>
         </form>
       </div>
-
-      <Link to="/appointmentView">
-        <button className={`${style.button} ${style.green}`}>Xác nhận</button>
-      </Link>
+      <div style={{ display: "flex", justifyContent: "center", marginTop: "20px" }}>
+        <button className={`${style.button} ${style.green}`}>
+          Xác nhận
+        </button>
+      </div>
     </>
   );
 };
