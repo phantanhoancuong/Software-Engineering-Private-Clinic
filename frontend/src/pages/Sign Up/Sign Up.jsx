@@ -29,8 +29,8 @@ function SignUp() {
         //   alert('Mật khẩu không khớp!');
         // }
 
-        if (res.data === 'success') {
-          alert('Đăng ký thành công! Trở về giao diện đăng nhập!');
+        if (res.data[0] === 'B' && res.data[1] === 'N') {
+          alert(`Đăng ký thành công! ID của bạn là ${res.data}`);
           navigate('/signIn');
         }
 
