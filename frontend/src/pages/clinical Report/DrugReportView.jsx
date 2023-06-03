@@ -1,5 +1,5 @@
 import React from "react";
-import "../multi_input_page.css";
+import "../page.css";
 import style from "../../components/button/button.module.css";
 
 import { DrugUseTable, TotalDrugUse } from "../../components/index";

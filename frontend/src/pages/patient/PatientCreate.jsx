@@ -1,5 +1,5 @@
 import React from "react";
-import "../multi_input_page.css";
+import "../page.css";
 import style from "../../components/button/button.module.css";
 import { FaTrash } from "react-icons/fa";
 import { UserTable } from "../../components/index";
