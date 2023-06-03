@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "../page.css";
 import style from "../../components/button/button.module.css";
 import { FaTrash } from "react-icons/fa";
@@ -12,11 +13,11 @@ const patientView = () => {
           <form>
             <label>
               <p>ID bệnh nhân</p>
-              <input type="text" style={{ width: "300px" }}/>
+              <input type="text" style={{ width: "300px" }} />
             </label>
             <label>
               <p>Chọn ngày khám</p>
-              <input type="text" style={{ width: "300px" }}/>
+              <input type="text" style={{ width: "300px" }} />
               <button className={`${style.button} ${style.yellow}`}>
                 Xem bệnh nhân
               </button>
@@ -28,7 +29,15 @@ const patientView = () => {
           </form>
         </div>
         <div className="page_table">
-          <UserTable id="true" userID="true" full_name="true" gender="true" DoB="true" address="true" action="true" />
+          <UserTable
+            id="true"
+            userID="true"
+            full_name="true"
+            gender="true"
+            DoB="true"
+            address="true"
+            action="true"
+          />
         </div>
       </div>
     </>

@@ -2,6 +2,14 @@
   --label-width-size: 30%;
 }
 
+/* APP */
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  scroll-behavior: smooth;
+}
+
 /* PAGE */
 .page-container {
   display: flex;
@@ -137,20 +145,56 @@ textarea {
   margin-left: 3rem;
 }
 
-.page-homepage_text h2 {
+.page-intro_text h2 {
   text-transform: uppercase;
   font-size: 4rem;
   font-weight: 1000;
 }
 
-.page-homepage_text .page_action {
+.page-intro_text .page_action {
   display: flex;
   justify-content: flex-start;
 }
 
 .page-homepage_image {
-  /* position:absolute; */
   width: 441px;
   height: 446px;
   right: 0;
+}
+
+/* --DIVIDER-- */
+.divider {
+  height: 5px;
+  background-color: var(--color-main);
+  margin: 0.5rem 0;
+}
+
+/* -PAGE BILL */
+.page_bill {
+  width: 90%;
+  display: flex;
+  justify-content: flex-end;
+} 
+
+.page_bill > form{
+  width: 40%;
+}
+
+.page_bill > form label {
+  display: flex;
+  justify-content: space-between;
+}
+
+.page_bill > form p,
+.page_bill > form input {
+  margin: unset;
+}
+
+.page_bill > form input {
+  width: 50%;
+}
+
+/* INSTRUCTION */
+.instruction {
+  font-size: 1.5rem;
 }

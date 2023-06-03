@@ -87,11 +87,11 @@ function SignIn() {
             <p>Chưa có tài khoản? Đăng ký ngay.</p>
           </Link>
         </div>
-        {/* <div className="page_link">
+        <div className="page_link">
           <Link to="/forgetPassword">
             <p>Bạn quên mật khẩu?</p>
           </Link>
-        </div> */}
+        </div>
       </div>
     </div>
   );

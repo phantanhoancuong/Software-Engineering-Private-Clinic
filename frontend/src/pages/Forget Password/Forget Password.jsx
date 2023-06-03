@@ -2,7 +2,6 @@ import React from "react";
 import { Link } from "react-router-dom";
 import logo from "../../assets/Logo - Color No BG.svg";
 
-// import "./Forget Password.css";
 import "../page.css";
 import style from "../../components/button/button.module.css";
 
@@ -33,7 +32,11 @@ const ForgetPassword = () => {
           </Link>
         </div>
 
-        <p className="text-nav">Chưa nhận được email? Thử lại.</p>
+        <div className="page_link">
+          <Link to="/forgetPassword">
+            <p>Chưa nhận được email? Thử lại</p>
+          </Link>
+        </div>
       </div>
     </div>
   );

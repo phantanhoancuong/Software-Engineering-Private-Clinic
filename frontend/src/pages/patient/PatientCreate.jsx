@@ -1,8 +1,6 @@
 import React from "react";
 import "../page.css";
 import style from "../../components/button/button.module.css";
-import { FaTrash } from "react-icons/fa";
-import { UserTable } from "../../components/index";
 
 const PatientCreate = () => {
   return (
@@ -38,12 +36,10 @@ const PatientCreate = () => {
               <input type="text" style={{ width: "600px" }} readOnly />
             </label>
           </form>
-          <div className="selection-confirm">
-            <div>
-              <button className={`${style.button} ${style.green}`}>
-                Thêm bệnh nhân
-              </button>
-            </div>
+          <div className="page_action">
+            <button className={`${style.button} ${style.green}`}>
+              Xác nhận
+            </button>
           </div>
         </div>
       </div>

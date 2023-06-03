@@ -17,14 +17,14 @@ const SettingDrug = () => {
   // const pageTitle = "Quy định chung";
   return (
     <div className="page-container">
-        <div className="page_aciton action-delete" onClick={() => alert("Delete")}>
-          <Button
-            label="Xóa các lựa chọn"
-            icon=<FaTrash />
-            color="var(--color-white)"
-            bgColor="var(--color-button-red)"
-          />
-        </div>
+        <div className="page_action action-delete" onClick={() => alert("Delete")}>
+        <Button
+          label="Xóa các lựa chọn"
+          icon=<FaTrash />
+          color="var(--color-white)"
+          bgColor="var(--color-button-red)"
+        />
+      </div>
 
       {/* TODO Fix Table later
                   This is just a placeholder table, will fix after backend ready
@@ -39,6 +39,7 @@ const SettingDrug = () => {
           <p>Bảng cách dùng</p>
           <DrugUsageTable isAdd="true" action="true" />
         </div>
+        
         <div className="table-label">
           <p>Bảng thuốc</p>
           <DrugTable

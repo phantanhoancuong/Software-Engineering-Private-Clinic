@@ -11,7 +11,7 @@ const Homepage = () => {
       <div className="page-container">
         <div className="page-homepage_intro">
           <div className="page-homepage_left">
-            <div className="page-homepage_text">
+            <div className="page-intro_text">
               <h2>
                 Phòng khám tư nhân <br />
                 <span style={{ color: "#3FC1C9" }}>4CARE</span>

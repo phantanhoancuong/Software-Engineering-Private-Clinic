@@ -45,9 +45,9 @@ const AppointmentCreate = () => {
           </form>
         </div>
       </div>
-      <div className="selection-confirm">
-        <button className={`${style.button} ${style.yellow}`}>
-          Đặt lịch khám
+      <div className="page_action">
+        <button className={`${style.button} ${style.green}`}>
+          Xác nhận
         </button>
       </div>
     </>

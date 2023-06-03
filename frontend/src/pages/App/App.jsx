@@ -24,7 +24,7 @@ import {
   PasswordReset,
 } from "../index";
 
-import "./App.css";
+import "../page.css";
 import { Layout, LayoutUser } from "../../components/index";
 
 const App = () => {
@@ -55,7 +55,7 @@ const App = () => {
 
             <Route path="/receiptView" element={<ReceiptView />} />
             <Route path="/receiptCreate" element={<ReceiptCreate />} />
-            <Route path="/receiptDetail" element={<receiptDetail />} />
+            <Route path="/receiptDetail" element={<ReceiptDetail />} />
 
             <Route path="/patientView" element={<PatientView />} />
             <Route path="/patientCreate" element={<PatientCreate />} />
