@@ -79,6 +79,7 @@ textarea[id="description"]{
   background-color: var(--color-white);
   border-color: var(--color-border);
   border-radius: 1rem;
+  width: 300px;
 }
 
 label[for="description"] {

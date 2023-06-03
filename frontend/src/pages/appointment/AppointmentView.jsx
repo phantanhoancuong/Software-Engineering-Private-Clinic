@@ -13,9 +13,9 @@ const AppointmentView = () => {
           <form>
             <label for="calender">
               Chọn ngày khám
-              <input type="date" id="calender" name="calender" />
+              <input type="date" id="calender" name="calender" style={{ width: "300px" }}/>
               <button className={`${style.button} ${style.yellow}`}>
-                Xem lịch khám
+               Xem lịch khám
               </button>
             </label>
 

@@ -8,28 +8,29 @@ const AppointmentCreate = () => {
     <>
       <div className="appointmentCreate__selection">
         <form>
-          <label for="calender">
+          <label htmlFor="calender">
             <p>Ngày khám</p>
-            <input type="date" id="calender" name="calender" />
+            <input type="date" id="calender" name="calender" style={{ width: "300px" }} />
           </label>
 
-          <label for="time">
+          <label htmlFor="time">
             <p>Giờ khám</p>
-            <input type="time" id="time" name="time" />
+            <input type="time" id="time" name="time" style={{ width: "300px" }} />
           </label>
 
-          <label for="userID">
+          <label htmlFor="userID">
             <p>ID bệnh nhân</p>
-            <input type="text" id="userID" name="userID" />
+            <input type="text" id="userID" name="userID" style={{ width: "300px" }} />
           </label>
 
-          <label for="description">
+          <label htmlFor="description">
             <p>Mô tả triệu chứng</p>
             <textarea
               type="text"
               id="description"
               name="description"
               rows={4}
+              style={{ width: "600px" }}
             />
           </label>
         </form>
