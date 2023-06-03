@@ -14,9 +14,9 @@ const db = mysql.createConnection({
 })
 
 app.post("/signin", (req, res) => {
-    const sql = "SELECT * from `user` WHERE `name` = ? AND `password` = ?";
+    const sql = "SELECT * from `user` WHERE `email` = ? AND `password` = ?";
     const value = [
-        req.body.name,
+        req.body.email,
         req.body.password
     ]
 

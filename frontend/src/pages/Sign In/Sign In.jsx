@@ -12,17 +12,17 @@ import style from "../../components/button/button.module.css";
 function SignIn() {
   const navigate = useNavigate();
 
-  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   function handleSubmit(event) {
     event.preventDefault();
-    if(name === "" || password === "") {
+    if(email === "" || password === "") {
       alert("Email và password không được trống")
     }
     else {
       axios
-      .post("http://localhost:8800/signin", { name, password })
+      .post("http://localhost:8800/signin", { email, password })
       .then((res) => {
         if (res.data === "success") {
           navigate("/");
@@ -40,12 +40,12 @@ function SignIn() {
         <div className="page_form">
             <form>
           <label for="username">
-            <p>Tên tài khoản</p>
+            <p>Email tài khoản</p>
             <input
               type="text"
               id="username"
               name="username"
-              onChange={(e) => setName(e.target.value)}
+              onChange={(e) => setEmail(e.target.value)}
             />
           </label>
 
