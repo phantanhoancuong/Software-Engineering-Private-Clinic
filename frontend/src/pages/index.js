@@ -15,7 +15,7 @@ export { default as MedicalReportCreate } from "./medical Report/MedicalReportCr
 
 export { default as ReceiptView } from "./receipt/ReceiptView";
 export { default as ReceiptCreate } from "./receipt/ReceiptCreate";
-export { default as ReceiptDetail } from "./receipt/ReceiptDetail";
+export { default as ReceiptDetail } from "./receipt/receiptDetail";
 
 export { default as PatientView } from "./patient/PatientView";
 export { default as PatientCreate } from "./patient/PatientCreate";
