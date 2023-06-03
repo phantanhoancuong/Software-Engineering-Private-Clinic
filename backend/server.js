@@ -27,11 +27,21 @@ db.connect(function (err) {
         console.log('Error connecting to mySQL!');
         return;
     }
-    db.query("DROP TABLE IF EXISTS user;", (err, data) => {
-        if (err) console.log(err);
-        console.log("Table user dropped!");
-    });
+    // db.query("DROP TABLE IF EXISTS user;", (err, data) => {
+    //     if (err) console.log(err);
+    //     console.log("Table user dropped!");
+    // });
     db.query(`CREATE TABLE IF NOT EXISTS user (
+                ID VARCHAR(10) NOT NULL,
+                name VARCHAR(50),
+                email VARCHAR(100),
+                password VARCHAR(100),
+                PRIMARY KEY (email) 
+            );`, (err, data) => {
+        if (err) console.log(err);
+        console.log("Table user created!");
+    });
+    db.query(`CREATE TABLE IF NOT EXISTS patient (
                 ID VARCHAR(10) NOT NULL,
                 name VARCHAR(50),
                 email VARCHAR(100),
@@ -42,12 +52,13 @@ db.connect(function (err) {
                 PRIMARY KEY (email) 
             );`, (err, data) => {
         if (err) console.log(err);
-        console.log("Table user created!");
+        console.log("Table patient created!");
     });
-    db.query(`INSERT INTO user (ID, name, email, password, dob, phone, addr) VALUES ("BN_123456", "a", "a", "a", null, null, null);`, (err, data) => {
-        if (err) console.log(err);
-        console.log("User [ID: BN_123456, name: a, email: a, password: a] created!");
-    });
+
+    // db.query(`INSERT INTO user (ID, name, email, password, dob, phone, addr) VALUES ("BN_123456", "a", "a", "a", null, null, null);`, (err, data) => {
+    //     if (err) console.log(err);
+    //     console.log("User [ID: BN_123456, name: a, email: a, password: a] created!");
+    // });
     console.log('Connection established');
 });
 
@@ -68,7 +79,7 @@ app.post("/signin", (req, res) => {
     })
 })
 
-function generate(n) {
+function generateIDpatient(n) {
     var add = 1, max = 12 - add;   // 12 is the min safe number Math.random() can generate without it starting to pad the end with zeros.   
     if ( n > max ) { return generate(max) + generate(n - max); }
     
@@ -79,9 +90,20 @@ function generate(n) {
     return (" BN_" + number).substring(add); 
 }
 
+function generateID(n) {
+    var add = 1, max = 12 - add;   // 12 is the min safe number Math.random() can generate without it starting to pad the end with zeros.   
+    if ( n > max ) { return generate(max) + generate(n - max); }
+    
+    max = Math.pow(10, n+add);
+    var min = max/10; // Math.pow(10, n) basically
+    var number = Math.floor( Math.random() * (max - min + 1) ) + min;
+    
+    return (" MD_" + number).substring(add); 
+}
+
 app.post("/signup", (req, res) => {
     const sql = "INSERT INTO `user` (`name`, `email`, `password`, `ID`) VALUES (?)";
-    var ID = `${generate(5)}`;
+    var ID = `${generateID(5)}`;
     const checkID = "SELECT * FROM `user` WHERE `ID` = ?";
     var check = true;
     var tempData = '';

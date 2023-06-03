@@ -32,23 +32,36 @@ label {
   display: flex;
   align-items: center;
   margin-right: 1rem;
+  color: var(--color-text);
+  font-family: var(--font-family);
+  margin: 0.5rem;
 }
 
 label p {
+  font-size: 1.5rem;
+  width: var(--label-width-size);
   margin-right: 0.5rem;
   white-space: nowrap;
 }
 
 input,
-textarea {
+textarea,
+select {
   padding: 1rem;
-  width: auto;
+  width: 300px;
   margin: auto;
   margin-left: 1rem;
   font-family: inherit;
+  font-size: 1.5rem;
+  color: var(--color-text);
   background-color: var(--color-white);
   border-color: var(--color-border);
   border-radius: 1rem;
+  width: 300px;
+}
+
+textarea {
+  width: calc(90% - var(--label-width-size));
 }
 
 .page_form-container {

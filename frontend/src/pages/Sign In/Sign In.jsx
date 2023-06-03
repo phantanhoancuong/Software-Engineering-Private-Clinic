@@ -24,7 +24,7 @@ function SignIn() {
       .post("http://localhost:8800/signin", { email, password })
       .then((res) => {
         if (res.data === "success") {
-          alert('Đăng nhập thành công!');
+          // alert('Đăng nhập thành công!');
           navigate("/");
         }
         // else if (res.data === "empty username"){
@@ -34,7 +34,7 @@ function SignIn() {
         //   alert('Mật khẩu không được để trống!');
         // }
 
-        else alert(res.data);;;
+        else alert(res.data);
       })
       .catch((err) => console.log(err));
   }
@@ -87,11 +87,11 @@ function SignIn() {
             <p>Chưa có tài khoản? Đăng ký ngay.</p>
           </Link>
         </div>
-        <div className="page_link">
+        {/* <div className="page_link">
           <Link to="/forgetPassword">
             <p>Bạn quên mật khẩu?</p>
           </Link>
-        </div>
+        </div> */}
       </div>
     </div>
   );
