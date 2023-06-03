@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import "../multi_input_page.css";
+import "../page.css";
 import style from "../../components/button/button.module.css";
 import { DrugTable } from "../../components/index";
 
