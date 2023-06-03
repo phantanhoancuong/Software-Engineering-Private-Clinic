@@ -45,6 +45,7 @@ app.post("/signup", (req, res) => {
         req.body.email,
         req.body.password
     ];
+
     console.log(values);
     //if (!req.body.name.trim())
     //    return res.json('Tên đăng nhập trống!');

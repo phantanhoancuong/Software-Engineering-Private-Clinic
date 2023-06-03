@@ -28,6 +28,7 @@ function SignUp() {
         // if (res.data === 'unmatch') {
         //   alert('Mật khẩu không khớp!');
         // }
+
         if (res.data === 'success') {
           alert('Đăng ký thành công! Trở về giao diện đăng nhập!');
           navigate('/signIn');
