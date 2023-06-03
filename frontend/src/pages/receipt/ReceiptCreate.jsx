@@ -4,7 +4,7 @@ import "./receiptCreate.css";
 import style from "../../components/button/button.module.css";
 
 import { DrugTable, Modal } from "../../components/index";
-import receiptDetail from "./ReceiptDetail";
+import ReceiptDetail from "./ReceiptDetail";
 
 // TODO Auto create receipt based on Medical Report
 // Consider auto create receipt based on medical report so user don't have to manually add
