@@ -3,43 +3,35 @@ import MOCK_DATA_USER_PATIENT_VIEW from "../../../assets/MOCK_DATA_USER_PATIENT-
 
 import "../table.css";
 
-// Reference:
-// https://www.geeksforgeeks.org/how-to-parse-json-data-into-react-table-component/
-// https://github.com/thapatechnical/react_table/blob/master/src/App.jsx
-
-// MOCK_DATA from:
-// https://www.mockaroo.com/
-
-// TODO Fix Table later to pull from database
-// This is just a mockup, need change to pull from database when backend is ready
-
-function userTable(props) {
+function PatientViewTable(props) {
   const UserData = MOCK_DATA_USER_PATIENT_VIEW.map((curUser) => {
     const { id, userID, full_name, date, diagnose, symptom } = curUser;
 
     return (
       <tr key={id}>
-        <td>{id}</td>
-        <td>{userID}</td>
-        <td>{full_name}</td>
-        <td>{date}</td>
-        <td>{diagnose}</td>
-        <td>{symptom}</td>
-        <td>
-          <button
-            style={{
-              all: "unset",
-              fontSize: "1rem",
-              fontWeight: "500",
-              color: "var(--color-whiteText)",
-              backgroundColor: "var(--color-button-yellow)",
-              padding: "0.5rem",
-              borderRadius: "0.5rem",
-            }}
-          >
-            Chi tiết
-          </button>
-        </td>
+        {props.id && <td>{id}</td>}
+        {props.userID && <td>{userID}</td>}
+        {props.full_name && <td>{full_name}</td>}
+        {props.date && <td>{date}</td>}
+        {props.diagnose && <td>{diagnose}</td>}
+        {props.symptom && <td>{symptom}</td>}
+        {props.action && (
+          <td>
+            <button
+              style={{
+                all: "unset",
+                fontSize: "1rem",
+                fontWeight: "500",
+                color: "var(--color-whiteText)",
+                backgroundColor: "var(--color-button-yellow)",
+                padding: "0.5rem",
+                borderRadius: "0.5rem",
+              }}
+            >
+              Chi tiết
+            </button>
+          </td>
+        )}
       </tr>
     );
   });
@@ -49,13 +41,13 @@ function userTable(props) {
       <table>
         <thead>
           <tr>
-            <th>STT</th>
-            <th>ID Bệnh nhân</th>
-            <th>Họ tên</th>
-            <th>Ngày khám</th>
-            <th>Loại bệnh</th>
-            <th>Triệu chứng</th>
-            <th>Thao tác</th>
+            {props.id && <th>STT</th>}
+            {props.userID && <th>ID Bệnh nhân</th>}
+            {props.full_name && <th>Họ tên</th>}
+            {props.date && <th>Ngày khám</th>}
+            {props.diagnose && <th>Loại bệnh</th>}
+            {props.symptom && <th>Triệu chứng</th>}
+            {props.action && <th>Thao tác</th>}
           </tr>
         </thead>
         <tbody>{UserData}</tbody>
@@ -64,4 +56,4 @@ function userTable(props) {
   );
 }
 
-export default userTable;
+export default PatientViewTable;
