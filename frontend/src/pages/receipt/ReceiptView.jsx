@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import "./receiptView.css";
+import "../page.css";
 import style from "../../components/button/button.module.css";
 
 import { Button, UserTable } from "../../components/index";
@@ -8,11 +8,11 @@ import { Button, UserTable } from "../../components/index";
 import { FaTrash } from "react-icons/fa";
 
 const ReceiptView = () => {
-  const pageTitle = "Danh sách hóa đơn";
+  // const pageTitle = "Danh sách hóa đơn";
   return (
     <>
-      <div className="receiptView__selection">
-        <div className="receiptView__selection-date">
+      <div className="page-container">
+        <div className="page_form">
           <form>
             <label for="calender">
               <p>Chọn ngày khám</p>
@@ -26,7 +26,7 @@ const ReceiptView = () => {
           </form>
         </div>
 
-        <div className="selection__delete">
+        <div className="page_action action-delete" onClick={() => alert("Delete")}>
           <Button
             label="Xóa các lựa chọn"
             icon=<FaTrash />
@@ -34,21 +34,21 @@ const ReceiptView = () => {
             bgColor="var(--color-button-red)"
           />
         </div>
+
+        {/* TODO Fix Table later
+                      This is just a placeholder table, will fix after backend ready
+                    */}
+        <div className="page_table">
+          <UserTable gender="true" date="true" />
+        </div>
+        <div className="page_action">
+          <Link to="/receiptCreate">
+            <button className={`${style.button} ${style.yellow}`}>
+              Lập hóa đơn
+            </button>
+          </Link>
+        </div>
       </div>
-
-      {/* TODO Fix Table later
-                This is just a placeholder table, will fix after backend ready
-            */}
-
-      <div className="receipt-table">
-        <UserTable gender="true" date="true" />
-      </div>
-
-      <Link to="/receiptCreate">
-        <button className={`${style.button} ${style.yellow}`}>
-          Lập hóa đơn
-        </button>
-      </Link>
     </>
   );
 };

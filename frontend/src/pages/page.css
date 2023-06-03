@@ -52,8 +52,7 @@ textarea {
 }
 
 .page_form-container {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
@@ -92,10 +91,24 @@ textarea {
   justify-content: flex-end;
 }
 
+.table-label {
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+.table-label p {
+  margin-bottom: 0.5rem;
+}
+
 /* -PAGE ACTION- */
 .page_action {
   display: flex;
   justify-content: space-evenly;
+}
+
+.action-delete {
+  display: flex;
+  justify-content: flex-end;
 }
 
 /* -PAGE HOMEPAGE- */
