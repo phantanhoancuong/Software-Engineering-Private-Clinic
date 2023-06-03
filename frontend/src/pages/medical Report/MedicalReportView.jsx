@@ -14,10 +14,10 @@ const AppointmentView = () => {
         <div className="page_form">
           <form>
             <label for="calender">
-              Chọn ngày khám
+              <p>Chọn ngày khám</p>
               <input type="date" id="calender" name="calender" style={{ width: "300px" }}/>
               <button className={`${style.button} ${style.yellow}`}>
-               Xem lịch khám
+                Xem lịch khám
               </button>            
               
               <button className={`${style.button} ${style.red}`}>
@@ -25,16 +25,8 @@ const AppointmentView = () => {
                   Xóa các lựa chọn
               </button>
             </label>
-
           </form>
         </div>
-
-        <div className="page_table">
-          <div className="page_table-action">
-
-          </div>
-        </div>
-
         <div className="page_table">
           <PatientViewTable id="true" userID="true" full_name="true" symptom="true" diagnose="true"/>
         </div>

@@ -1,73 +1,51 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import "./medicalReportCreate.css";
+import "../multi_input_page.css";
 import style from "../../components/button/button.module.css";
 
-import { Button, DrugTable} from "../../components/index";
-
-import { FaTrash } from "react-icons/fa";
+import { DrugTable} from "../../components/index";
 
 const MedicalReportCreate = () => {
-  const pageTitle = "Lập phiếu khám bệnh";
+  // const pageTitle = "Lập phiếu khám bệnh";
   return (
     <>
-        <div className="medicalReportCreate__selection">
-          <div className="medicalReportCreate__selection-form">
+        <div className="page-container">
+          <div className="page_form">
             <form>
-              <label for="calender">
+              
+              <label>
                 <p>Chọn ngày khám</p>
-                <input type="date" id="calender" name="calender" />
+                <input type="date" style={{ width: "300px" }} />
               </label>
 
-              <label for="userID">
+              <label>
                 <p>ID bệnh nhân</p>
-                <input type="text" id="userID" name="userID" />
+                <input type="text" style={{ width: "300px" }} />
               </label>
 
               <label for="symptom">
                 <p>Triệu chứng</p>
-                <input type="text" id="symptom" name="symptom" />
+                <input type="text" style={{ width: "600px" }} />
               </label>
 
               <label for="diagnose">
                 <p>Bệnh</p>
-                <input type="text" id="diagnose" name="diagnose" />
+                <input type="text" id="diagnose" name="diagnose" style={{ width: "600px" }} />
               </label>
             </form>
           </div>
-          
-          {/* TODO Add option to create receipt along with View*/}
-
-          <div className="selection__delete">
-            <Button
-              label="Xóa các lựa chọn"
-              icon=<FaTrash />
-              color="var(--color-white)"
-              bgColor="var(--color-button-red)"
-            />
-          </div>
-        </div>
-
-        {/* TODO Fix Table later
-              This is just a placeholder table, will fix after backend ready
-            */}
-
-        <div className="medicalReport-table">
+        <div className="page_table">
           <DrugTable isAdd="true" unit="true" dose="true" usage="true" />
         </div>
 
         <div className="selection-confirm">
-          <div>
-            <Link to="/medicalReportView">
-              <button className={`${style.button} ${style.red}`}>Hủy bỏ</button>
-            </Link>
-          </div>
           <div>
             <Link to="/medicalReportCreate">
               <button className={`${style.button} ${style.green}`}>
                 Xác nhận
               </button>
             </Link>
+          </div>
           </div>
         </div>
     </>

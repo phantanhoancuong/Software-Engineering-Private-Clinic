@@ -79,7 +79,7 @@
     {
       "id": 8,
       "drugID": "TH_174",
-      "drug_name": "bisoprolol fumarate and hydrochlorothiazide",
+      "drug_name": "bisoprolol fumarate & hydrochlorothiazide",
       "unit": "Chai",
       "price": 469000,
       "usage": 2,
@@ -178,7 +178,7 @@
     {
       "id": 17,
       "drugID": "TH_585",
-      "drug_name": "Carbon Dioxide-Oxygen-Nitrogen Mixture",
+      "drug_name": "Carbon Dioxide-Oxygen-Nitrogen",
       "unit": "Chai",
       "price": 147000,
       "usage": 2,

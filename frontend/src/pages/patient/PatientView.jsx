@@ -1,56 +1,43 @@
 import React from "react";
-// import { Link } from "react-router-dom";
-import "./patientView.css";
-// import style from "../../components/button/button.module.css";
+import "../page.css";
+import style from "../../components/button/button.module.css";
 
-import { Button, PatientViewTable } from "../../components/index";
-
+import { UserTable } from "../../components/index";
 import { FaTrash } from "react-icons/fa";
 
-const ReceiptView = () => {
-  // const pageTitle = "Danh sách bệnh nhân";
+
+
+const AppointmentView = () => {
+  // const pageTitle = "Danh sách khám bệnh";
   return (
     <>
-      <div className="patientView__selection">
-        <div className="patientView__selection-date">
+      <div className="page-container">
+        <div className="page_form">
           <form>
-            {/* <label for="calender">
-              <p>Chọn ngày khám</p>
-              <input type="date" id="calender" name="calender" />
-            </label> */}
+          <label>
+            <p>ID bệnh nhân</p>
+            <input type="text" style={{ width: "300px" }}/>
+          </label>
 
-            <label for="userID">
-              <p>ID bệnh nhân</p>
-              <input type="text" id="userID" name="userID" />
+            <label>
+              <p>Chọn ngày khám</p>
+              <input type="text" style={{ width: "300px" }}/>
+              <button className={`${style.button} ${style.yellow}`}>
+                Xem bệnh nhân
+              </button>
+              <button className={`${style.button} ${style.red}`}>
+                <FaTrash className={style.icon} />
+                  Xóa các lựa chọn
+              </button>
             </label>
           </form>
         </div>
-
-        <div className="selection__delete">
-          <Button
-            label="Xóa các lựa chọn"
-            icon=<FaTrash />
-            color="var(--color-white)"
-            bgColor="var(--color-button-red)"
-          />
+        <div className="page_table">
+          <UserTable id="true" userID="true" full_name="true" gender="true" DoB="true" address="true" action="true" />
         </div>
       </div>
-
-      {/* TODO Fix Table later
-                This is just a placeholder table, will fix after backend ready
-            */}
-
-      <div className="patient-table">
-        <PatientViewTable />
-      </div>
-
-      {/* <Link to="/patientCreate">
-        <button className={`${style.button} ${style.yellow}`}>
-          Thêm bệnh nhân
-        </button>
-      </Link> */}
     </>
   );
 };
 
-export default ReceiptView;
+export default AppointmentView;
