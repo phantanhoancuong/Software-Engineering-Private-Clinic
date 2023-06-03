@@ -15,22 +15,29 @@ function SignIn() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
+  // use later in declare if user logged in or not in app.jsx
+  const [user, setUser] = useState(false);
+
   function handleSubmit(event) {
     event.preventDefault();
-    if(email === "" || password === "") {
-      alert("Email và password không được trống")
-    }
-    else {
-      axios
+    axios
       .post("http://localhost:8800/signin", { email, password })
       .then((res) => {
         if (res.data === "success") {
+          alert('Đăng nhập thành công!');
           navigate("/");
-        } else alert("Email hoặc Password sai, vui lòng nhập lại");
+        }
+        // else if (res.data === "empty username"){
+        //   alert('Tên đăng nhập không được để trống!');
+        // }
+        // else if (res.data === "empty password"){
+        //   alert('Mật khẩu không được để trống!');
+        // }
+        else alert(res.data);;;
       })
       .catch((err) => console.log(err));
-    }
   }
+
 
   return (
     <div className="page-container">
@@ -39,12 +46,13 @@ function SignIn() {
 
         <div className="page_form">
             <form>
-          <label for="username">
+          <label for="email">
             <p>Email tài khoản</p>
             <input
               type="text"
-              id="username"
-              name="username"
+              id="email"
+              name="email"
+              placeholder="Enter email"
               onChange={(e) => setEmail(e.target.value)}
             />
           </label>
@@ -55,6 +63,7 @@ function SignIn() {
               type="password"
               id="password"
               name="password"
+              placeholder="Enter password"
               onChange={(e) => setPassword(e.target.value)}
             />
           </label>
@@ -62,14 +71,14 @@ function SignIn() {
         </div>
 
         <div className="page_action">
-          {/* <Link to="/intro"> */}
+          <Link to="/intro">
             <button
               onClick={handleSubmit}
               className={`${style.button} ${style.yellow}`}
             >
               Đăng nhập
             </button>
-          {/* </Link> */}
+          </Link>
         </div>
 
         <div className="page_link">

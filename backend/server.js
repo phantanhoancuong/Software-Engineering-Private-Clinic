@@ -1,4 +1,4 @@
-const express = require('express');
+﻿const express = require('express');
 const mysql = require('mysql')
 const cors = require('cors')
 
@@ -13,39 +13,54 @@ const db = mysql.createConnection({
     database: 'clinic'
 })
 
+db.connect(function (err) {
+    if (err) {
+        console.log('Error connecting to mySQL!');
+        return;
+    }
+    console.log('Connection established');
+});
+
 app.post("/signin", (req, res) => {
     const sql = "SELECT * from `user` WHERE `email` = ? AND `password` = ?";
     const value = [
         req.body.email,
         req.body.password
     ]
-
+    if (!req.body.name.trim())
+        return res.json('Tên đăng nhập trống!');
+    if (!req.body.password.trim())
+        return res.json('Mật khẩu trống!');
     db.query(sql, value, (err, data) => {
         if (err) return res.json(err);
         if (data.length > 0) return res.json('success');
-        else res.json('fail');
+        else res.json('Sai tài khoản hoặc mật khẩu!');
     })
 })
 
 app.post("/signup", (req, res) => {
-    const sql = "INSERT INTO `user` (`name`, `email`, `password`) VALUES (?, ?, ?)";
-    const value = [
+    const sql = "INSERT INTO `user` (`name`, `email`, `password`) VALUES (?)";
+    const values = [
         req.body.name,
         req.body.email,
         req.body.password
-    ]
+    ];
+    console.log(values);
+    //if (!req.body.name.trim())
+    //    return res.json('Tên đăng nhập trống!');
+    //if (!req.body.password.trim())
+    //    return res.json('Mật khẩu trống!');
+    //if (!req.body.email.trim())
+    //    return res.json('Email đăng ký trống!');
 
-    const exist = "SELECT * from `user` WHERE `email` = ?";
+    if (req.body.password != req.body.repassword)
+        return res.json('Mật khẩu không khớp!');
 
-    db.query(exist, req.body.email, (err1, data1) => {
-        if (err1) return res.json(err1);
-        if (data1.length > 0) return res.json('existed');
-        else {
-            db.query(sql, value, (err, data2) => {
-                if (err) return res.json(err);
-                return res.json('success');
-            })
+    db.query(sql, [values], (err, data) => {
+        if (err) {
+            return res.json('Email này đã được đăng ký!');
         }
+        return res.json('success');
     })
 
 })

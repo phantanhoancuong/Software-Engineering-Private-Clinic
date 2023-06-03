@@ -23,16 +23,21 @@ function SignUp() {
       alert("Vui lòng điền đủ thông tin")
     }
     else {
-      axios.post('http://localhost:8800/signup', { name, email, password })
-        .then(res => {
-          if (res.data === 'success') {
-            navigate('/signIn');
-          }
-          else if (res.data === 'existed') {
-            alert("Tài khoản đã tồn tại, vui lòng nhập thông tin khác");
-          }
-        })
-        .catch(err => console.log(err));
+      axios.post('http://localhost:8800/signup', { name, email, password, repassword })
+      .then((res, err) => {
+        // if (res.data === 'unmatch') {
+        //   alert('Mật khẩu không khớp!');
+        // }
+        if (res.data === 'success') {
+          alert('Đăng ký thành công! Trở về giao diện đăng nhập!');
+          navigate('/signIn');
+        }
+
+        else {
+          alert(res.data);
+        }
+      })
+      .catch(err => console.log(err));
     }
 
   }
@@ -49,7 +54,7 @@ function SignUp() {
                 type="text"
                 id="username"
                 name="username"
-                placeholder="username"
+                placeholder="Enter a username"
                 onChange={e => setName(e.target.value)}
               />
             </label>
@@ -60,7 +65,7 @@ function SignUp() {
                 type="password"
                 id="password"
                 name="password"
-                placeholder="123456"
+                placeholder="Enter password"
                 onChange={e => setPassword(e.target.value)}
               />
             </label>
@@ -71,7 +76,7 @@ function SignUp() {
                 type="password"
                 id="password"
                 name="password"
-                placeholder="123456"
+                placeholder="Re-enter password"
                 onChange={e => setRepassword(e.target.value)}
               />
             </label>
@@ -82,20 +87,20 @@ function SignUp() {
                 type="email"
                 id="email"
                 name="email"
-                placeholder="username@gmail.com"
+                placeholder="Enter an email"
                 onChange={e => setEmail(e.target.value)}
               />
             </label>
           </form>
         </div>
         <div className="page_action">
-          {/* <Link to="/intro"> */}
-          <button
-            onClick={handleSubmit}
-            className={`${style.button} ${style.yellow}`}>
-            Đăng ký
-          </button>
-          {/* </Link> */}
+          <Link to="/intro">
+              <button
+                onClick={handleSubmit}
+                className={`${style.button} ${style.yellow}`}>
+                Đăng ký
+              </button>
+          </Link>
         </div>
 
         <div className="page_link">
