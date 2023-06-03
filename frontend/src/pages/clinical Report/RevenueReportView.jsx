@@ -1,5 +1,5 @@
 import React from "react";
-import "./revenueReportView.css";
+import "../multi_input_page.css";
 import style from "../../components/button/button.module.css";
 
 import { Button, RevenueTable, TotalRevenue } from "../../components/index";
