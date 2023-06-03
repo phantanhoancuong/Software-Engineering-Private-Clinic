@@ -17,7 +17,7 @@ import {
   RevenueReportView,
   DrugReportView,
   ReceiptCreate,
-  receiptDetail,
+  ReceiptDetail,
   PatientView,
   PatientCreate,
   UserEdit,
