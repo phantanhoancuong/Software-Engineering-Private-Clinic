@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-// import logo from "../../assets/Logo - Color No BG.svg";
+//import logo from "../../assets/Logo - Color No BG.svg";
 import axios from 'axios'
 import { useNavigate } from "react-router-dom";
 
@@ -8,59 +8,6 @@ import "../page.css";
 import style from "../../components/button/button.module.css";
 
 // import "./Sign Up.css";
-
-// const SignUp = () => {
-//   return (
-//     <div className="SignUp">
-//       <div className="signup-form-container">
-//         <nav className="logo">
-//             <Link to ='/'>
-//               <img src={logo} alt="Logo" />
-//             </Link>
-//           </nav>
-//         <div className = "page-name-container">
-//           <h2>ĐĂNG KÝ NGƯỜI DÙNG MỚI</h2>
-//         </div>
-
-//         <div className = "input-container">
-//           <label htmlFor="username">Tên Đăng Nhập </label>
-//         </div>
-
-//         <div className = "input-container">
-//           <input type="text" id="username" name="username" />
-//         </div>
-
-//         <div className = "input-container">
-//           <label htmlFor="email">Email Xác thực </label>
-//         </div>
-//         <div className = "input-container">
-//           <input type="email" id="email" name="email" />
-//         </div>
-
-//         <div className = "input-container">
-//           <label htmlFor="password">Mật khẩu </label>
-//         </div>
-//         <div className = "input-container">
-//           <input type="password" id="password" name="password" />
-//         </div>
-
-//         <div className = "input-container">
-//           <label htmlFor="repassword">Nhận lại mật khẩu </label>
-//         </div>
-//         <div className = "input-container">
-//           <input type="password" id="repassword" name="repassword" />
-//         </div>
-//         <button type="button">Đăng ký</button>
-
-//         <nav className ="text-nav">
-//           <Link to ='/signIn'>
-//             <p>Bạn đã có tài khoản? Đăng nhập ở đây.</p>
-//           </Link>
-//         </nav>
-//       </div>
-//     </div>
-//   );
-// };
 
 function SignUp() {
   const navigate = useNavigate();
@@ -70,24 +17,24 @@ function SignUp() {
   const [password, setPassword] = useState('');
   const [repassword, setRepassword] = useState('');
 
-  const [modal, setModal] = useState(false)
-
-  const toggleModal = () => {
-    setModal(!modal)
-  }
-
   function handleSubmit(event) {
     event.preventDefault();
-    axios.post('http://localhost:8800/signup', { name, email, password })
-      .then(res => {
-        if (res.data === 'success') {
-          navigate('/signIn');
-        }
-        else if (res.data === 'existed') {
-          toggleModal();
-        }
-      })
-      .catch(err => console.log(err));
+    if (name === "" || email === "" || password === "" || repassword === "") {
+      alert("Vui lòng điền đủ thông tin")
+    }
+    else {
+      axios.post('http://localhost:8800/signup', { name, email, password })
+        .then(res => {
+          if (res.data === 'success') {
+            navigate('/signIn');
+          }
+          else if (res.data === 'existed') {
+            alert("Tài khoản đã tồn tại, vui lòng nhập thông tin khác");
+          }
+        })
+        .catch(err => console.log(err));
+    }
+
   }
   return (
     <div className="page-container">
@@ -103,7 +50,7 @@ function SignUp() {
                 id="username"
                 name="username"
                 placeholder="username"
-                onChange={e => setName(e.target.value)} 
+                onChange={e => setName(e.target.value)}
               />
             </label>
 
@@ -142,11 +89,13 @@ function SignUp() {
           </form>
         </div>
         <div className="page_action">
-          <Link to="/intro">
-            <button className={`${style.button} ${style.yellow}`}>
-              Đăng ký
-            </button>
-          </Link>
+          {/* <Link to="/intro"> */}
+          <button
+            onClick={handleSubmit}
+            className={`${style.button} ${style.yellow}`}>
+            Đăng ký
+          </button>
+          {/* </Link> */}
         </div>
 
         <div className="page_link">
@@ -155,16 +104,6 @@ function SignUp() {
           </Link>
         </div>
       </div>
-
-      {modal && (
-        <div className="modal">
-        <div className="overlay" onClick={toggleModal}></div>
-        <div className="modal-content">
-          <h2>Tài khoản đã tồn tại, nhấp chuột để nhập lại</h2>
-        </div>
-      </div>
-      )}
-      
     </div>
   );
 };
