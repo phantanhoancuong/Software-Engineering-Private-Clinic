@@ -3,17 +3,19 @@ import React from "react";
 import "./layout.css";
 
 import { Header } from "../index";
+import { Outlet } from "react-router-dom";
 
 class Layout extends React.Component {
   render() {
     return (
-      <>
+      <div className="layout">
         <Header />
-        <div className="page">
-          <p>{this.props.pageTitle}</p>
-          {this.props.children}
+        <div className="layout-page">
+          <div className="page">
+            <Outlet />
+          </div>
         </div>
-      </>
+      </div>
     );
   }
 }

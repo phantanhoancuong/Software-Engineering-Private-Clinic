@@ -32,17 +32,16 @@ const App = () => {
   return (
     <div className="App">
       <BrowserRouter>
-        <Layout>
-          <Routes>
+        <Routes>
+          <Route element={<Layout />}>
             <Route path="/" element={<Homepage />} />
             <Route path="/homepage" element={<Homepage />} />
             <Route path="/signIn" element={<SignIn />} />
             <Route path="/signUp" element={<SignUp />} />
             <Route path="/forgetPassword" element={<ForgetPassword />} />
-          </Routes>
-        </Layout>
-        <LayoutUser pageTitle={title}>
-          <Routes>
+          </Route>
+
+          <Route element={<LayoutUser pageTitle={title} />}>
             <Route path="/intro" element={<Intro />} />
 
             <Route path="/appointmentView" element={<AppointmentView />} />
@@ -69,8 +68,8 @@ const App = () => {
 
             <Route path="/userEdit" element={<UserEdit />} />
             <Route path="/passwordReset" element={<PasswordReset />} />
-          </Routes>
-        </LayoutUser>
+          </Route>
+        </Routes>
       </BrowserRouter>
     </div>
   );
