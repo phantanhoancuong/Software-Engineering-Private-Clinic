@@ -111,3 +111,7 @@ input, select {
   border-radius: 1rem;
   width: 300px;
 }
+
+.table-space {
+  margin-top: 2rem;
+}

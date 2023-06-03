@@ -1,5 +1,6 @@
 import React from "react";
 import "./revenueReportView.css";
+import style from "../../components/button/button.module.css";
 
 import { Button, RevenueTable, TotalRevenue } from "../../components/index";
 
@@ -7,30 +8,35 @@ const RevenueReportView = () => {
   const pageTitle = "Báo cáo doanh thu";
   return (
     <>
-      <div className="receiptView__selection">
-        <div className="receiptView__selection-date">
+      <div className="page-container">
+        <div className="page_form">
           <form>
-            <label for="calender">
+            <label>
               <p>Tháng báo cáo</p>
-              <input type="month" id="calender" name="calender" />
+              <input type="month"/>
+              <button className={`${style.button} ${style.yellow}`}>
+                Xem báo cáo
+              </button>
             </label>
           </form>
         </div>
       </div>
 
-      <div className="receipt-table">
+      <div className="page-table">
         <RevenueTable date="true" patient_count="true" revenue="true" percentage="true" />
       </div>
 
-      <div className="receipt-table">
+      <div className="table-space"></div>
+
+      <div className="page-table">
         <TotalRevenue date="true" patient_count="true" revenue="true" percentage="true" />
       </div>
 
-      <Button
-        label="Lập báo cáo"
-        color="var(--color-whiteText)"
-        bgColor="var(--color-button-yellow)"
-      />
+      <div className="selection-confirm">
+        <button className={`${style.button} ${style.green}`}>
+          Xác nhận
+        </button>
+      </div>
     </>
   );
 };
