@@ -45,9 +45,8 @@ db.connect(function (err) {
                 ID VARCHAR(10) NOT NULL,
                 name VARCHAR(50),
                 email VARCHAR(100),
-                password VARCHAR(100),
                 dob DATE,
-                phone INT(10),
+                gender VARCHAR(6),
                 addr VARCHAR(200),
                 PRIMARY KEY (email) 
             );`, (err, data) => {
@@ -129,6 +128,42 @@ app.post("/signup", (req, res) => {
 
     if (req.body.password != req.body.repassword)
         return res.json('Mật khẩu không khớp!');
+
+    db.query(sql, [values], (err, data) => {
+        if (err) {
+            return res.json('Email này đã được đăng ký!');
+        }
+        return res.json(ID);
+    })
+})
+
+app.post("/patientcreate", (req, res) => {
+    const sql = "INSERT INTO `patient` (`name`, `email`, `dob`, `gender`, `addr`, `ID`) VALUES (?)";
+    var ID = `${generateIDpatient(5)}`;
+    const checkID = "SELECT * FROM `patient` WHERE `ID` = ?";
+    var check = true;
+    var tempData = '';
+    
+    // get compare ID later, below compare ID is incomplete!
+    while (db.query(checkID, [ID], (err, data) => {tempData == data;})) {
+        if (tempData === ""){
+            check = false;
+        };
+        if (check === false)
+            break;
+        ID = `${generate(5)}`;
+        console.log(`: ${tempData}`);
+    };
+    const values = [
+        req.body.name,
+        req.body.email,
+        req.body.dob,
+        req.body.gender,
+        req.body.addr,
+        ID
+    ];
+
+    console.log(values);
 
     db.query(sql, [values], (err, data) => {
         if (err) {
