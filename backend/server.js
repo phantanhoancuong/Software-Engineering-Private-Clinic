@@ -31,6 +31,7 @@ db.connect(function (err) {
     //     if (err) console.log(err);
     //     console.log("Table user dropped!");
     // });
+
     db.query(`CREATE TABLE IF NOT EXISTS user (
                 ID VARCHAR(10) NOT NULL,
                 name VARCHAR(50),
@@ -41,6 +42,7 @@ db.connect(function (err) {
         if (err) console.log(err);
         console.log("Table user created!");
     });
+
     db.query(`CREATE TABLE IF NOT EXISTS patient (
                 ID VARCHAR(10) NOT NULL,
                 name VARCHAR(50),
@@ -48,10 +50,21 @@ db.connect(function (err) {
                 dob DATE,
                 gender VARCHAR(6),
                 addr VARCHAR(200),
-                PRIMARY KEY (email) 
+                PRIMARY KEY (email, ID) 
             );`, (err, data) => {
         if (err) console.log(err);
         console.log("Table patient created!");
+    });
+
+    db.query(`CREATE TABLE IF NOT EXISTS appointment (
+                days DATE,
+                time TIME,
+                ID VARCHAR(10) NOT NULL,
+                symptom VARCHAR(200),
+                FOREIGN KEY (ID) REFERENCES patient(ID)
+            );`, (err, data) => {
+        if (err) console.log(err);
+        console.log("Table appointment created!");
     });
 
     // db.query(`INSERT INTO user (ID, name, email, password, dob, phone, addr) VALUES ("BN_123456", "a", "a", "a", null, null, null);`, (err, data) => {
@@ -141,6 +154,7 @@ app.post("/patientcreate", (req, res) => {
     const sql = "INSERT INTO `patient` (`name`, `email`, `dob`, `gender`, `addr`, `ID`) VALUES (?)";
     var ID = `${generateIDpatient(5)}`;
     const checkID = "SELECT * FROM `patient` WHERE `ID` = ?";
+    const checkEmail = "SELECT * FROM `patient` WHERE `email` = ?"
     var check = true;
     var tempData = '';
     
@@ -165,12 +179,24 @@ app.post("/patientcreate", (req, res) => {
 
     console.log(values);
 
-    db.query(sql, [values], (err, data) => {
-        if (err) {
+    db.query(checkEmail, req.body.email, (err, data) => {
+        console.log(data)
+        if(err) {
+            return res.json(err)
+        }
+        else if(data.length !== 0) {
             return res.json('Email này đã được đăng ký!');
         }
-        return res.json(ID);
+        else {
+            db.query(sql, [values], (err, data) => {
+                if (err) {
+                    return res.json(err);
+                }
+                return res.json(ID);
+            })
+        }
     })
+
 })
 
 app.post("/useredit", (req, res) => {
