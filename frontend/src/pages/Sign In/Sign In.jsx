@@ -24,16 +24,8 @@ function SignIn() {
       .post("http://localhost:8800/signin", { email, password })
       .then((res) => {
         if (res.data === "success") {
-          // alert('Đăng nhập thành công!');
-          navigate("/");
+          navigate("/intro");
         }
-        // else if (res.data === "empty username"){
-        //   alert('Tên đăng nhập không được để trống!');
-        // }
-        // else if (res.data === "empty password"){
-        //   alert('Mật khẩu không được để trống!');
-        // }
-
         else alert(res.data);
       })
       .catch((err) => console.log(err));
