@@ -57,7 +57,7 @@ db.connect(function (err) {
     });
 
     db.query(`CREATE TABLE IF NOT EXISTS appointment (
-                days DATE,
+                date DATE,
                 time TIME,
                 ID VARCHAR(10) NOT NULL,
                 symptom VARCHAR(200),
@@ -183,7 +183,8 @@ app.post("/patientcreate", (req, res) => {
     db.query(checkEmail, req.body.email, (err, data) => {
         console.log(data)
         if (err) {
-            return res.json(err)
+            console.log(err)
+            return res.json("Lỗi 1")
         }
         else if (data.length !== 0) {
             return res.json('Email này đã được đăng ký!');
@@ -191,7 +192,8 @@ app.post("/patientcreate", (req, res) => {
         else {
             db.query(sql, [values], (err, data) => {
                 if (err) {
-                    return res.json(err);
+                    console.log(err)
+                    return res.json("Lỗi 2");
                 }
                 return res.json(ID);
             })
@@ -201,7 +203,7 @@ app.post("/patientcreate", (req, res) => {
 })
 
 app.post("/appointmentcreate", (req, res) => {
-    const sql = "INSERT INTO `appointment` (`days`, `time`, `ID`, `symptom`) VALUES (?)";
+    const sql = "INSERT INTO `appointment` (`date`, `time`, `ID`, `symptom`) VALUES (?)";
     const checkID = "SELECT ID FROM `patient` WHERE `ID` = ?";
 
     const values = [
@@ -215,7 +217,8 @@ app.post("/appointmentcreate", (req, res) => {
 
     db.query(checkID, req.body.ID, (err, data) => {
         if (err) {
-            return res.json(err)
+            console.log(err)
+            return res.json("Lỗi 1")
         }
         else if (data.length === 0) {
             return res.json("ID bệnh nhân không đúng!")
@@ -223,11 +226,26 @@ app.post("/appointmentcreate", (req, res) => {
         else {
             db.query(sql, [values], (err, data) => {
                 if(err) {
-                    return res.json(err)
+                    console.log(err)
+                    return res.json("Lỗi 2")
                 }
                 return res.json('success')
             })
         }
+    })
+})
+
+app.post("/appointmentview", (req, res) => {
+    const sql = "SELECT * FROM `appointment` WHERE `date` = ?";
+    
+    db.query(sql, req.body.date, (err, data) => {
+        if(err) {
+            return res.json(err)
+        }
+        if(data.length === 0) {
+            return res.json('fail')
+        }
+        return res.json(data)
     })
 })
 
