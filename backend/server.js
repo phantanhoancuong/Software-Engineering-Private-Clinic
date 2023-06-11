@@ -227,7 +227,7 @@ app.post("/appointmentcreate", (req, res) => {
             db.query(sql, [values], (err, data) => {
                 if(err) {
                     console.log(err)
-                    return res.json("Lỗi 2")
+                    return res.json("Đã có bệnh nhân đăng ký")
                 }
                 return res.json('success')
             })
@@ -236,14 +236,27 @@ app.post("/appointmentcreate", (req, res) => {
 })
 
 app.post("/appointmentview", (req, res) => {
-    const sql = "SELECT * FROM `appointment` WHERE `date` = ?";
-    
+    const sql = "SELECT date_format(`date`, '%m/%d/%Y') AS `date`, `time`, `ID`, `symptom` FROM `appointment` WHERE `date` = ?";
+
     db.query(sql, req.body.date, (err, data) => {
         if(err) {
-            return res.json(err)
+            console.log(err)
+            return res.json("Lỗi View")
         }
         if(data.length === 0) {
             return res.json('fail')
+        }
+        return res.json(data)
+    })
+})
+
+app.post("/appointmentviewModal", (req, res) => {
+    const sql = "SELECT `ID`, `name`, YEAR(`dob`) AS `year`, `gender`, `addr` FROM `patient` WHERE `ID` = ?";
+
+    db.query(sql, req.body.ID, (err, data) => {
+        if(err) {
+            console.log(err)
+            return res.json("Lỗi Modal")
         }
         return res.json(data)
     })

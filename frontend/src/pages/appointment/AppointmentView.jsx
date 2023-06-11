@@ -1,4 +1,5 @@
 import React, {useState} from "react";
+import Moment from 'react-moment';
 import "../page.css";
 import style from "../../components/button/button.module.css";
 import { FaTrash } from "react-icons/fa";
@@ -9,7 +10,7 @@ import "../../components/table/table.css";
 
 const AppointmentView = () => {
   const [date, setDate] = useState('');
-  const [data, setData] = useState([])
+  const [data, setData] = useState([]);
 
   function handleSubmit(event) {
     event.preventDefault();
@@ -22,6 +23,27 @@ const AppointmentView = () => {
         setData(res.data)
       }
     })
+  }
+
+  const [modal, setModal] = useState(false)
+  const [info, setInfo] = useState([]);
+
+  function handleClick(event, ID) {
+    event.preventDefault();
+    axios.post('http://localhost:8800/appointmentviewModal', {ID})
+    .then((res, err) => {
+      if(err) {
+        console.log(err)
+        alert('Lỗi')
+      }
+      else {
+        setInfo(res.data)
+      }
+    })
+  }
+
+  function toggleModal () {
+    setModal(!modal)
   }
 
   return (
@@ -81,6 +103,9 @@ const AppointmentView = () => {
                               padding: "0.5rem",
                               borderRadius: "0.5rem",
                             }}
+                            onClick={event => {handleClick(event, user.ID);
+                                              toggleModal();}
+                            }
                           >
                             Chi tiết
                           </button>
@@ -91,6 +116,35 @@ const AppointmentView = () => {
             </tbody>
           </table>
         </div>
+
+        {modal && 
+          <div className="modal" onClick={toggleModal}>
+            <table> 
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Họ tên</th>
+                  <th>Năm sinh</th>
+                  <th>Giới tính</th>
+                  <th>Địa chỉ</th>
+                </tr>
+              </thead>
+              <tbody>
+                {info.map((patient, index) => {
+                    return (
+                      <tr key={index}>
+                        <td>{patient.ID}</td>
+                        <td>{patient.name}</td>
+                        <td>{patient.year}</td>
+                        <td>{patient.gender}</td>
+                        <td>{patient.addr}</td>
+                      </tr>
+                      );
+                })}
+              </tbody>
+            </table>
+          </div>
+        }
       </div>
     </>
   );
