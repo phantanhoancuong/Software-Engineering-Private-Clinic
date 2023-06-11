@@ -76,3 +76,8 @@ tbody > tr {
 
   font-size: 2.3rem;
 }
+
+.modal {
+  position: fixed;
+} 
+

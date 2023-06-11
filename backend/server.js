@@ -31,6 +31,7 @@ db.connect(function (err) {
     //     if (err) console.log(err);
     //     console.log("Table user dropped!");
     // });
+
     db.query(`CREATE TABLE IF NOT EXISTS user (
                 ID VARCHAR(10) NOT NULL,
                 name VARCHAR(50),
@@ -41,18 +42,30 @@ db.connect(function (err) {
         if (err) console.log(err);
         console.log("Table user created!");
     });
+
     db.query(`CREATE TABLE IF NOT EXISTS patient (
                 ID VARCHAR(10) NOT NULL,
                 name VARCHAR(50),
                 email VARCHAR(100),
-                password VARCHAR(100),
                 dob DATE,
-                phone INT(10),
+                gender VARCHAR(6),
                 addr VARCHAR(200),
-                PRIMARY KEY (email) 
+                PRIMARY KEY (email, ID) 
             );`, (err, data) => {
         if (err) console.log(err);
         console.log("Table patient created!");
+    });
+
+    db.query(`CREATE TABLE IF NOT EXISTS appointment (
+                date DATE,
+                time TIME,
+                ID VARCHAR(10) NOT NULL,
+                symptom VARCHAR(200),
+                PRIMARY KEY (days, time),
+                FOREIGN KEY (ID) REFERENCES patient(ID)
+            );`, (err, data) => {
+        if (err) console.log(err);
+        console.log("Table appointment created!");
     });
 
     // db.query(`INSERT INTO user (ID, name, email, password, dob, phone, addr) VALUES ("BN_123456", "a", "a", "a", null, null, null);`, (err, data) => {
@@ -81,24 +94,24 @@ app.post("/signin", (req, res) => {
 
 function generateIDpatient(n) {
     var add = 1, max = 12 - add;   // 12 is the min safe number Math.random() can generate without it starting to pad the end with zeros.   
-    if ( n > max ) { return generate(max) + generate(n - max); }
-    
-    max = Math.pow(10, n+add);
-    var min = max/10; // Math.pow(10, n) basically
-    var number = Math.floor( Math.random() * (max - min + 1) ) + min;
-    
-    return (" BN_" + number).substring(add); 
+    if (n > max) { return generate(max) + generate(n - max); }
+
+    max = Math.pow(10, n + add);
+    var min = max / 10; // Math.pow(10, n) basically
+    var number = Math.floor(Math.random() * (max - min + 1)) + min;
+
+    return (" BN_" + number).substring(add);
 }
 
 function generateID(n) {
     var add = 1, max = 12 - add;   // 12 is the min safe number Math.random() can generate without it starting to pad the end with zeros.   
-    if ( n > max ) { return generate(max) + generate(n - max); }
-    
-    max = Math.pow(10, n+add);
-    var min = max/10; // Math.pow(10, n) basically
-    var number = Math.floor( Math.random() * (max - min + 1) ) + min;
-    
-    return (" MD_" + number).substring(add); 
+    if (n > max) { return generate(max) + generate(n - max); }
+
+    max = Math.pow(10, n + add);
+    var min = max / 10; // Math.pow(10, n) basically
+    var number = Math.floor(Math.random() * (max - min + 1)) + min;
+
+    return (" MD_" + number).substring(add);
 }
 
 app.post("/signup", (req, res) => {
@@ -107,10 +120,10 @@ app.post("/signup", (req, res) => {
     const checkID = "SELECT * FROM `user` WHERE `ID` = ?";
     var check = true;
     var tempData = '';
-    
+
     // get compare ID later, below compare ID is incomplete!
-    while (db.query(checkID, [ID], (err, data) => {tempData == data;})) {
-        if (tempData === ""){
+    while (db.query(checkID, [ID], (err, data) => { tempData == data; })) {
+        if (tempData === "") {
             check = false;
         };
         if (check === false)
@@ -138,8 +151,119 @@ app.post("/signup", (req, res) => {
     })
 })
 
+app.post("/patientcreate", (req, res) => {
+    const sql = "INSERT INTO `patient` (`name`, `email`, `dob`, `gender`, `addr`, `ID`) VALUES (?)";
+    var ID = `${generateIDpatient(5)}`;
+    const checkID = "SELECT * FROM `patient` WHERE `ID` = ?";
+    const checkEmail = "SELECT * FROM `patient` WHERE `email` = ?"
+    var check = true;
+    var tempData = '';
+
+    // get compare ID later, below compare ID is incomplete!
+    while (db.query(checkID, [ID], (err, data) => { tempData == data; })) {
+        if (tempData === "") {
+            check = false;
+        };
+        if (check === false)
+            break;
+        ID = `${generate(5)}`;
+        console.log(`: ${tempData}`);
+    };
+    const values = [
+        req.body.name,
+        req.body.email,
+        req.body.dob,
+        req.body.gender,
+        req.body.addr,
+        ID
+    ];
+
+    console.log(values);
+
+    db.query(checkEmail, req.body.email, (err, data) => {
+        console.log(data)
+        if (err) {
+            console.log(err)
+            return res.json("Lỗi 1")
+        }
+        else if (data.length !== 0) {
+            return res.json('Email này đã được đăng ký!');
+        }
+        else {
+            db.query(sql, [values], (err, data) => {
+                if (err) {
+                    console.log(err)
+                    return res.json("Lỗi 2");
+                }
+                return res.json(ID);
+            })
+        }
+    })
+
+})
+
+app.post("/appointmentcreate", (req, res) => {
+    const sql = "INSERT INTO `appointment` (`date`, `time`, `ID`, `symptom`) VALUES (?)";
+    const checkID = "SELECT ID FROM `patient` WHERE `ID` = ?";
+
+    const values = [
+        req.body.date,
+        req.body.time,
+        req.body.ID,
+        req.body.symptom 
+    ];
+
+    console.log(values);
+
+    db.query(checkID, req.body.ID, (err, data) => {
+        if (err) {
+            console.log(err)
+            return res.json("Lỗi 1")
+        }
+        else if (data.length === 0) {
+            return res.json("ID bệnh nhân không đúng!")
+        }
+        else {
+            db.query(sql, [values], (err, data) => {
+                if(err) {
+                    console.log(err)
+                    return res.json("Đã có bệnh nhân đăng ký")
+                }
+                return res.json('success')
+            })
+        }
+    })
+})
+
+app.post("/appointmentview", (req, res) => {
+    const sql = "SELECT date_format(`date`, '%m/%d/%Y') AS `date`, `time`, `ID`, `symptom` FROM `appointment` WHERE `date` = ?";
+
+    db.query(sql, req.body.date, (err, data) => {
+        if(err) {
+            console.log(err)
+            return res.json("Lỗi View")
+        }
+        if(data.length === 0) {
+            return res.json('fail')
+        }
+        return res.json(data)
+    })
+})
+
+app.post("/appointmentviewModal", (req, res) => {
+    const sql = "SELECT `ID`, `name`, YEAR(`dob`) AS `year`, `gender`, `addr` FROM `patient` WHERE `ID` = ?";
+
+    db.query(sql, req.body.ID, (err, data) => {
+        if(err) {
+            console.log(err)
+            return res.json("Lỗi Modal")
+        }
+        return res.json(data)
+    })
+})
+
 app.post("/useredit", (req, res) => {
-    
+
     // sql command below is unfinished, req need an identity user who logged in (ID) and need to add pk
     // below need to fix from INSERT INTO to UPDATE
     const sql = "INSERT INTO `user` (`name`, `email`, `dob`, `phone`, `address`) VALUES (?)";
