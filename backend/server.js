@@ -331,6 +331,25 @@ app.post("/appointmentviewModal", (req, res) => {
     })
 })
 
+app.post("/receiptCreate", (req, res) => {
+    const sql = "INSERT INTO `receipt` (`date`, `ID`, `medical_fee`, `drug_fee`) VALUES (?)";
+
+    const values = [
+        req.body.date,
+        req.body.id,
+        req.body.fee,
+        req.body.drug
+    ]
+
+    db.query(sql, [values], (err, data) => {
+        if(err) {
+            console.log(err)
+            return res.json("Lỗi")
+        }
+        return res.json("success")
+    })
+})
+
 app.post("/useredit", (req, res) => {
 
     // sql command below is unfinished, req need an identity user who logged in (ID) and need to add pk
