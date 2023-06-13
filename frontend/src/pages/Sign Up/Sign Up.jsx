@@ -24,10 +24,6 @@ function SignUp() {
     else {
       axios.post('http://localhost:8800/signup', { name, email, password, repassword })
       .then((res, err) => {
-        // if (res.data === 'unmatch') {
-        //   alert('Mật khẩu không khớp!');
-        // }
-
         if (res.data[0] === 'M' && res.data[1] === 'D') {
           alert(`Đăng ký thành công! ID của bạn là ${res.data}`);
           navigate('/signIn');

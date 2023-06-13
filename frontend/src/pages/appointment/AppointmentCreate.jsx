@@ -20,7 +20,7 @@ const AppointmentCreate = () => {
     }
     else {
       axios.post('http://localhost:8800/appointmentcreate', { date, time, ID, symptom })
-      .then((res, err) => {
+      .then((res) => {
         if(res.data === 'success') {
           alert('Đăng ký thành công!');
         }
@@ -28,6 +28,7 @@ const AppointmentCreate = () => {
           alert(res.data);
         }
       })
+      .catch((err) => console.log(err));
     }
   }
 

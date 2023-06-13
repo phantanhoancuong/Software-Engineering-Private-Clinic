@@ -12,7 +12,7 @@ mysql.createConnection({
     password: ''
 }).query("CREATE DATABASE IF NOT EXISTS clinic;", (err, data) => {
     if (err) console.log(err);
-    console.log("Database created!");
+    else console.log("Database created!");
 });
 
 const db = mysql.createConnection({
@@ -27,10 +27,6 @@ db.connect(function (err) {
         console.log('Error connecting to mySQL!');
         return;
     }
-    // db.query("DROP TABLE IF EXISTS user;", (err, data) => {
-    //     if (err) console.log(err);
-    //     console.log("Table user dropped!");
-    // });
 
     db.query(`CREATE TABLE IF NOT EXISTS user (
                 ID VARCHAR(10) NOT NULL,
@@ -40,7 +36,7 @@ db.connect(function (err) {
                 PRIMARY KEY (email) 
             );`, (err, data) => {
         if (err) console.log(err);
-        console.log("Table user created!");
+        else console.log("Table user created!");
     });
 
     db.query(`CREATE TABLE IF NOT EXISTS patient (
@@ -53,7 +49,7 @@ db.connect(function (err) {
                 PRIMARY KEY (email, ID) 
             );`, (err, data) => {
         if (err) console.log(err);
-        console.log("Table patient created!");
+        else console.log("Table patient created!");
     });
 
     db.query(`CREATE TABLE IF NOT EXISTS appointment (
@@ -65,13 +61,71 @@ db.connect(function (err) {
                 FOREIGN KEY (ID) REFERENCES patient(ID)
             );`, (err, data) => {
         if (err) console.log(err);
-        console.log("Table appointment created!");
+        else console.log("Table appointment created!");
     });
 
-    // db.query(`INSERT INTO user (ID, name, email, password, dob, phone, addr) VALUES ("BN_123456", "a", "a", "a", null, null, null);`, (err, data) => {
-    //     if (err) console.log(err);
-    //     console.log("User [ID: BN_123456, name: a, email: a, password: a] created!");
-    // });
+    db.query(`CREATE TABLE IF NOT EXISTS disease (
+                id INT,
+                name VARCHAR(100),
+                PRIMARY KEY (id)
+            );`, (err, data) => {
+        if (err) console.log(err);
+        else console.log("Table disease created!");
+    });
+
+    db.query(`INSERT INTO disease (id, name) VALUES 
+             ('1', 'Sốt siêu vi'),
+             ('2', 'Đau dạ dày'),
+             ('3', 'Rối loạn tiền đình'),
+             ('4', 'Viêm tai giữa'),
+             ('5', 'Dị ứng thời tiết');`, (err) => {
+        if(err) console.log(err)
+        else console.log("Insert disease table success!")
+    });
+
+    db.query(`CREATE TABLE IF NOT EXISTS wayuse (
+                id INT, 
+                detail VARCHAR(100),
+                PRIMARY KEY (id)
+            );`, (err, data) => {
+        if (err) console.log(err);
+        else console.log("Table wayuse created!");
+    });
+
+    db.query(`INSERT INTO wayuse (id, detail) VALUES 
+             ('1', '1 ngày, 2 lần, 1 lần 1 viên'),
+             ('2', '1 ngày, 2 lần, 1 lần 2 viên'),
+             ('3', '1 ngày 2 lần, 1 lần 1/2 viên'),
+             ('4', '1 ngày 1 lần, 1 lần 1 viên'),
+             ('5', '1 ngày, 3 lần, 1 lần 5 ml');`, (err) => {
+        if(err) console.log(err)
+        else console.log("Insert wayuse table success!")
+    });
+
+    db.query(`CREATE TABLE IF NOT EXISTS medicalbill (
+                date DATE,
+                ID VARCHAR(10) NOT NULL,
+                symptom VARCHAR(100),
+                diagnose VARCHAR(100),
+                PRIMARY KEY (date, ID),
+                FOREIGN KEY (ID) REFERENCES patient(ID)
+            );`, (err, data) => {
+        if (err) console.log(err);
+        else console.log("Table medicalbill created!");
+    });
+
+    db.query(`CREATE TABLE IF NOT EXISTS receipt (
+                date DATE,
+                ID VARCHAR(10) NOT NULL,
+                medical_fee INT,
+                drug_fee INT,
+                PRIMARY KEY (date, ID),
+                FOREIGN KEY (ID) REFERENCES patient(ID)
+            );`, (err, data) => {
+        if (err) console.log(err);
+        else console.log("Table receipt created!");
+    });
+
     console.log('Connection established');
 });
 
@@ -205,6 +259,7 @@ app.post("/patientcreate", (req, res) => {
 app.post("/appointmentcreate", (req, res) => {
     const sql = "INSERT INTO `appointment` (`date`, `time`, `ID`, `symptom`) VALUES (?)";
     const checkID = "SELECT ID FROM `patient` WHERE `ID` = ?";
+    const checkNum = "SELECT COUNT(*) AS `count` FROM `appointment` WHERE `date` =?";
 
     const values = [
         req.body.date,
@@ -224,6 +279,15 @@ app.post("/appointmentcreate", (req, res) => {
             return res.json("ID bệnh nhân không đúng!")
         }
         else {
+            db.query(checkNum, req.body.date, (err, data) => {
+                if(err) {
+                    console.log(err)
+                    return res.json("Lỗi 2")
+                }
+                else if (data[0].count >= 3) {
+                    return res.json("Số bệnh nhân đã đầy, vui lòng chọn ngày khác")
+                }
+            })
             db.query(sql, [values], (err, data) => {
                 if(err) {
                     console.log(err)
@@ -257,6 +321,147 @@ app.post("/appointmentviewModal", (req, res) => {
         if(err) {
             console.log(err)
             return res.json("Lỗi Modal")
+        }
+        return res.json(data)
+    })
+})
+
+app.post("/medicalreportcreate", (req, res) => {
+    const sql = "INSERT INTO `medicalbill` (`date`, `ID`, `symptom`, `diagnose`) VALUES (?)";
+    const checkID = "SELECT ID FROM `patient` WHERE `ID` = ?";
+
+    const values = [
+        req.body.date,
+        req.body.id,
+        req.body.symptom,
+        req.body.diagnose
+    ]
+
+    db.query(checkID, req.body.id, (err, data) => {
+        if (err) {
+            console.log(err)
+            return res.json("Lỗi 1")
+        }
+        else if (data.length === 0) {
+            return res.json("ID bệnh nhân không đúng!")
+        }
+        else {
+            db.query(sql, [values], (err, data) => {
+                if(err) {
+                    console.log(err)
+                    return res.json("Lỗi 2")
+                }
+                return res.json("success")
+            })
+        }
+    })
+})
+
+app.post("/medicalreportview", (req, res) => {
+    const sql = "SELECT A.`ID`, A.`symptom`, A.`diagnose`, B.`name` FROM medicalbill AS A INNER JOIN patient as B ON (A.`ID`=B.`ID`) WHERE A.`date` = ?";
+    db.query(sql, req.body.date, (err, data) => {
+        if(err) {
+            console.log(err)
+            return res.json("Lỗi View")
+        }
+        if(data.length === 0) {
+            return res.json('fail')
+        }
+        return res.json(data)
+    })
+})
+
+app.post("/receiptCreate", (req, res) => {
+    const sql = "INSERT INTO `receipt` (`date`, `ID`, `medical_fee`, `drug_fee`) VALUES (?)";
+    const checkID = "SELECT ID FROM `patient` WHERE `ID` = ?";
+    const checkReport = "SELECT ID FROM `medicalbill` WHERE `ID` = ? AND `date` = ?";
+
+    const values = [
+        req.body.date,
+        req.body.id,
+        req.body.fee,
+        req.body.drug
+    ]
+
+    db.query(checkID, req.body.id, (err, data) => {
+        if (err) {
+            console.log(err)
+            return res.json("Lỗi 1")
+        }
+        else if (data.length === 0) {
+            return res.json("ID bệnh nhân không đúng!")
+        }
+        else {
+            db.query(checkReport, [req.body.id, req.body.date], (err, data) => {
+                if(err) {
+                    console.log(err)
+                    return res.json("Lỗi 2")
+                }
+                else if (data.length === 0) {
+                    return res.json("Bệnh nhân chưa có phiếu khám!")
+                }
+                else {
+                    db.query(sql, [values], (err) => {
+                        if(err) {
+                            console.log(err)
+                            return res.json("Lỗi")
+                        }
+                        return res.json("success")
+                    })
+                }
+            })
+        }
+    })
+})
+
+app.post("/receiptview", (req, res) => {
+    const sql = "SELECT date_format(A.`date`, '%m/%d/%Y') AS `date`, A.`ID`,  B.`name`, A.`medical_fee`, A.`drug_fee`, A.`medical_fee` + A.`drug_fee` AS `sum` FROM receipt AS A INNER JOIN patient as B ON (A.`ID`=B.`ID`) WHERE `date` = ?";
+    db.query(sql, req.body.date, (err, data) => {
+        if(err) {
+            console.log(err)
+            return res.json("Lỗi View")
+        }
+        if(data.length === 0) {
+            return res.json('fail')
+        }
+        return res.json(data)
+    })
+})
+
+app.post("/patientsearch", (req, res) => {
+    const sql = "SELECT date_format(A.`date`, '%m/%d/%Y') AS `date`, A.`ID`, A.`symptom`, A.`diagnose`, B.`name` FROM medicalbill AS A INNER JOIN patient as B ON (A.`ID`=B.`ID`) WHERE A.`ID` = ?";
+    const checkID = "SELECT `ID` FROM `patient` WHERE `ID` = ?"
+
+    db.query(checkID, req.body.id, (err, data) => {
+        if(err) {
+            console.log(err)
+            return res.json("Lỗi 1")
+        }
+        else if (data.length === 0) {
+            return res.json("wrong_id")
+        }
+        else {
+            db.query(sql, req.body.id, (err, data) => {
+                if(err) {
+                    console.log(err)
+                    return res.json("Lỗi View")
+                }
+                if(data.length === 0) {
+                    return res.json('fail')
+                }
+                return res.json(data)
+            })
+        }
+    })
+})
+
+app.post("/patientview", (req, res) => {
+    const sql = "SELECT date_format(`dob`, '%m/%d/%Y') AS `dob`, `ID`, `name`, `gender`, `addr` FROM `patient`"
+    
+    db.query(sql, (err, data) => {
+        if(err) {
+            console.log(err)
+            return res.json("Lỗi")
         }
         return res.json(data)
     })

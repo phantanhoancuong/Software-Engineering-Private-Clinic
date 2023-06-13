@@ -1,26 +1,35 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
 import "../page.css";
 import style from "../../components/button/button.module.css";
 import { FaTrash } from "react-icons/fa";
 import { UserTable } from "../../components/index";
 
-import axios from 'axios'
+import axios from "axios";
 
-const PatientView = () => {
-  const [data, setData] = useState([])
+const PatientSearch = () => {
+  const [id, setID] = useState('');
+  const [data, setData] = useState([]);
 
   function handleSubmit(event) {
     event.preventDefault();
-    axios.post('http://localhost:8800/patientview', {})
-    .then((res, err) => {
-      if(res.data === "Lỗi") {
-        alert(res.data)
-      }
-      else {
-        setData(res.data)
-      }
-    })
+    if(id === '') {
+      alert("Vui lòng điền đủ thông tin")
+    }
+    else {
+      axios.post('http://localhost:8800/patientsearch', {id})
+      .then((res, err) => {
+        if(res.data === 'wrong_id') {
+          alert("ID bệnh nhân không đúng!")
+        }
+        else if(res.data === 'fail') {
+          alert('Không có dữ liệu')
+        }
+        else {
+          setData(res.data)
+        }
+      })
+      .catch((err) => console.log(err))
+    }
   }
 
   return (
@@ -29,8 +38,18 @@ const PatientView = () => {
         <div className="page_form">
           <form>
             <label>
+              <p>ID bệnh nhân</p>
+              <input type="text" style={{ width: "300px" }} 
+              onChange={e => setID(e.target.value)}
+              />
+            </label>
+            {/* <label>
+              <p>Chọn ngày khám</p>
+              <input type="text" style={{ width: "300px" }} />
+            </label> */}
+            <label>
               <button className={`${style.button} ${style.yellow}`} onClick={handleSubmit}>
-                Xem danh sách bệnh nhân
+                  Tìm kiếm bệnh nhân
               </button>
               <button className={`${style.button} ${style.red}`}>
                 <FaTrash className={style.icon} />
@@ -46,9 +65,9 @@ const PatientView = () => {
                 <th>STT</th>
                 <th>ID</th>
                 <th>Họ tên</th>
-                <th>Giới tính</th>
-                <th>Ngày sinh</th>
-                <th>Địa chỉ</th>
+                <th>Ngày khám</th>
+                <th>Triệu chứng</th>
+                <th>Loại bệnh</th>
               </tr>
             </thead>
             <tbody>
@@ -58,9 +77,9 @@ const PatientView = () => {
                         <td>{index+1}</td>
                         <td>{user.ID}</td>
                         <td>{user.name}</td>
-                        <td>{user.gender}</td>
-                        <td>{user.dob}</td>
-                        <td>{user.addr}</td>
+                        <td>{user.date}</td>
+                        <td>{user.symptom}</td>
+                        <td>{user.diagnose}</td>
                       </tr>
                     );
               })}
@@ -72,4 +91,4 @@ const PatientView = () => {
   );
 };
 
-export default PatientView;
+export default PatientSearch;

@@ -15,15 +15,21 @@ const AppointmentView = (props) => {
 
   function handleSubmit(event) {
     event.preventDefault();
-    axios
-      .post("http://localhost:8800/appointmentview", { date })
-      .then((res, err) => {
-        if (res.data === "fail") {
-          alert("Không có dữ liệu");
-        } else {
-          setData(res.data);
+    if(date === '') {
+      alert("Vui lòng điền đủ thông tin")
+    }
+    else {
+      axios.post('http://localhost:8800/appointmentview', {date})
+      .then((res) => {
+        if(res.data === 'fail') {
+          alert('Không có dữ liệu')
         }
-      });
+        else {
+          setData(res.data)
+        }
+      })
+      .catch((err) => console.log(err));
+    }
   }
 
   const [modal, setModal] = useState(false);
