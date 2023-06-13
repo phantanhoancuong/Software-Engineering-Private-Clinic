@@ -357,6 +357,20 @@ app.post("/medicalreportcreate", (req, res) => {
     })
 })
 
+app.post("/medicalreportview", (req, res) => {
+    const sql = "SELECT A.`ID`, A.`symptom`, A.`diagnose`, B.`name` FROM medicalbill AS A INNER JOIN patient as B ON (A.`ID`=B.`ID`) WHERE `date` = ?";
+    db.query(sql, req.body.date, (err, data) => {
+        if(err) {
+            console.log(err)
+            return res.json("Lỗi View")
+        }
+        if(data.length === 0) {
+            return res.json('fail')
+        }
+        return res.json(data)
+    })
+})
+
 app.post("/receiptCreate", (req, res) => {
     const sql = "INSERT INTO `receipt` (`date`, `ID`, `medical_fee`, `drug_fee`) VALUES (?)";
     const checkID = "SELECT ID FROM `medicalbill` WHERE `ID` = ? AND `date` = ?";
@@ -389,7 +403,7 @@ app.post("/receiptCreate", (req, res) => {
 })
 
 app.post("/receiptview", (req, res) => {
-    const sql = "SELECT date_format(A.`date`, '%m/%d/%Y') AS `date`, A.`ID`,  B.`name`, A.`medical_fee`, A.`drug_fee`, A.`medical_fee` + A.`drug_fee` AS `sum` FROM receipt AS A INNER JOIN patient as B ON (A.`ID`=B.`ID`) where `date` = ?";
+    const sql = "SELECT date_format(A.`date`, '%m/%d/%Y') AS `date`, A.`ID`,  B.`name`, A.`medical_fee`, A.`drug_fee`, A.`medical_fee` + A.`drug_fee` AS `sum` FROM receipt AS A INNER JOIN patient as B ON (A.`ID`=B.`ID`) WHERE `date` = ?";
     db.query(sql, req.body.date, (err, data) => {
         if(err) {
             console.log(err)
