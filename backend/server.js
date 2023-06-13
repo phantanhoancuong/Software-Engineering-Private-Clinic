@@ -358,7 +358,7 @@ app.post("/medicalreportcreate", (req, res) => {
 })
 
 app.post("/medicalreportview", (req, res) => {
-    const sql = "SELECT A.`ID`, A.`symptom`, A.`diagnose`, B.`name` FROM medicalbill AS A INNER JOIN patient as B ON (A.`ID`=B.`ID`) WHERE `date` = ?";
+    const sql = "SELECT A.`ID`, A.`symptom`, A.`diagnose`, B.`name` FROM medicalbill AS A INNER JOIN patient as B ON (A.`ID`=B.`ID`) WHERE A.`date` = ?";
     db.query(sql, req.body.date, (err, data) => {
         if(err) {
             console.log(err)
@@ -416,9 +416,32 @@ app.post("/receiptview", (req, res) => {
     })
 })
 
-// app.post("/patientsearch", (req, res) => {
+app.post("/patientsearch", (req, res) => {
+    const sql = "SELECT date_format(A.`date`, '%m/%d/%Y') AS `date`, A.`ID`, A.`symptom`, A.`diagnose`, B.`name` FROM medicalbill AS A INNER JOIN patient as B ON (A.`ID`=B.`ID`) WHERE A.`ID` = ?";
+    const checkID = "SELECT `ID` FROM `patient` WHERE `ID` = ?"
 
-// })
+    db.query(checkID, req.body.id, (err, data) => {
+        if(err) {
+            console.log(err)
+            return res.json("Lỗi 1")
+        }
+        else if (data.length === 0) {
+            return res.json("ID bệnh nhân không đúng!")
+        }
+        else {
+            db.query(sql, req.body.id, (err, data) => {
+                if(err) {
+                    console.log(err)
+                    return res.json("Lỗi View")
+                }
+                if(data.length === 0) {
+                    return res.json('fail')
+                }
+                return res.json(data)
+            })
+        }
+    })
+})
 
 app.post("/useredit", (req, res) => {
 
