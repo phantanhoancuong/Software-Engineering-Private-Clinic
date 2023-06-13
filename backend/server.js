@@ -205,6 +205,7 @@ app.post("/patientcreate", (req, res) => {
 app.post("/appointmentcreate", (req, res) => {
     const sql = "INSERT INTO `appointment` (`date`, `time`, `ID`, `symptom`) VALUES (?)";
     const checkID = "SELECT ID FROM `patient` WHERE `ID` = ?";
+    const checkNum = "SELECT COUNT(*) AS `count` FROM `appointment` WHERE `date` =?";
 
     const values = [
         req.body.date,
@@ -224,6 +225,15 @@ app.post("/appointmentcreate", (req, res) => {
             return res.json("ID bệnh nhân không đúng!")
         }
         else {
+            db.query(checkNum, req.body.date, (err, data) => {
+                if(err) {
+                    console.log(err)
+                    return res.json("Lỗi 2")
+                }
+                else if (data[0].count >= 3) {
+                    return res.json("Số bệnh nhân đã đầy, vui lòng chọn ngày khác")
+                }
+            })
             db.query(sql, [values], (err, data) => {
                 if(err) {
                     console.log(err)
