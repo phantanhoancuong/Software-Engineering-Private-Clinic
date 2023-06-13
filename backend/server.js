@@ -443,6 +443,18 @@ app.post("/patientsearch", (req, res) => {
     })
 })
 
+app.post("/patientview", (req, res) => {
+    const sql = "SELECT date_format(`dob`, '%m/%d/%Y') AS `dob`, `ID`, `name`, `gender`, `addr` FROM `patient`"
+    
+    db.query(sql, (err, data) => {
+        if(err) {
+            console.log(err)
+            return res.json("Lỗi")
+        }
+        return res.json(data)
+    })
+})
+
 app.post("/useredit", (req, res) => {
 
     // sql command below is unfinished, req need an identity user who logged in (ID) and need to add pk
