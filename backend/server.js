@@ -12,7 +12,7 @@ mysql.createConnection({
     password: ''
 }).query("CREATE DATABASE IF NOT EXISTS clinic;", (err, data) => {
     if (err) console.log(err);
-    console.log("Database created!");
+    else console.log("Database created!");
 });
 
 const db = mysql.createConnection({
@@ -27,10 +27,6 @@ db.connect(function (err) {
         console.log('Error connecting to mySQL!');
         return;
     }
-    // db.query("DROP TABLE IF EXISTS user;", (err, data) => {
-    //     if (err) console.log(err);
-    //     console.log("Table user dropped!");
-    // });
 
     db.query(`CREATE TABLE IF NOT EXISTS user (
                 ID VARCHAR(10) NOT NULL,
@@ -40,7 +36,7 @@ db.connect(function (err) {
                 PRIMARY KEY (email) 
             );`, (err, data) => {
         if (err) console.log(err);
-        console.log("Table user created!");
+        else console.log("Table user created!");
     });
 
     db.query(`CREATE TABLE IF NOT EXISTS patient (
@@ -53,7 +49,7 @@ db.connect(function (err) {
                 PRIMARY KEY (email, ID) 
             );`, (err, data) => {
         if (err) console.log(err);
-        console.log("Table patient created!");
+        else console.log("Table patient created!");
     });
 
     db.query(`CREATE TABLE IF NOT EXISTS appointment (
@@ -65,13 +61,64 @@ db.connect(function (err) {
                 FOREIGN KEY (ID) REFERENCES patient(ID)
             );`, (err, data) => {
         if (err) console.log(err);
-        console.log("Table appointment created!");
+        else console.log("Table appointment created!");
     });
 
-    // db.query(`INSERT INTO user (ID, name, email, password, dob, phone, addr) VALUES ("BN_123456", "a", "a", "a", null, null, null);`, (err, data) => {
-    //     if (err) console.log(err);
-    //     console.log("User [ID: BN_123456, name: a, email: a, password: a] created!");
-    // });
+    db.query(`CREATE TABLE IF NOT EXISTS disease (
+                id INT,
+                name VARCHAR(100),
+                PRIMARY KEY (id)
+            );`, (err, data) => {
+        if (err) console.log(err);
+        else console.log("Table disease created!");
+    });
+
+    db.query(`INSERT INTO disease (id, name) VALUES 
+             ('1', 'Sốt siêu vi'),
+             ('2', 'Đau dạ dày'),
+             ('3', 'Rối loạn tiền đình'),
+             ('4', 'Viêm tai giữa'),
+             ('5', 'Dị ứng thời tiết');`, (err) => {
+        if(err) console.log(err)
+        else console.log("Insert disease table success!")
+    });
+
+    db.query(`CREATE TABLE IF NOT EXISTS wayuse (
+                id INT, 
+                detail VARCHAR(100),
+                PRIMARY KEY (id)
+            );`, (err, data) => {
+        if (err) console.log(err);
+        else console.log("Table wayuse created!");
+    });
+
+    db.query(`INSERT INTO wayuse (id, detail) VALUES 
+             ('1', '1 ngày, 2 lần, 1 lần 1 viên'),
+             ('2', '1 ngày, 2 lần, 1 lần 2 viên'),
+             ('3', '1 ngày 2 lần, 1 lần 1/2 viên'),
+             ('4', '1 ngày 1 lần, 1 lần 1 viên'),
+             ('5', '1 ngày, 3 lần, 1 lần 5 ml');`, (err) => {
+        if(err) console.log(err)
+        else console.log("Insert wayuse table success!")
+    });
+
+    db.query(`CREATE TABLE IF NOT EXISTS medicalbill (
+                date DATE,
+                ID VARCHAR(10) NOT NULL,
+                diagnose VARCHAR(100),
+                drug_1 VARCHAR(6),
+                drug_2 VARCHAR(6),
+                drug_3 VARCHAR(6),
+                drug_4 VARCHAR(6),
+                drug_5 VARCHAR(6),
+                drug_6 VARCHAR(6),
+                PRIMARY KEY (date, ID),
+                FOREIGN KEY (ID) REFERENCES patient(ID)
+            );`, (err, data) => {
+        if (err) console.log(err);
+        else console.log("Table medicalbill created!");
+    });
+
     console.log('Connection established');
 });
 
