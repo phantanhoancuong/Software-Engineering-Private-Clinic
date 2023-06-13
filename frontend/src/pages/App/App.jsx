@@ -29,6 +29,7 @@ import { Layout, LayoutUser } from "../../components/index";
 
 const App = () => {
   const title = "Fix later in App.js";
+  // TODO Fix header title to pass to page + Add 404 page
   return (
     <div className="App">
       <BrowserRouter>
