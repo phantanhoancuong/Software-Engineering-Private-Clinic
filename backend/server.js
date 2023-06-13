@@ -105,13 +105,8 @@ db.connect(function (err) {
     db.query(`CREATE TABLE IF NOT EXISTS medicalbill (
                 date DATE,
                 ID VARCHAR(10) NOT NULL,
+                symptom VARCHAR(100),
                 diagnose VARCHAR(100),
-                drug_1 VARCHAR(6),
-                drug_2 VARCHAR(6),
-                drug_3 VARCHAR(6),
-                drug_4 VARCHAR(6),
-                drug_5 VARCHAR(6),
-                drug_6 VARCHAR(6),
                 PRIMARY KEY (date, ID),
                 FOREIGN KEY (ID) REFERENCES patient(ID)
             );`, (err, data) => {
@@ -331,6 +326,37 @@ app.post("/appointmentviewModal", (req, res) => {
     })
 })
 
+app.post("/medicalreportcreate", (req, res) => {
+    const sql = "INSERT INTO `medicalbill` (`date`, `ID`, `symptom`, `diagnose`) VALUES (?)";
+    const checkID = "SELECT ID FROM `patient` WHERE `ID` = ?";
+
+    const values = [
+        req.body.date,
+        req.body.id,
+        req.body.symptom,
+        req.body.diagnose
+    ]
+
+    db.query(checkID, req.body.id, (err, data) => {
+        if (err) {
+            console.log(err)
+            return res.json("Lỗi 1")
+        }
+        else if (data.length === 0) {
+            return res.json("ID bệnh nhân không đúng!")
+        }
+        else {
+            db.query(sql, [values], (err, data) => {
+                if(err) {
+                    console.log(err)
+                    return res.json("Lỗi 2")
+                }
+                return res.json("success")
+            })
+        }
+    })
+})
+
 app.post("/receiptCreate", (req, res) => {
     const sql = "INSERT INTO `receipt` (`date`, `ID`, `medical_fee`, `drug_fee`) VALUES (?)";
     const checkID = "SELECT ID FROM `patient` WHERE `ID` = ?";
@@ -363,7 +389,7 @@ app.post("/receiptCreate", (req, res) => {
 })
 
 app.post("/receiptview", (req, res) => {
-    const sql = "SELECT date_format(A.`date`, '%m/%d/%Y') AS `date`, A.`ID`,  B.`name`, A.`medical_fee`, A.`drug_fee`, A.`medical_fee` + A.`drug_fee` AS `sum` FROM receipt AS A INNER JOIN patient as B ON (A.`ID`=B.`ID`)";
+    const sql = "SELECT date_format(A.`date`, '%m/%d/%Y') AS `date`, A.`ID`,  B.`name`, A.`medical_fee`, A.`drug_fee`, A.`medical_fee` + A.`drug_fee` AS `sum` FROM receipt AS A INNER JOIN patient as B ON (A.`ID`=B.`ID`) where `date` = ?";
     db.query(sql, req.body.date, (err, data) => {
         if(err) {
             console.log(err)
@@ -375,6 +401,10 @@ app.post("/receiptview", (req, res) => {
         return res.json(data)
     })
 })
+
+// app.post("/patientsearch", (req, res) => {
+
+// })
 
 app.post("/useredit", (req, res) => {
 

@@ -4,10 +4,32 @@ import "../page.css";
 import style from "../../components/button/button.module.css";
 import { DrugTable } from "../../components/index";
 
+import axios from 'axios'
+
 const MedicalReportCreate = () => {
   const [date, setDate] = useState('')
   const [id, setId] = useState('')
+  const [symptom, setSymptom] = useState('')
   const [diagnose, setDiagnose] = useState('')
+
+  function handleSubmit (event) {
+    event.preventDefault();
+    if (date === "" || id === "" || symptom === "" || diagnose === "") {
+      alert("Vui lòng điền đủ thông tin")
+    }
+    else {
+      axios.post('http://localhost:8800/medicalreportcreate', { date, id, symptom, diagnose })
+      .then((res, err) => {
+        if(res.data === "success") {
+          alert("Phiếu khám tạo thành công")
+        }
+        else {
+          alert(res.data)
+        }
+      })
+      .catch(err => console.log(err));
+    }
+  }
 
   return (
     <>
@@ -28,6 +50,12 @@ const MedicalReportCreate = () => {
               />
             </label>
 
+            <label htmlFor="symptom">
+              <p>Triệu chứng</p>
+              <input type="text" id="symptom" name="symptom" style={{ width: "600px" }} 
+              onChange={e => setSymptom(e.target.value)}/>
+            </label>
+
             <label htmlFor="diagnose">
               <p>Bệnh</p>
               <input type="text" id="diagnose" name="diagnose" style={{ width: "600px" }} 
@@ -43,7 +71,7 @@ const MedicalReportCreate = () => {
         <div className="selection-confirm">
           <div>
             <Link to="/medicalReportCreate">
-              <button className={`${style.button} ${style.green}`}>
+              <button className={`${style.button} ${style.green}`} onClick={handleSubmit}>
                 Xác nhận
               </button>
             </Link>
