@@ -16,11 +16,11 @@ import { FaPlus } from "react-icons/fa";
 
 function DrugTable(props) {
   const DrugData = MOCK_DATA_DRUG.map((curDrug) => {
-    const { id, drugID, drug_name, unit, price, usage, dose } = curDrug;
+    const { index, drugID, drug_name, unit, price, usage, dose } = curDrug;
 
     return (
-      <tr key={id}>
-        <td>{id}</td>
+      <tr key={index}>
+        <td>{index}</td>
         <td>{drugID}</td>
         <td>{drug_name}</td>
         {props.dose != undefined && <td>{dose}</td>}
