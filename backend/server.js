@@ -362,6 +362,20 @@ app.post("/receiptCreate", (req, res) => {
     })
 })
 
+app.post("/receiptview", (req, res) => {
+    const sql = "SELECT date_format(A.`date`, '%m/%d/%Y') AS `date`, A.`ID`,  B.`name`, A.`medical_fee`, A.`drug_fee`, A.`medical_fee` + A.`drug_fee` AS `sum` FROM receipt AS A INNER JOIN patient as B ON (A.`ID`=B.`ID`)";
+    db.query(sql, req.body.date, (err, data) => {
+        if(err) {
+            console.log(err)
+            return res.json("Lỗi View")
+        }
+        if(data.length === 0) {
+            return res.json('fail')
+        }
+        return res.json(data)
+    })
+})
+
 app.post("/useredit", (req, res) => {
 
     // sql command below is unfinished, req need an identity user who logged in (ID) and need to add pk
