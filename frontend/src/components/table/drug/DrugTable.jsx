@@ -40,7 +40,7 @@ function DrugTable(props) {
                 borderRadius: "0.5rem",
               }}
             >
-              Chi tiết
+              Thêm
             </button>
           </td>
         )}

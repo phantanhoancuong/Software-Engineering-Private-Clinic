@@ -17,7 +17,7 @@ const MedicalReportView = () => {
               <p>Chọn ngày khám</p>
               <input type="date" id="calender" name="calender" style={{ width: "300px" }}/>
               <button className={`${style.button} ${style.yellow}`}>
-                Xem lịch khám
+                Xem phiếu khám
               </button>            
               
               <button className={`${style.button} ${style.red}`}>

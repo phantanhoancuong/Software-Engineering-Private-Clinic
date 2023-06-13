@@ -33,7 +33,7 @@ const MedicalReportCreate = () => {
         </div>
 
         <div className="page_table">
-          <DrugTable isAdd="true" unit="true" dose="true" usage="true" />
+          <DrugTable unit="true" dose="true" usage="true" action="true"/>
         </div>
 
         <div className="selection-confirm">
