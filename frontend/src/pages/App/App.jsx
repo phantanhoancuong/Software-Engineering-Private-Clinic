@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import {
@@ -28,8 +28,8 @@ import "../page.css";
 import { Layout, LayoutUser } from "../../components/index";
 
 const App = () => {
-  const title = "Fix later in App.js";
   // TODO Fix header title to pass to page + Add 404 page
+
   return (
     <div className="App">
       <BrowserRouter>
@@ -42,7 +42,7 @@ const App = () => {
             <Route path="/forgetPassword" element={<ForgetPassword />} />
           </Route>
 
-          <Route element={<LayoutUser pageTitle={title} />}>
+          <Route element={<LayoutUser />}>
             <Route path="/intro" element={<Intro />} />
 
             <Route path="/appointmentView" element={<AppointmentView />} />
