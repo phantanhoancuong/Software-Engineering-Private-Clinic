@@ -373,7 +373,8 @@ app.post("/medicalreportview", (req, res) => {
 
 app.post("/receiptCreate", (req, res) => {
     const sql = "INSERT INTO `receipt` (`date`, `ID`, `medical_fee`, `drug_fee`) VALUES (?)";
-    const checkID = "SELECT ID FROM `medicalbill` WHERE `ID` = ? AND `date` = ?";
+    const checkID = "SELECT ID FROM `patient` WHERE `ID` = ?";
+    const checkReport = "SELECT ID FROM `medicalbill` WHERE `ID` = ? AND `date` = ?";
 
     const values = [
         req.body.date,
@@ -382,21 +383,32 @@ app.post("/receiptCreate", (req, res) => {
         req.body.drug
     ]
 
-    db.query(checkID, [req.body.id, req.body.date], (err, data) => {
+    db.query(checkID, req.body.id, (err, data) => {
         if (err) {
             console.log(err)
             return res.json("Lỗi 1")
         }
         else if (data.length === 0) {
-            return res.json("Bệnh nhân chưa có phiếu khám!")
+            return res.json("ID bệnh nhân không đúng!")
         }
         else {
-            db.query(sql, [values], (err, data) => {
+            db.query(checkReport, [req.body.id, req.body.date], (err, data) => {
                 if(err) {
                     console.log(err)
-                    return res.json("Lỗi")
+                    return res.json("Lỗi 2")
                 }
-                return res.json("success")
+                else if (data.length === 0) {
+                    return res.json("Bệnh nhân chưa có phiếu khám!")
+                }
+                else {
+                    db.query(sql, [values], (err) => {
+                        if(err) {
+                            console.log(err)
+                            return res.json("Lỗi")
+                        }
+                        return res.json("success")
+                    })
+                }
             })
         }
     })
@@ -426,7 +438,7 @@ app.post("/patientsearch", (req, res) => {
             return res.json("Lỗi 1")
         }
         else if (data.length === 0) {
-            return res.json("ID bệnh nhân không đúng!")
+            return res.json("wrong_id")
         }
         else {
             db.query(sql, req.body.id, (err, data) => {

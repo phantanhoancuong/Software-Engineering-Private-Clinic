@@ -20,15 +20,20 @@ function SignIn() {
 
   function handleSubmit(event) {
     event.preventDefault();
-    axios
-      .post("http://localhost:8800/signin", { email, password })
-      .then((res) => {
-        if (res.data === "success") {
-          navigate("/intro");
-        }
-        else alert(res.data);
-      })
-      .catch((err) => console.log(err));
+    if(email === '' || password === '') {
+      alert("Vui lòng điền đủ thông tin")
+    }
+    else {
+      axios
+        .post("http://localhost:8800/signin", { email, password })
+        .then((res) => {
+          if (res.data === "success") {
+            navigate("/intro");
+          }
+          else alert(res.data);
+        })
+        .catch((err) => console.log(err));
+    }
   }
 
 

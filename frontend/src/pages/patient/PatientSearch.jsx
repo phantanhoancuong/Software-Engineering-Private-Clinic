@@ -12,15 +12,24 @@ const PatientSearch = () => {
 
   function handleSubmit(event) {
     event.preventDefault();
-    axios.post('http://localhost:8800/patientsearch', {id})
-    .then((res, err) => {
-      if(res.data === 'fail') {
-        alert('Không có dữ liệu')
-      }
-      else {
-        setData(res.data)
-      }
-    })
+    if(id === '') {
+      alert("Vui lòng điền đủ thông tin")
+    }
+    else {
+      axios.post('http://localhost:8800/patientsearch', {id})
+      .then((res, err) => {
+        if(res.data === 'wrong_id') {
+          alert("ID bệnh nhân không đúng!")
+        }
+        else if(res.data === 'fail') {
+          alert('Không có dữ liệu')
+        }
+        else {
+          setData(res.data)
+        }
+      })
+      .catch((err) => console.log(err))
+    }
   }
 
   return (
