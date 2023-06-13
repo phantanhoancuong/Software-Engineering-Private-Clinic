@@ -119,6 +119,18 @@ db.connect(function (err) {
         else console.log("Table medicalbill created!");
     });
 
+    db.query(`CREATE TABLE IF NOT EXISTS receipt (
+                date DATE,
+                ID VARCHAR(10) NOT NULL,
+                medical_fee INT,
+                drug_fee INT,
+                PRIMARY KEY (date, ID),
+                FOREIGN KEY (ID) REFERENCES patient(ID)
+            );`, (err, data) => {
+        if (err) console.log(err);
+        else console.log("Table receipt created!");
+    });
+
     console.log('Connection established');
 });
 
