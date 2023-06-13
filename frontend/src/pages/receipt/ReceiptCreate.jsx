@@ -24,6 +24,19 @@ const ReceiptCreate = () => {
             <p>ID bệnh nhân</p>
             <input type="text" id="userID" name="userID" />
           </label>
+
+          <label for="fee">
+            <p>Tiền khám</p>
+            <select id="fee">
+              <option value="30000">30.000</option>
+            </select>
+          </label>
+          
+          <label for="drug">
+            <p>Tiền thuốc</p>
+            <input type="text" id="drug" name="drug" />
+          </label>
+
         </form>
       </div>
 
@@ -32,10 +45,10 @@ const ReceiptCreate = () => {
               */}
 
       <div className="page_table">
-        <p>Danh sách thuốc</p>
+        {/* <p>Danh sách thuốc</p>
         <DrugTable unit="true" dose="true" price="true" />
-        <p>Thiếu tổng tiền thuốc (Nhớ thêm vào)</p>
-        <Modal label="Receipt Detail" header="This is header" content=<ReceiptDetail /> />
+        <p>Thiếu tổng tiền thuốc (Nhớ thêm vào)</p> */}
+        <Modal label="Receipt Detail" header="This is header" content=<DrugTable/> />
       </div>
 
       <div className="page_action">
