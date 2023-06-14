@@ -53,7 +53,7 @@ const AppointmentView = (props) => {
     setModal(!modal);
   }
 
-  const pageTitle = "Xem danh sách khám bệnh"; // Change this to change page title
+  const pageTitle = "Danh sách khám bệnh"; // Change this to change page title
   const [handleCallback] = useOutletContext();
   useEffect(() => {
     handleCallback(pageTitle);

@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { useOutletContext } from "react-router-dom";
 import "../page.css";
 import style from "../../components/button/button.module.css";
 
@@ -37,6 +38,12 @@ const PatientCreate = () => {
       .catch(err => console.log(err));
     }
   }
+
+  const pageTitle = "Đăng ký bệnh nhân"; // Change this to change page title
+  const [handleCallback] = useOutletContext();
+  useEffect(() => {
+    handleCallback(pageTitle);
+  }, []);
 
   return (
     <>

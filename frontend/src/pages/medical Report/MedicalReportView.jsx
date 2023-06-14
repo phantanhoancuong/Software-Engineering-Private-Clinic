@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { useOutletContext } from "react-router-dom";
 import "../page.css";
 import style from "../../components/button/button.module.css";
 
@@ -33,6 +34,11 @@ const MedicalReportView = () => {
   }
 
   const pageTitle = "Danh sách phiếu khám bệnh";
+  const [handleCallback] = useOutletContext();
+  useEffect(() => {
+    handleCallback(pageTitle);
+  }, []);
+  
   return (
     <>
       <div className="page-container">

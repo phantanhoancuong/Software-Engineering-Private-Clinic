@@ -1,12 +1,11 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { useOutletContext } from "react-router-dom";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import "../page.css";
 import style from "../../components/button/button.module.css";
 
 const UserEdit = () => {
-  // const pageTitle = "Chỉnh sửa thông tin cá nhân";
-
   const [name, setName] = useState("");
   const [dob, setDob] = useState("");
   const [phone, setPhone] = useState("");
@@ -38,6 +37,12 @@ const UserEdit = () => {
     }
   }
 
+  const pageTitle = "Chỉnh sửa thông tin cá nhân"; // Change this to change page title
+  const [handleCallback] = useOutletContext();
+  useEffect(() => {
+    handleCallback(pageTitle);
+  }, []);
+
   return (
     <>
       <div className="page-container">
@@ -60,7 +65,7 @@ const UserEdit = () => {
               <input type="date" id="DoB" name="DoB" placeholder="01/01/2002" onChange={(e) => setDob(e.target.value)}/>
             </label>
 
-            <label for="telephone">
+            {/* <label for="telephone">
               <p>SĐT</p>
               <input
                 type="tel"
@@ -69,9 +74,9 @@ const UserEdit = () => {
                 placeholder="0123456789"
                 onChange={(e) => setPhone(e.target.value)}
               />
-            </label>
+            </label> */}
 
-            <label for="email">
+            {/* <label for="email">
               <p>Email</p>
               <input
                 type="email"
@@ -80,7 +85,7 @@ const UserEdit = () => {
                 placeholder="username@gmail.com"
                 onChange={(e) => setEmail(e.target.value)}
               />
-            </label>
+            </label> */}
 
             <label for="address">
               <p>Địa chỉ</p>

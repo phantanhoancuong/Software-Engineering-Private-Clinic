@@ -1,10 +1,16 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { useOutletContext } from "react-router-dom";
 import { Link } from "react-router-dom";
 import "../page.css";
 import style from "../../components/button/button.module.css";
 
 const PasswordReset = () => {
-//   const pageTitle = "Chỉnh sửa tài khoản";
+  const pageTitle = "Đổi mật khẩu"; // Change this to change page title
+  const [handleCallback] = useOutletContext();
+  useEffect(() => {
+    handleCallback(pageTitle);
+  }, []);
+
   return (
     <>
       <div className="page-container">
@@ -27,7 +33,7 @@ const PasswordReset = () => {
                 type="password"
                 id="password"
                 name="password"
-                placeholder="123456"
+                placeholder="12345678"
               />
             </label>
 
@@ -37,7 +43,7 @@ const PasswordReset = () => {
                 type="password"
                 id="password"
                 name="password"
-                placeholder="123456"
+                placeholder="12345678"
               />
             </label>
 
@@ -47,7 +53,7 @@ const PasswordReset = () => {
                 type="password"
                 id="password"
                 name="password"
-                placeholder="123456"
+                placeholder="12345678"
               />
             </label>
           </form>

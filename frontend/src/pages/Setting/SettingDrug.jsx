@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { useOutletContext } from "react-router-dom";
 import { Link } from "react-router-dom";
 import "../page.css";
 // import style from "../../components/button/button.module.css";
@@ -14,7 +15,13 @@ import {
 import { FaTrash } from "react-icons/fa";
 
 const SettingDrug = () => {
-  // const pageTitle = "Quy định chung";
+
+  const pageTitle = "Quy định thuốc";
+  const [handleCallback] = useOutletContext();
+  useEffect(() => {
+    handleCallback(pageTitle);
+  }, []);
+
   return (
     <div className="page-container">
         <div className="page_action action-delete" onClick={() => alert("Delete")}>

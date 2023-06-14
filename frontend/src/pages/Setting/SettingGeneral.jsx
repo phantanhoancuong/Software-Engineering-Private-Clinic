@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { useOutletContext } from "react-router-dom";
 import { Link } from "react-router-dom";
 import "../page.css";
 // import style from "../../components/button/button.module.css";
@@ -8,7 +9,13 @@ import { Button, DiagnoseTable, Modal } from "../../components/index";
 import { FaTrash } from "react-icons/fa";
 
 const SettingGeneral = () => {
-  // const pageTitle = "Quy định chung";
+  
+  const pageTitle = "Quy định chung";
+  const [handleCallback] = useOutletContext();
+  useEffect(() => {
+    handleCallback(pageTitle);
+  }, []);
+
   return (
     <div className="page-container">
       <div className="page_form">

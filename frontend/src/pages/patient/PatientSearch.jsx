@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { useOutletContext } from "react-router-dom";
 import "../page.css";
 import style from "../../components/button/button.module.css";
 import { FaTrash } from "react-icons/fa";
@@ -31,6 +32,12 @@ const PatientSearch = () => {
       .catch((err) => console.log(err))
     }
   }
+
+  const pageTitle = "Tra cứu bệnh nhân"; // Change this to change page title
+  const [handleCallback] = useOutletContext();
+  useEffect(() => {
+    handleCallback(pageTitle);
+  }, []);
 
   return (
     <>

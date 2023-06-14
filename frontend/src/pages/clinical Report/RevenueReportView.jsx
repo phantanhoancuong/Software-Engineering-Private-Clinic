@@ -1,11 +1,18 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { useOutletContext } from "react-router-dom";
 import "../page.css";
 import style from "../../components/button/button.module.css";
 
 import { RevenueTable, TotalRevenue } from "../../components/index";
 
 const RevenueReportView = () => {
+  
   const pageTitle = "Báo cáo doanh thu";
+  const [handleCallback] = useOutletContext();
+  useEffect(() => {
+    handleCallback(pageTitle);
+  }, []);
+
   return (
     <>
       <div className="page-container">

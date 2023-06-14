@@ -4,7 +4,7 @@ import { useOutletContext } from "react-router-dom";
 import "../page.css";
 
 const Intro = () => {
-  const pageTitle = "Intro"; // Change this to change page title
+  const pageTitle = "GROUP 4"; // Change this to change page title
   const [handleCallback] = useOutletContext();
   useEffect(() => {
     handleCallback(pageTitle);
@@ -18,7 +18,8 @@ const Intro = () => {
           <span style={{ color: "#3FC1C9" }}>4CARE</span>
         </h2>
         <p>
-          Thành viên
+          <br />
+          Thành viên:
           <br /> <br />
           Phan Tân Hoàn Cương - 20120260
           <br /> <br />

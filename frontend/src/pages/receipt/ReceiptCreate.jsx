@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { useOutletContext } from "react-router-dom";
 import { Link } from "react-router-dom";
 import "../page.css";
 import style from "../../components/button/button.module.css";
@@ -12,8 +13,6 @@ import axios from 'axios'
 // Consider auto create receipt based on medical report so user don't have to manually add
 
 const ReceiptCreate = () => {
-  const pageTitle = "Lập hóa đơn";
-
   const [date, setDate] = useState('')
   const [id, setID] = useState('')
   const [drug, setDrug] = useState('')
@@ -42,6 +41,12 @@ const ReceiptCreate = () => {
       .catch(err => console.log(err));
     }
   }
+
+  const pageTitle = "Tạo hóa đơn"; // Change this to change page title
+  const [handleCallback] = useOutletContext();
+  useEffect(() => {
+    handleCallback(pageTitle);
+  }, []);
 
   return (
     <div className="page-container">
