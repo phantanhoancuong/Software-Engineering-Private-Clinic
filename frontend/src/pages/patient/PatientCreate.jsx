@@ -60,8 +60,8 @@ const PatientCreate = () => {
             <label>
               <p>Giới tính</p>
               <select id="gender">
-                <option value="male">Nam</option>
-                <option value="female">Nữ</option>
+                <option value="Nam">Nam</option>
+                <option value="Nữ">Nữ</option>
               </select>
             </label>
 
