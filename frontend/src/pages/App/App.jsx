@@ -30,7 +30,7 @@ import "../page.css";
 import { Layout, LayoutUser } from "../../components/index";
 
 const App = () => {
-  const title = "Fix later in App.js";
+  const title = "GROUP 4";
   // TODO Fix header title to pass to page + Add 404 page
   return (
     <div className="App">
