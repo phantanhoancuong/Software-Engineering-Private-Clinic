@@ -11,17 +11,15 @@ const Intro = () => {
           <span style={{ color: "#3FC1C9" }}>4CARE</span>
         </h2>
         <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed congue
-          mauris ut sem aliquam vulputate. Quisque non neque a sapien tristique
-          suscipit sit amet at turpis. Curabitur vitae vulputate dui.
+          Thành viên
           <br /> <br />
-          Cras finibus massa quam, venenatis maximus turpis sagittis sed.
-          Suspendisse potenti. Nam pharetra fringilla eleifend. Pellentesque id
-          tortor nec urna auctor rhoncus at vel urna. In imperdiet justo a
-          sollicitudin iaculis.
+          Phan Tân Hoàn Cương - 20120260
           <br /> <br />
-          Proin in nulla odio. Phasellus viverra, purus id tempus efficitur,
-          metus urna tincidunt turpis, rhoncus aliquet sem nibh sit amet
+          Nguyễn Minh Hiếu - 20120475
+          <br /> <br />
+          Phạm Anh Minh - 20120330
+          <br /> <br />
+          Lý Thành Nam - 20120334
         </p>
       </div>
     </div>
