@@ -139,8 +139,8 @@ const AppointmentView = (props) => {
           </div>
 
           {modal && (
-            <div className="modal" onClick={toggleModal}>
-              <table>
+            // <div className="modal" onClick={toggleModal}>
+              <table onClick={toggleModal}>
                 <thead>
                   <tr>
                     <th>ID</th>
@@ -164,7 +164,7 @@ const AppointmentView = (props) => {
                   })}
                 </tbody>
               </table>
-            </div>
+            //</div>
           )}
         </div>
       </div>
