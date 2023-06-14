@@ -16,7 +16,7 @@ export const navbarData = [
         "icon": <FaCalendarWeek />,
         "childrens": [
             {
-                "title": "Xem danh sách",
+                "title": "Danh sách khám",
                 "path": "/appointmentView"
             },
             {
@@ -44,7 +44,7 @@ export const navbarData = [
         "icon": <FaAddressBook />,
         "childrens": [
             {
-                "title": "Xem danh sách khám bệnh",
+                "title": "Danh sách phiếu khám bệnh",
                 "path": "/medicalReportView"
             },
             {
@@ -58,7 +58,7 @@ export const navbarData = [
         "icon": <FaUser />,
         "childrens": [
             {
-                "title": "Xem danh sách bệnh nhân",
+                "title": "Danh sách bệnh nhân",
                 "path": "/patientView"
             },
             {
@@ -76,7 +76,7 @@ export const navbarData = [
         "icon": <FaReceipt />,
         "childrens": [
             {
-                "title": "Xem danh sách hóa đơn",
+                "title": "Danh sách hóa đơn",
                 "path": "/receiptView"
             },
             {
