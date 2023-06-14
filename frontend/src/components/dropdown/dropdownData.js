@@ -14,6 +14,6 @@ export const dropdownData = [
   {
     title: "Đăng xuất",
     icon: <FaSignOutAlt />,
-    path: "/homepage",
+    path: "/signIn",
   },
 ];
