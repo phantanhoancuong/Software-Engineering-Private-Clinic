@@ -27,6 +27,7 @@ const RevenueReportView = () => {
           setData(res.data)
         }
       })
+      .catch((err) => console.log(err))
     }
   }
   
