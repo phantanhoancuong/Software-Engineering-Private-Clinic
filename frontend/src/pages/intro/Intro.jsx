@@ -1,8 +1,15 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useOutletContext } from "react-router-dom";
 
 import "../page.css";
 
 const Intro = () => {
+  const pageTitle = "Intro"; // Change this to change page title
+  const [handleCallback] = useOutletContext();
+  useEffect(() => {
+    handleCallback(pageTitle);
+  }, []);
+
   return (
     <div className="page-container">
       <div className="page-intro_text">
