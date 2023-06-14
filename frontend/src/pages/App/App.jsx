@@ -3,6 +3,7 @@ import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import {
   Homepage,
+  HomepageTeam,
   Intro,
   SignIn,
   SignUp,
@@ -37,7 +38,7 @@ const App = () => {
         <Routes>
           <Route element={<Layout />}>
             <Route path="/" element={<Homepage />} />
-            <Route path="/homepage" element={<Homepage />} />
+            <Route path="/homepage" element={<HomepageTeam />} />
             <Route path="/signIn" element={<SignIn />} />
             <Route path="/signUp" element={<SignUp />} />
             <Route path="/forgetPassword" element={<ForgetPassword />} />

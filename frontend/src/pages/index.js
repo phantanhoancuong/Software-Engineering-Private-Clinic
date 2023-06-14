@@ -1,4 +1,5 @@
 export { default as Homepage } from "./homepage/Homepage";
+export { default as HomepageTeam } from "./homepage/HomepageTeam";
 
 export { default as Intro } from "./intro/Intro";
 
