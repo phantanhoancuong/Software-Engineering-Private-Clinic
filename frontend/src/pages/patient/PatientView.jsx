@@ -14,7 +14,7 @@ const PatientView = () => {
   function handleSubmit(event) {
     event.preventDefault();
     axios.post('http://localhost:8800/patientview', {})
-    .then((res, err) => {
+    .then((res) => {
       if(res.data === "Lỗi") {
         alert(res.data)
       }
@@ -22,6 +22,7 @@ const PatientView = () => {
         setData(res.data)
       }
     })
+    .catch((err) => console.log(err))
   }
 
   const pageTitle = "Danh sách bệnh nhân"; // Change this to change page title
@@ -47,7 +48,7 @@ const PatientView = () => {
           </form>
         </div>
         <div className="page_table">
-        <table>
+          <table>
             <thead>
               <tr>
                 <th>STT</th>
